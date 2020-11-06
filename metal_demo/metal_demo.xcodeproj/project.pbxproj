@@ -9,13 +9,18 @@
 /* Begin PBXBuildFile section */
 		3DC42EE4255588FD0035A3CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC42EE3255588FD0035A3CB /* AppDelegate.m */; };
 		3DC42EE7255588FD0035A3CB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC42EE6255588FD0035A3CB /* SceneDelegate.m */; };
-		3DC42EEA255588FD0035A3CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC42EE9255588FD0035A3CB /* ViewController.m */; };
+		3DC42EEA255588FD0035A3CB /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3DC42EE9255588FD0035A3CB /* ViewController.mm */; };
 		3DC42EED255588FD0035A3CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC42EEB255588FD0035A3CB /* Main.storyboard */; };
 		3DC42EEF255588FF0035A3CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DC42EEE255588FF0035A3CB /* Assets.xcassets */; };
 		3DC42EF2255588FF0035A3CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DC42EF0255588FF0035A3CB /* LaunchScreen.storyboard */; };
 		3DC42EF5255588FF0035A3CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC42EF4255588FF0035A3CB /* main.m */; };
 		3DC42EFF255588FF0035A3CB /* metal_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC42EFE255588FF0035A3CB /* metal_demoTests.m */; };
 		3DC42F0A255588FF0035A3CB /* metal_demoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC42F09255588FF0035A3CB /* metal_demoUITests.m */; };
+		3DC42F2225558D700035A3CB /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC42F2125558D700035A3CB /* Metal.framework */; };
+		3DC42F2425558D760035A3CB /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC42F2325558D760035A3CB /* MetalKit.framework */; };
+		3DC42F2625558D7F0035A3CB /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC42F2525558D7F0035A3CB /* OpenGLES.framework */; };
+		3DC42F2825558D880035A3CB /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DC42F2725558D880035A3CB /* GLKit.framework */; };
+		3DC42F3D255593F70035A3CB /* CGRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC42F3C255593F70035A3CB /* CGRenderer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +47,7 @@
 		3DC42EE5255588FD0035A3CB /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		3DC42EE6255588FD0035A3CB /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		3DC42EE8255588FD0035A3CB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3DC42EE9255588FD0035A3CB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3DC42EE9255588FD0035A3CB /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		3DC42EEC255588FD0035A3CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3DC42EEE255588FF0035A3CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DC42EF1255588FF0035A3CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +59,12 @@
 		3DC42F05255588FF0035A3CB /* metal_demoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = metal_demoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC42F09255588FF0035A3CB /* metal_demoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = metal_demoUITests.m; sourceTree = "<group>"; };
 		3DC42F0B255588FF0035A3CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DC42F2125558D700035A3CB /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		3DC42F2325558D760035A3CB /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		3DC42F2525558D7F0035A3CB /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		3DC42F2725558D880035A3CB /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		3DC42F3B255593F70035A3CB /* CGRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGRenderer.h; sourceTree = "<group>"; };
+		3DC42F3C255593F70035A3CB /* CGRenderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGRenderer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +72,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC42F2825558D880035A3CB /* GLKit.framework in Frameworks */,
+				3DC42F2625558D7F0035A3CB /* OpenGLES.framework in Frameworks */,
+				3DC42F2425558D760035A3CB /* MetalKit.framework in Frameworks */,
+				3DC42F2225558D700035A3CB /* Metal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +103,7 @@
 				3DC42EFD255588FF0035A3CB /* metal_demoTests */,
 				3DC42F08255588FF0035A3CB /* metal_demoUITests */,
 				3DC42EE0255588FD0035A3CB /* Products */,
+				3DC42F2025558D700035A3CB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,7 +125,8 @@
 				3DC42EE5255588FD0035A3CB /* SceneDelegate.h */,
 				3DC42EE6255588FD0035A3CB /* SceneDelegate.m */,
 				3DC42EE8255588FD0035A3CB /* ViewController.h */,
-				3DC42EE9255588FD0035A3CB /* ViewController.m */,
+				3DC42EE9255588FD0035A3CB /* ViewController.mm */,
+				3DC42F2F255593C30035A3CB /* Rendering */,
 				3DC42EEB255588FD0035A3CB /* Main.storyboard */,
 				3DC42EEE255588FF0035A3CB /* Assets.xcassets */,
 				3DC42EF0255588FF0035A3CB /* LaunchScreen.storyboard */,
@@ -135,6 +152,26 @@
 				3DC42F0B255588FF0035A3CB /* Info.plist */,
 			);
 			path = metal_demoUITests;
+			sourceTree = "<group>";
+		};
+		3DC42F2025558D700035A3CB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DC42F2725558D880035A3CB /* GLKit.framework */,
+				3DC42F2525558D7F0035A3CB /* OpenGLES.framework */,
+				3DC42F2325558D760035A3CB /* MetalKit.framework */,
+				3DC42F2125558D700035A3CB /* Metal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3DC42F2F255593C30035A3CB /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+				3DC42F3B255593F70035A3CB /* CGRenderer.h */,
+				3DC42F3C255593F70035A3CB /* CGRenderer.m */,
+			);
+			path = Rendering;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +303,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DC42EEA255588FD0035A3CB /* ViewController.m in Sources */,
+				3DC42F3D255593F70035A3CB /* CGRenderer.m in Sources */,
+				3DC42EEA255588FD0035A3CB /* ViewController.mm in Sources */,
 				3DC42EE4255588FD0035A3CB /* AppDelegate.m in Sources */,
 				3DC42EF5255588FF0035A3CB /* main.m in Sources */,
 				3DC42EE7255588FD0035A3CB /* SceneDelegate.m in Sources */,
