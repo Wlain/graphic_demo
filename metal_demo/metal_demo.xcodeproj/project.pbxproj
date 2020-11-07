@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D97206325563BA900082E53 /* CGShaders..metal in Sources */ = {isa = PBXBuildFile; fileRef = 3D97206225563BA900082E53 /* CGShaders..metal */; };
 		3DC42EE4255588FD0035A3CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC42EE3255588FD0035A3CB /* AppDelegate.m */; };
 		3DC42EE7255588FD0035A3CB /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DC42EE6255588FD0035A3CB /* SceneDelegate.m */; };
 		3DC42EEA255588FD0035A3CB /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3DC42EE9255588FD0035A3CB /* ViewController.mm */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D97206225563BA900082E53 /* CGShaders..metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = CGShaders..metal; sourceTree = "<group>"; };
+		3D97206825563BE200082E53 /* CGShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGShaderTypes.h; sourceTree = "<group>"; };
 		3DC42EDF255588FD0035A3CB /* metal_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = metal_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DC42EE2255588FD0035A3CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3DC42EE3255588FD0035A3CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 			children = (
 				3DC42F3B255593F70035A3CB /* CGRenderer.h */,
 				3DC42F3C255593F70035A3CB /* CGRenderer.m */,
+				3D97206825563BE200082E53 /* CGShaderTypes.h */,
+				3D97206225563BA900082E53 /* CGShaders..metal */,
 			);
 			path = Rendering;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				3DC42F3D255593F70035A3CB /* CGRenderer.m in Sources */,
 				3DC42EEA255588FD0035A3CB /* ViewController.mm in Sources */,
 				3DC42EE4255588FD0035A3CB /* AppDelegate.m in Sources */,
+				3D97206325563BA900082E53 /* CGShaders..metal in Sources */,
 				3DC42EF5255588FF0035A3CB /* main.m in Sources */,
 				3DC42EE7255588FD0035A3CB /* SceneDelegate.m in Sources */,
 			);
