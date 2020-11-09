@@ -27,23 +27,18 @@
     _view = (MTKView *)self.view;
     
     _view.device = MTLCreateSystemDefaultDevice();
-    
     if (!_view.device)
     {
         NSLog(@"Metal is not supported on this device");
         return;;
     }
-    
     _render = [[CGRenderer alloc] initWithMetalKitView:_view];
-    
     if (!_render)
     {
         NSLog(@"Renderer failed initialized");
         return;;
     }
-    
     _view.delegate = _render;
-    
     _view.preferredFramesPerSecond = 30;
     
 }

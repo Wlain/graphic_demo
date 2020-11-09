@@ -6,16 +6,22 @@
 //
 
 #import "ViewController.h"
+#import "GLView.h"
 
 @interface ViewController ()
-
+@property (nonatomic, strong)GLView *glview;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.glview = (GLView*)self.view;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
 
 
