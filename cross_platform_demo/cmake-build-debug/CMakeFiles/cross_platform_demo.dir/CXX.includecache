@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/william/git/demo/graphic_demo/cross_platform_demo/main.cpp
+GLFW/glfw3.h
+/Users/william/git/demo/graphic_demo/cross_platform_demo/GLFW/glfw3.h
+glad/glad.h
+/Users/william/git/demo/graphic_demo/cross_platform_demo/glad/glad.h
+iostream
+-
+

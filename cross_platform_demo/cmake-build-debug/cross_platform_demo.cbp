@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="cross_platform_demo"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\opt\;CMake Files\..\..\..\..\..\..\usr\local\opt\opencv@2\;CMake Files\..\..\..\..\..\..\usr\local\opt\opencv@2\share\;CMake Files\..\..\..\..\..\..\usr\local\opt\opencv@2\share\OpenCV\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cross_platform_demo">
+				<Option output="/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/cross_platform_demo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/opencv@2/2.4.13.7_11/include/opencv"/>
+					<Add directory="/usr/local/Cellar/opencv@2/2.4.13.7_11/include"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/ROOT_DIR/3rdparty"/>
+					<Add directory="/usr/local/Cellar/glew/2.1.0_1/include"/>
+					<Add directory="/usr/local/Cellar/glfw/3.3.2/include"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/ROOT_DIR/3rdparty/egl"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/3rdparty/stb"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/3rdparty/glad/include"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/3rdparty/glm"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 cross_platform_demo"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="cross_platform_demo/fast">
+				<Option output="/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/cross_platform_demo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/Cellar/opencv@2/2.4.13.7_11/include/opencv"/>
+					<Add directory="/usr/local/Cellar/opencv@2/2.4.13.7_11/include"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/ROOT_DIR/3rdparty"/>
+					<Add directory="/usr/local/Cellar/glew/2.1.0_1/include"/>
+					<Add directory="/usr/local/Cellar/glfw/3.3.2/include"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/ROOT_DIR/3rdparty/egl"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/3rdparty/stb"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/3rdparty/glad/include"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/3rdparty/glm"/>
+					<Add directory="/Users/william/git/demo/graphic_demo/cross_platform_demo/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 cross_platform_demo/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/3rdparty/glad/src/glad.c">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/include/base.h">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/include/core/context_gl.h">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/include/core/context_mtl.h">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/include/core/context_vk.h">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/include/utils/basic_timer.h">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/main.cpp">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/src/core/context_gl.cpp">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/src/core/context_mtl.mm">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/src/core/context_vk.cpp">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/../../../../../../usr/local/opt/opencv@2/share/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv@2\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/../../../../../../usr/local/opt/opencv@2/share/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv@2\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/../../../../../../usr/local/opt/opencv@2/share/OpenCV/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv@2\share\OpenCV\"/>
+		</Unit>
+		<Unit filename="/Users/william/git/demo/graphic_demo/cross_platform_demo/../../../../../../usr/local/opt/opencv@2/share/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\opt\opencv@2\share\OpenCV\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
