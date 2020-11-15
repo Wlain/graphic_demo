@@ -76,6 +76,52 @@ CMAKE_BINARY_DIR = /Users/william/git/demo/graphic_demo/cross_platform_demo/cmak
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -138,6 +184,409 @@ cross_platform_demo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cross_platform_demo.dir/build.make CMakeFiles/cross_platform_demo.dir/build
 .PHONY : cross_platform_demo/fast
 
+#=============================================================================
+# Target rules for targets named uninstall
+
+# Build rule for target.
+uninstall:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 uninstall
+.PHONY : uninstall
+
+# fast build rule for target.
+uninstall/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/CMakeFiles/uninstall.dir/build.make 3rdparty/glfw/CMakeFiles/uninstall.dir/build
+.PHONY : uninstall/fast
+
+#=============================================================================
+# Target rules for targets named glfw
+
+# Build rule for target.
+glfw:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw
+.PHONY : glfw
+
+# fast build rule for target.
+glfw/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/src/CMakeFiles/glfw.dir/build.make 3rdparty/glfw/src/CMakeFiles/glfw.dir/build
+.PHONY : glfw/fast
+
+#=============================================================================
+# Target rules for targets named wave
+
+# Build rule for target.
+wave:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 wave
+.PHONY : wave
+
+# fast build rule for target.
+wave/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/examples/CMakeFiles/wave.dir/build.make 3rdparty/glfw/examples/CMakeFiles/wave.dir/build
+.PHONY : wave/fast
+
+#=============================================================================
+# Target rules for targets named simple
+
+# Build rule for target.
+simple:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 simple
+.PHONY : simple
+
+# fast build rule for target.
+simple/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/examples/CMakeFiles/simple.dir/build.make 3rdparty/glfw/examples/CMakeFiles/simple.dir/build
+.PHONY : simple/fast
+
+#=============================================================================
+# Target rules for targets named sharing
+
+# Build rule for target.
+sharing:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sharing
+.PHONY : sharing
+
+# fast build rule for target.
+sharing/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/examples/CMakeFiles/sharing.dir/build.make 3rdparty/glfw/examples/CMakeFiles/sharing.dir/build
+.PHONY : sharing/fast
+
+#=============================================================================
+# Target rules for targets named particles
+
+# Build rule for target.
+particles:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 particles
+.PHONY : particles
+
+# fast build rule for target.
+particles/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/examples/CMakeFiles/particles.dir/build.make 3rdparty/glfw/examples/CMakeFiles/particles.dir/build
+.PHONY : particles/fast
+
+#=============================================================================
+# Target rules for targets named heightmap
+
+# Build rule for target.
+heightmap:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 heightmap
+.PHONY : heightmap
+
+# fast build rule for target.
+heightmap/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/examples/CMakeFiles/heightmap.dir/build.make 3rdparty/glfw/examples/CMakeFiles/heightmap.dir/build
+.PHONY : heightmap/fast
+
+#=============================================================================
+# Target rules for targets named splitview
+
+# Build rule for target.
+splitview:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 splitview
+.PHONY : splitview
+
+# fast build rule for target.
+splitview/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/examples/CMakeFiles/splitview.dir/build.make 3rdparty/glfw/examples/CMakeFiles/splitview.dir/build
+.PHONY : splitview/fast
+
+#=============================================================================
+# Target rules for targets named offscreen
+
+# Build rule for target.
+offscreen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 offscreen
+.PHONY : offscreen
+
+# fast build rule for target.
+offscreen/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/examples/CMakeFiles/offscreen.dir/build.make 3rdparty/glfw/examples/CMakeFiles/offscreen.dir/build
+.PHONY : offscreen/fast
+
+#=============================================================================
+# Target rules for targets named gears
+
+# Build rule for target.
+gears:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gears
+.PHONY : gears
+
+# fast build rule for target.
+gears/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/examples/CMakeFiles/gears.dir/build.make 3rdparty/glfw/examples/CMakeFiles/gears.dir/build
+.PHONY : gears/fast
+
+#=============================================================================
+# Target rules for targets named boing
+
+# Build rule for target.
+boing:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 boing
+.PHONY : boing
+
+# fast build rule for target.
+boing/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/examples/CMakeFiles/boing.dir/build.make 3rdparty/glfw/examples/CMakeFiles/boing.dir/build
+.PHONY : boing/fast
+
+#=============================================================================
+# Target rules for targets named vulkan
+
+# Build rule for target.
+vulkan:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 vulkan
+.PHONY : vulkan
+
+# fast build rule for target.
+vulkan/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/vulkan.dir/build.make 3rdparty/glfw/tests/CMakeFiles/vulkan.dir/build
+.PHONY : vulkan/fast
+
+#=============================================================================
+# Target rules for targets named clipboard
+
+# Build rule for target.
+clipboard:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clipboard
+.PHONY : clipboard
+
+# fast build rule for target.
+clipboard/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/clipboard.dir/build.make 3rdparty/glfw/tests/CMakeFiles/clipboard.dir/build
+.PHONY : clipboard/fast
+
+#=============================================================================
+# Target rules for targets named title
+
+# Build rule for target.
+title:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 title
+.PHONY : title
+
+# fast build rule for target.
+title/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/title.dir/build.make 3rdparty/glfw/tests/CMakeFiles/title.dir/build
+.PHONY : title/fast
+
+#=============================================================================
+# Target rules for targets named timeout
+
+# Build rule for target.
+timeout:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 timeout
+.PHONY : timeout
+
+# fast build rule for target.
+timeout/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/timeout.dir/build.make 3rdparty/glfw/tests/CMakeFiles/timeout.dir/build
+.PHONY : timeout/fast
+
+#=============================================================================
+# Target rules for targets named threads
+
+# Build rule for target.
+threads:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 threads
+.PHONY : threads
+
+# fast build rule for target.
+threads/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/threads.dir/build.make 3rdparty/glfw/tests/CMakeFiles/threads.dir/build
+.PHONY : threads/fast
+
+#=============================================================================
+# Target rules for targets named opacity
+
+# Build rule for target.
+opacity:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 opacity
+.PHONY : opacity
+
+# fast build rule for target.
+opacity/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/opacity.dir/build.make 3rdparty/glfw/tests/CMakeFiles/opacity.dir/build
+.PHONY : opacity/fast
+
+#=============================================================================
+# Target rules for targets named gamma
+
+# Build rule for target.
+gamma:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gamma
+.PHONY : gamma
+
+# fast build rule for target.
+gamma/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/gamma.dir/build.make 3rdparty/glfw/tests/CMakeFiles/gamma.dir/build
+.PHONY : gamma/fast
+
+#=============================================================================
+# Target rules for targets named tearing
+
+# Build rule for target.
+tearing:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tearing
+.PHONY : tearing
+
+# fast build rule for target.
+tearing/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/tearing.dir/build.make 3rdparty/glfw/tests/CMakeFiles/tearing.dir/build
+.PHONY : tearing/fast
+
+#=============================================================================
+# Target rules for targets named iconify
+
+# Build rule for target.
+iconify:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 iconify
+.PHONY : iconify
+
+# fast build rule for target.
+iconify/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/iconify.dir/build.make 3rdparty/glfw/tests/CMakeFiles/iconify.dir/build
+.PHONY : iconify/fast
+
+#=============================================================================
+# Target rules for targets named joysticks
+
+# Build rule for target.
+joysticks:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 joysticks
+.PHONY : joysticks
+
+# fast build rule for target.
+joysticks/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/joysticks.dir/build.make 3rdparty/glfw/tests/CMakeFiles/joysticks.dir/build
+.PHONY : joysticks/fast
+
+#=============================================================================
+# Target rules for targets named windows
+
+# Build rule for target.
+windows:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 windows
+.PHONY : windows
+
+# fast build rule for target.
+windows/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/windows.dir/build.make 3rdparty/glfw/tests/CMakeFiles/windows.dir/build
+.PHONY : windows/fast
+
+#=============================================================================
+# Target rules for targets named inputlag
+
+# Build rule for target.
+inputlag:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 inputlag
+.PHONY : inputlag
+
+# fast build rule for target.
+inputlag/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/inputlag.dir/build.make 3rdparty/glfw/tests/CMakeFiles/inputlag.dir/build
+.PHONY : inputlag/fast
+
+#=============================================================================
+# Target rules for targets named empty
+
+# Build rule for target.
+empty:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 empty
+.PHONY : empty
+
+# fast build rule for target.
+empty/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/empty.dir/build.make 3rdparty/glfw/tests/CMakeFiles/empty.dir/build
+.PHONY : empty/fast
+
+#=============================================================================
+# Target rules for targets named reopen
+
+# Build rule for target.
+reopen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 reopen
+.PHONY : reopen
+
+# fast build rule for target.
+reopen/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/reopen.dir/build.make 3rdparty/glfw/tests/CMakeFiles/reopen.dir/build
+.PHONY : reopen/fast
+
+#=============================================================================
+# Target rules for targets named msaa
+
+# Build rule for target.
+msaa:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 msaa
+.PHONY : msaa
+
+# fast build rule for target.
+msaa/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/msaa.dir/build.make 3rdparty/glfw/tests/CMakeFiles/msaa.dir/build
+.PHONY : msaa/fast
+
+#=============================================================================
+# Target rules for targets named cursor
+
+# Build rule for target.
+cursor:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cursor
+.PHONY : cursor
+
+# fast build rule for target.
+cursor/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/cursor.dir/build.make 3rdparty/glfw/tests/CMakeFiles/cursor.dir/build
+.PHONY : cursor/fast
+
+#=============================================================================
+# Target rules for targets named glfwinfo
+
+# Build rule for target.
+glfwinfo:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfwinfo
+.PHONY : glfwinfo
+
+# fast build rule for target.
+glfwinfo/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/glfwinfo.dir/build.make 3rdparty/glfw/tests/CMakeFiles/glfwinfo.dir/build
+.PHONY : glfwinfo/fast
+
+#=============================================================================
+# Target rules for targets named monitors
+
+# Build rule for target.
+monitors:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 monitors
+.PHONY : monitors
+
+# fast build rule for target.
+monitors/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/monitors.dir/build.make 3rdparty/glfw/tests/CMakeFiles/monitors.dir/build
+.PHONY : monitors/fast
+
+#=============================================================================
+# Target rules for targets named events
+
+# Build rule for target.
+events:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 events
+.PHONY : events
+
+# fast build rule for target.
+events/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/events.dir/build.make 3rdparty/glfw/tests/CMakeFiles/events.dir/build
+.PHONY : events/fast
+
+#=============================================================================
+# Target rules for targets named icon
+
+# Build rule for target.
+icon:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 icon
+.PHONY : icon
+
+# fast build rule for target.
+icon/fast:
+	$(MAKE) $(MAKESILENT) -f 3rdparty/glfw/tests/CMakeFiles/icon.dir/build.make 3rdparty/glfw/tests/CMakeFiles/icon.dir/build
+.PHONY : icon/fast
+
 3rdparty/glad/src/glad.o: 3rdparty/glad/src/glad.c.o
 
 .PHONY : 3rdparty/glad/src/glad.o
@@ -165,32 +614,32 @@ cross_platform_demo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cross_platform_demo.dir/build.make CMakeFiles/cross_platform_demo.dir/3rdparty/glad/src/glad.c.s
 .PHONY : 3rdparty/glad/src/glad.c.s
 
-main.o: main.cpp.o
+main_gl.o: main_gl.cpp.o
 
-.PHONY : main.o
+.PHONY : main_gl.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cross_platform_demo.dir/build.make CMakeFiles/cross_platform_demo.dir/main.cpp.o
-.PHONY : main.cpp.o
+main_gl.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cross_platform_demo.dir/build.make CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o
+.PHONY : main_gl.cpp.o
 
-main.i: main.cpp.i
+main_gl.i: main_gl.cpp.i
 
-.PHONY : main.i
+.PHONY : main_gl.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cross_platform_demo.dir/build.make CMakeFiles/cross_platform_demo.dir/main.cpp.i
-.PHONY : main.cpp.i
+main_gl.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cross_platform_demo.dir/build.make CMakeFiles/cross_platform_demo.dir/main_gl.cpp.i
+.PHONY : main_gl.cpp.i
 
-main.s: main.cpp.s
+main_gl.s: main_gl.cpp.s
 
-.PHONY : main.s
+.PHONY : main_gl.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cross_platform_demo.dir/build.make CMakeFiles/cross_platform_demo.dir/main.cpp.s
-.PHONY : main.cpp.s
+main_gl.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cross_platform_demo.dir/build.make CMakeFiles/cross_platform_demo.dir/main_gl.cpp.s
+.PHONY : main_gl.cpp.s
 
 src/core/context_gl.o: src/core/context_gl.cpp.o
 
@@ -279,14 +728,49 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... uninstall"
+	@echo "... boing"
+	@echo "... clipboard"
 	@echo "... cross_platform_demo"
+	@echo "... cursor"
+	@echo "... empty"
+	@echo "... events"
+	@echo "... gamma"
+	@echo "... gears"
+	@echo "... glfw"
+	@echo "... glfwinfo"
+	@echo "... heightmap"
+	@echo "... icon"
+	@echo "... iconify"
+	@echo "... inputlag"
+	@echo "... joysticks"
+	@echo "... monitors"
+	@echo "... msaa"
+	@echo "... offscreen"
+	@echo "... opacity"
+	@echo "... particles"
+	@echo "... reopen"
+	@echo "... sharing"
+	@echo "... simple"
+	@echo "... splitview"
+	@echo "... tearing"
+	@echo "... threads"
+	@echo "... timeout"
+	@echo "... title"
+	@echo "... vulkan"
+	@echo "... wave"
+	@echo "... windows"
 	@echo "... 3rdparty/glad/src/glad.o"
 	@echo "... 3rdparty/glad/src/glad.i"
 	@echo "... 3rdparty/glad/src/glad.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... main_gl.o"
+	@echo "... main_gl.i"
+	@echo "... main_gl.s"
 	@echo "... src/core/context_gl.o"
 	@echo "... src/core/context_gl.i"
 	@echo "... src/core/context_gl.s"

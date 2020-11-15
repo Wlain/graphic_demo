@@ -1,5 +1,9 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.17)
 project(cross_platform_demo)
+
+set(USE_VULKAN OFF)
+set(USE_OPENGL ON)
+set(USE_METAL OFF)
 
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 set(CMAKE_SUPPRESS_REGENERATION ON)
@@ -9,42 +13,43 @@ set(CMAKE_BUILD_TYPE Debug)
 # 允许c++11标准、O3优化、多线程。match选项可避免一些cpu上的问题
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -march=native -O3 -pthread")
 set(CMAKE_CXX_STANDARD 20)
+#
 set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(EXTERNAL_HEADERS ROOT_DIR/3rdparty)
+set(EXTERNAL_DIR ${ROOT_DIR}/3rdparty)
 
-# glew glfw
-set(GLEW_H /usr/local/Cellar/glew/2.1.0_1/include)
-set(GLFW_H /usr/local/Cellar/glfw/3.3.2/include)
-set(GLAD_H ${EXTERNAL_HEADERS}/glad/include)
-
+# vulkan
+set(VK_SDK_DIR ${EXTERNAL_DIR}/MoltenVK)
 # opencv
 find_package(OpenCV)
-include_directories(${OpenCV_INCLUDE_DIRS})
 
-list(APPEND EXTERNAL_HEADERS
-        ${GLEW_H}
-        ${GLFW_H}
-        ${EXTERNAL_HEADERS}/egl
-        3rdparty/stb
-        3rdparty/glad/include
-        3rdparty/glm
+list(APPEND EXTERNAL_DIR
+        ${EXTERNAL_DIR}/stb
+        ${EXTERNAL_DIR}/glm
+        ${EXTERNAL_DIR}/glad/include
+        ${EXTERNAL_DIR}/egl
         )
 
 file(GLOB_RECURSE EXTERNAL_SRC
         3rdparty/stb/*.cpp
         3rdparty/glad/src/*.c
+        3rdparty/glew/*.cpp
+        3rdparty/egl/*.cpp
         )
 
 # 头文件目录
 include_directories(
-        ${EXTERNAL_HEADERS}
+        ${EXTERNAL_DIR}
         ${PROJECT_SOURCE_DIR}/include
+        ${EXTERNAL_DIR}MoltenVK
+        ${EXTERNAL_DIR}MoltenVK/include
+        ${OpenCV_INCLUDE_DIRS}
+        ${VK_SDK_DIR}
+        ${VK_SDK_DIR}/include
 )
 
 # 源文件目录
 file(GLOB SOURCES
-        EXTERNAL_SRC
-        3rdparty/glad/src/glad.c
+        ${EXTERNAL_SRC}
         include/*.h
         include/core/*.h
         src/core/*.cpp
@@ -53,16 +58,25 @@ file(GLOB SOURCES
         src/core/*.mm
         src/*.cpp
         test/*.cpp
-        *.cpp
         )
 
-set(GLEW_LINK /usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.0.dylib)
-set(GLFW_LINK /usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib)
-link_libraries(${OPENGL} ${GLEW_LINK} ${GLFW_LINK})
+file(GLOB_RECURSE VK_STATIC_LIB "${VK_SDK_DIR}/macOS/lib/*.a")
 
-add_executable(cross_platform_demo ${SOURCES} main.cpp)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glfw)
+
+if (USE_VULKAN)
+    add_executable(cross_platform_demo ${SOURCES} main_vk.cpp)
+elseif(USE_OPENGL)
+    add_executable(cross_platform_demo ${SOURCES} main_gl.cpp)
+elseif(USE_METAL)
+    add_executable(cross_platform_demo ${SOURCES} main_mtl.cpp)
+endif ()
 
 target_link_libraries(cross_platform_demo
+        glfw
+        ${VK_STATIC_LIB}
+        ${OpenCV_LIBS}
+        ${VK_SDK_DIR}/macOS/MoltenVK.framework/MoltenVK
         "-framework OpenGL"
         "-framework GLUT"
         "-framework Metal"
@@ -70,7 +84,7 @@ target_link_libraries(cross_platform_demo
         "-framework QuartzCore"
         "-framework CoreMedia"
         "-framework AVFoundation"
+        "-framework Accelerate"
+        "-framework IOSurface"
         )
 target_compile_options(cross_platform_demo PUBLIC "-fobjc-arc")
-
-target_link_libraries(cross_platform_demo ${OpenCV_LIBS})

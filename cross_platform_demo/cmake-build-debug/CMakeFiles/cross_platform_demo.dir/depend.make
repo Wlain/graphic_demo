@@ -4,7 +4,34 @@
 CMakeFiles/cross_platform_demo.dir/3rdparty/glad/src/glad.c.o: ../3rdparty/glad/include/glad/glad.h
 CMakeFiles/cross_platform_demo.dir/3rdparty/glad/src/glad.c.o: ../3rdparty/glad/src/glad.c
 
-CMakeFiles/cross_platform_demo.dir/main.cpp.o: ../main.cpp
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vk_platform.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_android.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_beta.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_core.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_directfb.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_fuchsia.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_ggp.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_ios.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_macos.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_metal.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_vi.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_wayland.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_win32.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_xcb.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_xlib.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/MoltenVK/include/vulkan/vulkan_xlib_xrandr.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/egl/GLES2/gl2.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/egl/GLES2/gl2ext.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/egl/GLES2/gl2platform.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/egl/GLES3/gl3.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/egl/GLES3/gl31.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/egl/GLES3/gl32.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/egl/GLES3/gl3platform.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/egl/KHR/khrplatform.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/glad/include/glad/glad.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../3rdparty/glfw/include/GLFW/glfw3.h
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../main_gl.cpp
 
 CMakeFiles/cross_platform_demo.dir/src/core/context_gl.cpp.o: ../include/core/context_gl.h
 CMakeFiles/cross_platform_demo.dir/src/core/context_gl.cpp.o: ../src/core/context_gl.cpp

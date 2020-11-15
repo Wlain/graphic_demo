@@ -90,22 +90,9 @@ CMakeFiles/cross_platform_demo.dir/3rdparty/glad/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/cross_platform_demo.dir/3rdparty/glad/src/glad.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/william/git/demo/graphic_demo/cross_platform_demo/3rdparty/glad/src/glad.c -o CMakeFiles/cross_platform_demo.dir/3rdparty/glad/src/glad.c.s
 
-CMakeFiles/cross_platform_demo.dir/main.cpp.o: CMakeFiles/cross_platform_demo.dir/flags.make
-CMakeFiles/cross_platform_demo.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cross_platform_demo.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cross_platform_demo.dir/main.cpp.o -c /Users/william/git/demo/graphic_demo/cross_platform_demo/main.cpp
-
-CMakeFiles/cross_platform_demo.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cross_platform_demo.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/william/git/demo/graphic_demo/cross_platform_demo/main.cpp > CMakeFiles/cross_platform_demo.dir/main.cpp.i
-
-CMakeFiles/cross_platform_demo.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cross_platform_demo.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/william/git/demo/graphic_demo/cross_platform_demo/main.cpp -o CMakeFiles/cross_platform_demo.dir/main.cpp.s
-
 CMakeFiles/cross_platform_demo.dir/src/core/context_gl.cpp.o: CMakeFiles/cross_platform_demo.dir/flags.make
 CMakeFiles/cross_platform_demo.dir/src/core/context_gl.cpp.o: ../src/core/context_gl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cross_platform_demo.dir/src/core/context_gl.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cross_platform_demo.dir/src/core/context_gl.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cross_platform_demo.dir/src/core/context_gl.cpp.o -c /Users/william/git/demo/graphic_demo/cross_platform_demo/src/core/context_gl.cpp
 
 CMakeFiles/cross_platform_demo.dir/src/core/context_gl.cpp.i: cmake_force
@@ -118,7 +105,7 @@ CMakeFiles/cross_platform_demo.dir/src/core/context_gl.cpp.s: cmake_force
 
 CMakeFiles/cross_platform_demo.dir/src/core/context_mtl.mm.o: CMakeFiles/cross_platform_demo.dir/flags.make
 CMakeFiles/cross_platform_demo.dir/src/core/context_mtl.mm.o: ../src/core/context_mtl.mm
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cross_platform_demo.dir/src/core/context_mtl.mm.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cross_platform_demo.dir/src/core/context_mtl.mm.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cross_platform_demo.dir/src/core/context_mtl.mm.o -c /Users/william/git/demo/graphic_demo/cross_platform_demo/src/core/context_mtl.mm
 
 CMakeFiles/cross_platform_demo.dir/src/core/context_mtl.mm.i: cmake_force
@@ -131,7 +118,7 @@ CMakeFiles/cross_platform_demo.dir/src/core/context_mtl.mm.s: cmake_force
 
 CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.o: CMakeFiles/cross_platform_demo.dir/flags.make
 CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.o: ../src/core/context_vk.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.o -c /Users/william/git/demo/graphic_demo/cross_platform_demo/src/core/context_vk.cpp
 
 CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.i: cmake_force
@@ -142,30 +129,65 @@ CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/william/git/demo/graphic_demo/cross_platform_demo/src/core/context_vk.cpp -o CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.s
 
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: CMakeFiles/cross_platform_demo.dir/flags.make
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o: ../main_gl.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/william/git/demo/graphic_demo/cross_platform_demo/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o -c /Users/william/git/demo/graphic_demo/cross_platform_demo/main_gl.cpp
+
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cross_platform_demo.dir/main_gl.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/william/git/demo/graphic_demo/cross_platform_demo/main_gl.cpp > CMakeFiles/cross_platform_demo.dir/main_gl.cpp.i
+
+CMakeFiles/cross_platform_demo.dir/main_gl.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cross_platform_demo.dir/main_gl.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/william/git/demo/graphic_demo/cross_platform_demo/main_gl.cpp -o CMakeFiles/cross_platform_demo.dir/main_gl.cpp.s
+
 # Object files for target cross_platform_demo
 cross_platform_demo_OBJECTS = \
 "CMakeFiles/cross_platform_demo.dir/3rdparty/glad/src/glad.c.o" \
-"CMakeFiles/cross_platform_demo.dir/main.cpp.o" \
 "CMakeFiles/cross_platform_demo.dir/src/core/context_gl.cpp.o" \
 "CMakeFiles/cross_platform_demo.dir/src/core/context_mtl.mm.o" \
-"CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.o"
+"CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.o" \
+"CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o"
 
 # External object files for target cross_platform_demo
 cross_platform_demo_EXTERNAL_OBJECTS =
 
 cross_platform_demo: CMakeFiles/cross_platform_demo.dir/3rdparty/glad/src/glad.c.o
-cross_platform_demo: CMakeFiles/cross_platform_demo.dir/main.cpp.o
 cross_platform_demo: CMakeFiles/cross_platform_demo.dir/src/core/context_gl.cpp.o
 cross_platform_demo: CMakeFiles/cross_platform_demo.dir/src/core/context_mtl.mm.o
 cross_platform_demo: CMakeFiles/cross_platform_demo.dir/src/core/context_vk.cpp.o
+cross_platform_demo: CMakeFiles/cross_platform_demo.dir/main_gl.cpp.o
 cross_platform_demo: CMakeFiles/cross_platform_demo.dir/build.make
-cross_platform_demo: /usr/local/Cellar/glew/2.1.0_1/lib/libGLEW.2.1.0.dylib
-cross_platform_demo: /usr/local/Cellar/glfw/3.3.2/lib/libglfw.3.3.dylib
+cross_platform_demo: 3rdparty/glfw/src/libglfw3.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libGenericCodeGen.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libHLSL.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libMachineIndependent.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libOGLCompiler.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libOSDependent.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libSPIRV-Tools-link.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libSPIRV-Tools-opt.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libSPIRV-Tools-reduce.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libSPIRV-Tools.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libSPIRV.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libSPVRemapper.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libglslang.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libshaderc.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libshaderc_util.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libspirv-cross-c.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libspirv-cross-core.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libspirv-cross-cpp.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libspirv-cross-glsl.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libspirv-cross-hlsl.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libspirv-cross-msl.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libspirv-cross-reflect.a
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/lib/libspirv-cross-util.a
 cross_platform_demo: /usr/local/opt/opencv@2/lib/libopencv_videostab.2.4.13.dylib
 cross_platform_demo: /usr/local/opt/opencv@2/lib/libopencv_ts.a
 cross_platform_demo: /usr/local/opt/opencv@2/lib/libopencv_superres.2.4.13.dylib
 cross_platform_demo: /usr/local/opt/opencv@2/lib/libopencv_stitching.2.4.13.dylib
 cross_platform_demo: /usr/local/opt/opencv@2/lib/libopencv_contrib.2.4.13.dylib
+cross_platform_demo: ../3rdparty/MoltenVK/macOS/MoltenVK.framework/MoltenVK
 cross_platform_demo: /usr/local/opt/opencv@2/lib/libopencv_nonfree.2.4.13.dylib
 cross_platform_demo: /usr/local/opt/opencv@2/lib/libopencv_ocl.2.4.13.dylib
 cross_platform_demo: /usr/local/opt/opencv@2/lib/libopencv_gpu.2.4.13.dylib
