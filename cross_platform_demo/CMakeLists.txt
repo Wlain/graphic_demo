@@ -2,8 +2,9 @@ cmake_minimum_required(VERSION 3.17)
 project(cross_platform_demo)
 
 set(USE_VULKAN OFF)
-set(USE_OPENGL ON)
+set(USE_OPENGL OFF)
 set(USE_METAL OFF)
+set(USE_OPENCV ON)
 
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 set(CMAKE_SUPPRESS_REGENERATION ON)
@@ -54,6 +55,8 @@ file(GLOB SOURCES
         include/core/*.h
         src/core/*.cpp
         include/utils/*.h
+        include/common/*.h
+        include/common/*.cpp
         src/utils/*.cpp
         src/core/*.mm
         src/*.cpp
@@ -69,7 +72,9 @@ if (USE_VULKAN)
 elseif(USE_OPENGL)
     add_executable(cross_platform_demo ${SOURCES} main_gl.cpp)
 elseif(USE_METAL)
-    add_executable(cross_platform_demo ${SOURCES} main_mtl.cpp)
+    add_executable(cross_platform_demo ${SOURCES} main_mtl.mm)
+elseif(USE_OPENCV)
+    add_executable(cross_platform_demo ${SOURCES} main_cv.cpp)
 endif ()
 
 target_link_libraries(cross_platform_demo
