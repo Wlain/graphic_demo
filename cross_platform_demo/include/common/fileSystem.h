@@ -4,25 +4,23 @@
 
 #ifndef CROSS_PLATFORM_DEMO_FILESYSTEM_H
 #define CROSS_PLATFORM_DEMO_FILESYSTEM_H
+#include "base.h"
 
 namespace GraphicEngine
 {
+typedef std::function<std::string(const std::string& path)> builderFunc;
 class FileSystem
 {
 public:
-    enum class StreamMode
-    {
-        READ = 1,
-        WRITE = 2
-    };
-    enum class DialogMode
-    {
-        OPEN,
-        SAVE
-    };
     FileSystem() = default;
-    ~FileSystem();
+    ~FileSystem() = default;
+    static std::string getPath(const std::string& path);
 
+private:
+    static const std::string& getRoot();
+    static builderFunc getPathBuilder();
+    static std::string getPathRelativeRoot(const std::string& path);
+    static std::string getPathRelativeBinary(const std::string& path);
 };
 } // namespace GraphicEngine
 
