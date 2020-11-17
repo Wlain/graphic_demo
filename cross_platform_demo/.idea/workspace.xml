@@ -20,38 +20,38 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="cross_platform_demo" targetName="reopen" />
-      <config projectName="cross_platform_demo" targetName="monitors" />
-      <config projectName="cross_platform_demo" targetName="timeout" />
-      <config projectName="cross_platform_demo" targetName="uninstall" />
-      <config projectName="cross_platform_demo" targetName="inputlag" />
-      <config projectName="cross_platform_demo" targetName="gears" />
-      <config projectName="cross_platform_demo" targetName="particles" />
       <config projectName="cross_platform_demo" targetName="joysticks" />
-      <config projectName="cross_platform_demo" targetName="iconify" />
-      <config projectName="cross_platform_demo" targetName="empty" />
-      <config projectName="cross_platform_demo" targetName="sharing" />
-      <config projectName="cross_platform_demo" targetName="boing" />
-      <config projectName="cross_platform_demo" targetName="events" />
-      <config projectName="cross_platform_demo" targetName="msaa" />
-      <config projectName="cross_platform_demo" targetName="windows" />
-      <config projectName="cross_platform_demo" targetName="opacity" />
-      <config projectName="cross_platform_demo" targetName="heightmap" />
-      <config projectName="cross_platform_demo" targetName="splitview" />
-      <config projectName="cross_platform_demo" targetName="tearing" />
-      <config projectName="cross_platform_demo" targetName="gamma" />
-      <config projectName="cross_platform_demo" targetName="offscreen" />
-      <config projectName="cross_platform_demo" targetName="wave" />
-      <config projectName="cross_platform_demo" targetName="cursor" />
-      <config projectName="cross_platform_demo" targetName="cross_platform_demo" />
-      <config projectName="cross_platform_demo" targetName="glfw" />
       <config projectName="cross_platform_demo" targetName="vulkan" />
+      <config projectName="cross_platform_demo" targetName="msaa" />
+      <config projectName="cross_platform_demo" targetName="tearing" />
+      <config projectName="cross_platform_demo" targetName="inputlag" />
       <config projectName="cross_platform_demo" targetName="threads" />
+      <config projectName="cross_platform_demo" targetName="gamma" />
+      <config projectName="cross_platform_demo" targetName="particles" />
+      <config projectName="cross_platform_demo" targetName="monitors" />
+      <config projectName="cross_platform_demo" targetName="splitview" />
+      <config projectName="cross_platform_demo" targetName="glfwinfo" />
+      <config projectName="cross_platform_demo" targetName="cross_platform_demo" />
+      <config projectName="cross_platform_demo" targetName="uninstall" />
       <config projectName="cross_platform_demo" targetName="icon" />
       <config projectName="cross_platform_demo" targetName="simple" />
+      <config projectName="cross_platform_demo" targetName="cursor" />
+      <config projectName="cross_platform_demo" targetName="timeout" />
+      <config projectName="cross_platform_demo" targetName="glfw" />
+      <config projectName="cross_platform_demo" targetName="gears" />
+      <config projectName="cross_platform_demo" targetName="windows" />
+      <config projectName="cross_platform_demo" targetName="boing" />
+      <config projectName="cross_platform_demo" targetName="iconify" />
+      <config projectName="cross_platform_demo" targetName="wave" />
+      <config projectName="cross_platform_demo" targetName="empty" />
       <config projectName="cross_platform_demo" targetName="clipboard" />
-      <config projectName="cross_platform_demo" targetName="glfwinfo" />
       <config projectName="cross_platform_demo" targetName="title" />
+      <config projectName="cross_platform_demo" targetName="reopen" />
+      <config projectName="cross_platform_demo" targetName="heightmap" />
+      <config projectName="cross_platform_demo" targetName="offscreen" />
+      <config projectName="cross_platform_demo" targetName="events" />
+      <config projectName="cross_platform_demo" targetName="sharing" />
+      <config projectName="cross_platform_demo" targetName="opacity" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -61,22 +61,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33453206-28e3-4bdf-8e43-241142cfcff6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/configuration/root_directory.h.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/common/shaderUtil.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/shaders/texture.gl.frag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/shaders/texture.gl.vert" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/common/shaderUtil.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3rdparty/glm/glm/detail/type_half.inl" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glm/glm/detail/type_half.inl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3rdparty/stb/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3rdparty/stb/stb.podspec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3rdparty/stb/stb_image.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3rdparty/stb/stb_image_write.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/base.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/base.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/common/fileSystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/common/fileSystem.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_gl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_gl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/fileSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/fileSystem.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/shaders/texture.gl.vert" beforeDir="false" afterPath="$PROJECT_DIR$/resources/shaders/texture.gl.vert" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,11 +99,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.cross_platform_demo">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="boing" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="boing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="boing">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -329,7 +311,8 @@
       <workItem from="1605375008673" duration="5201000" />
       <workItem from="1605498386452" duration="1778000" />
       <workItem from="1605507726774" duration="5947000" />
-      <workItem from="1605513980218" duration="5087000" />
+      <workItem from="1605513980218" duration="6108000" />
+      <workItem from="1605577733749" duration="5163000" />
     </task>
     <servers />
   </component>
@@ -362,53 +345,63 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="634" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1605411622589" />
-    <state width="497" height="466" key="DebuggerActiveHint" timestamp="1605518429548">
-      <screen x="0" y="23" width="1792" height="1046" />
+    <state width="497" height="463" key="DebuggerActiveHint" timestamp="1605579352779">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
+    <state width="497" height="463" key="DebuggerActiveHint/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605579352779" />
     <state width="497" height="466" key="DebuggerActiveHint/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605518429548" />
-    <state width="1358" height="286" key="GridCell.Tab.0.bottom" timestamp="1605519118530">
-      <screen x="0" y="23" width="1792" height="1046" />
+    <state width="1750" height="281" key="GridCell.Tab.0.bottom" timestamp="1605585885519">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
-    <state width="1358" height="286" key="GridCell.Tab.0.bottom/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605519118530" />
+    <state width="1750" height="281" key="GridCell.Tab.0.bottom/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605585885519" />
+    <state width="1358" height="353" key="GridCell.Tab.0.bottom/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983740" />
     <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1605412089719" />
-    <state width="1358" height="286" key="GridCell.Tab.0.center" timestamp="1605519118529">
-      <screen x="0" y="23" width="1792" height="1046" />
+    <state width="1750" height="281" key="GridCell.Tab.0.center" timestamp="1605585885516">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
-    <state width="1358" height="286" key="GridCell.Tab.0.center/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605519118529" />
+    <state width="1750" height="281" key="GridCell.Tab.0.center/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605585885516" />
+    <state width="1358" height="353" key="GridCell.Tab.0.center/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983739" />
     <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1605412089718" />
-    <state width="1358" height="286" key="GridCell.Tab.0.left" timestamp="1605519118528">
-      <screen x="0" y="23" width="1792" height="1046" />
+    <state width="1750" height="281" key="GridCell.Tab.0.left" timestamp="1605585885515">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
-    <state width="1358" height="286" key="GridCell.Tab.0.left/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605519118528" />
+    <state width="1750" height="281" key="GridCell.Tab.0.left/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605585885515" />
+    <state width="1358" height="353" key="GridCell.Tab.0.left/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983739" />
     <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1605412089717" />
-    <state width="1358" height="286" key="GridCell.Tab.0.right" timestamp="1605519118529">
-      <screen x="0" y="23" width="1792" height="1046" />
+    <state width="1750" height="281" key="GridCell.Tab.0.right" timestamp="1605585885516">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
-    <state width="1358" height="286" key="GridCell.Tab.0.right/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605519118529" />
+    <state width="1750" height="281" key="GridCell.Tab.0.right/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605585885516" />
+    <state width="1358" height="353" key="GridCell.Tab.0.right/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983740" />
     <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1605412089718" />
-    <state width="1358" height="353" key="GridCell.Tab.1.bottom" timestamp="1605518464919">
-      <screen x="0" y="23" width="1792" height="1046" />
+    <state width="1750" height="347" key="GridCell.Tab.1.bottom" timestamp="1605579363440">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
-    <state width="1358" height="353" key="GridCell.Tab.1.bottom/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605518464919" />
-    <state width="1358" height="353" key="GridCell.Tab.1.center" timestamp="1605518464918">
-      <screen x="0" y="23" width="1792" height="1046" />
+    <state width="1750" height="347" key="GridCell.Tab.1.bottom/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605579363440" />
+    <state width="1358" height="353" key="GridCell.Tab.1.bottom/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983741" />
+    <state width="1750" height="347" key="GridCell.Tab.1.center" timestamp="1605579363439">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
-    <state width="1358" height="353" key="GridCell.Tab.1.center/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605518464918" />
-    <state width="1358" height="353" key="GridCell.Tab.1.left" timestamp="1605518464918">
-      <screen x="0" y="23" width="1792" height="1046" />
+    <state width="1750" height="347" key="GridCell.Tab.1.center/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605579363439" />
+    <state width="1358" height="353" key="GridCell.Tab.1.center/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983740" />
+    <state width="1750" height="347" key="GridCell.Tab.1.left" timestamp="1605579363438">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
-    <state width="1358" height="353" key="GridCell.Tab.1.left/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605518464918" />
-    <state width="1358" height="353" key="GridCell.Tab.1.right" timestamp="1605518464919">
-      <screen x="0" y="23" width="1792" height="1046" />
+    <state width="1750" height="347" key="GridCell.Tab.1.left/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605579363438" />
+    <state width="1358" height="353" key="GridCell.Tab.1.left/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983740" />
+    <state width="1750" height="347" key="GridCell.Tab.1.right" timestamp="1605579363439">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
-    <state width="1358" height="353" key="GridCell.Tab.1.right/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605518464919" />
+    <state width="1750" height="347" key="GridCell.Tab.1.right/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605579363439" />
+    <state width="1358" height="353" key="GridCell.Tab.1.right/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983740" />
     <state x="157" y="206" key="SettingsEditor" timestamp="1605518206829">
       <screen x="0" y="23" width="1792" height="1046" />
     </state>
     <state x="157" y="206" key="SettingsEditor/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605518206829" />
-    <state x="597" y="317" width="598" height="735" key="find.popup" timestamp="1605513902366">
-      <screen x="0" y="23" width="1792" height="1046" />
+    <state x="597" y="317" width="598" height="730" key="find.popup" timestamp="1605578217339">
+      <screen x="0" y="25" width="1792" height="1038" />
     </state>
+    <state x="597" y="317" width="598" height="730" key="find.popup/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605578217339" />
     <state x="597" y="317" width="598" height="735" key="find.popup/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605513902366" />
     <state x="597" y="315" width="598" height="490" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1605411425721" />
   </component>
@@ -419,16 +412,6 @@
           <url>file://$PROJECT_DIR$/include/common/shaderUtil.h</url>
           <line>32</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/common/shaderUtil.cpp</url>
-          <line>97</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/common/shaderUtil.cpp</url>
-          <line>99</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

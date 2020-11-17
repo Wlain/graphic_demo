@@ -50,15 +50,15 @@ int main()
         return -1;
     }
     GraphicEngine::ShaderUtil shader("resources/shaders/texture.gl.vert", "resources/shaders/texture.gl.frag");
-    static float vertices[] = {
+    static float vertices[4][3] = {
         // positions        // texCoords
-        -1.0f, 1.0f, 0.0f, 0.0f, 1.0f,  // top left
-        -1.0f, -1.0f, 0.0f, 0.0f, 0.0f, // bottom left
-        1.0f, 1.0f, 0.0f, 1.0f, 1.0f,   // top right
-        1.0f, -1.0f, 0.0f, 1.0f, 0.0f   // bottom right
+        {-1.0f, -1.0f, 0.0f},
+        {1.0f,  -1.0f, 0.0f},
+        {1.0f,  1.0f,  0.0f},
+        {-1.0f, 1.0f,  0.0f}
     };
     static unsigned short indices[] = {
-        0, 1, 2, 3
+        3, 0, 2, 1
     };
     GLuint vbo, vao, ebo;
     attribs[Positions] = glGetAttribLocation(shader.getProgram(), "a_position");
@@ -71,7 +71,7 @@ int main()
     glBindVertexArray(vao);
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    glVertexAttribPointer(attribs[Positions], 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glVertexAttribPointer(attribs[Positions], 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(attribs[Positions]);
     glVertexAttribPointer(attribs[TexCoords], 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(attribs[TexCoords]);
@@ -99,13 +99,68 @@ int main()
     stbi_image_free(data);
     // 告诉opengl需要使用哪个纹理单元
     shader.use();
-    glUniform1i(glGetUniformLocation(shader.getProgram(), "u_texture"), 0);
+    shader.setInt("u_texture", 0);
     // mvp
-    glm::mat4 model = glm::mat4(1.0f);
-    glm::mat4 view = glm::lookAt(glm::vec3(0, 0, 5), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-    glm::mat4 projection = glm::perspective(glm::radians(60.0f), (float)s_width/(float)s_height, 0.1f, 100.0f);
-    glm::mat4 mvpMatrix = projection * view * model;
+    const glm::mat4 model = glm::mat4(1.0f);
+    const glm::mat4 view = glm::lookAt(glm::vec3(0, 0, 5), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+    const glm::mat4 projection = glm::perspective(glm::radians(45.0f), 1.0f, 0.1f, 100.0f);
+    const glm::mat4& mvpMatrix = projection * view * model;
     glUniformMatrix4fv(glGetUniformLocation(shader.getProgram(), "u_mvpMatrix"), 1, GL_FALSE, (const float *)glm::value_ptr(mvpMatrix));
+
+    //向上拉
+    float v[4][3] = {
+        {-1.0f, -1.0f, 0.0f},
+        {1.0f,  -1.0f, 0.0f},
+        {1.0f,  1.0f,  0.0f},
+        {-1.0f, 1.0f,  0.0f}
+    };
+    float verticalIntensity = -0.5f;
+    float horizontalIntensity = 0.0f;
+    float strechIntensity = 1.0f;
+    //竖向
+    float absVerticalIntensity = fabsf(verticalIntensity);
+    if (verticalIntensity < 0.0f)
+    {
+        v[0][2] += absVerticalIntensity;
+        v[1][2] += absVerticalIntensity;
+    }
+    else
+    {
+        v[2][2] += absVerticalIntensity;
+        v[3][2] += absVerticalIntensity;
+    }
+
+    //横向
+    float absHorizontalIntensity = fabsf(horizontalIntensity);
+    if(horizontalIntensity < 0.0f)
+    {
+        v[0][2] += absHorizontalIntensity;
+        v[3][2] += absHorizontalIntensity;
+    }
+    else
+    {
+        v[1][2] += absHorizontalIntensity;
+        v[2][2] += absHorizontalIntensity;
+    }
+    //拉伸
+    shader.use();
+    float absStrechIntensity = fabsf(strechIntensity);
+    absStrechIntensity = (1.0f - absStrechIntensity / 2.0f);
+    absStrechIntensity = (1.0f - absStrechIntensity / 2.0f);
+    if(strechIntensity < 0.0f)
+    {
+        shader.setVector2("u_scaling", absStrechIntensity, 1.0f);
+    }
+    else
+    {
+        shader.setVector2("u_scaling", 1.0f, absStrechIntensity);
+    }
+
+    glBindVertexArray(vao);
+    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(v), v);
+
     while (!glfwWindowShouldClose(window))
     {
         glClearColor(0.0, 0.0, 0.0, 1.0);
