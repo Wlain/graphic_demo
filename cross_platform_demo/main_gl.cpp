@@ -3,9 +3,11 @@
 //
 
 #include "base.h"
-#include "shaderUtil.h"
 #include "fileSystem.h"
+#include "shaderUtil.h"
 #include "stb_image.h"
+#include <glm/glm.hpp>
+#include <glm/ext.hpp>
 
 enum AttribLocation
 {
@@ -50,10 +52,10 @@ int main()
     GraphicEngine::ShaderUtil shader("resources/shaders/texture.gl.vert", "resources/shaders/texture.gl.frag");
     static float vertices[] = {
         // positions        // texCoords
-        -1.0f,  1.0f, 0.0f, 0.0f, 1.0f,   // top left
-        -1.0f, -1.0f, 0.0f, 0.0f, 0.0f,   // bottom left
-         1.0f,  1.0f, 0.0f, 1.0f, 1.0f,   // top right
-         1.0f, -1.0f, 0.0f, 1.0f, 0.0f    // bottom right
+        -1.0f, 1.0f, 0.0f, 0.0f, 1.0f,  // top left
+        -1.0f, -1.0f, 0.0f, 0.0f, 0.0f, // bottom left
+        1.0f, 1.0f, 0.0f, 1.0f, 1.0f,   // top right
+        1.0f, -1.0f, 0.0f, 1.0f, 0.0f   // bottom right
     };
     static unsigned short indices[] = {
         0, 1, 2, 3
@@ -84,7 +86,7 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     int width, height, nrChannels;
-    GLubyte *data = stbi_load(GraphicEngine::FileSystem::getPath("resources/tianlei.jpg").c_str(), &width, &height, &nrChannels, 0);
+    GLubyte* data = stbi_load(GraphicEngine::FileSystem::getPath("resources/tianlei.jpg").c_str(), &width, &height, &nrChannels, 0);
     stbi_set_flip_vertically_on_load(true);
     if (data)
     {
@@ -98,7 +100,12 @@ int main()
     // 告诉opengl需要使用哪个纹理单元
     shader.use();
     glUniform1i(glGetUniformLocation(shader.getProgram(), "u_texture"), 0);
-
+    // mvp
+    glm::mat4 model = glm::mat4(1.0f);
+    glm::mat4 view = glm::lookAt(glm::vec3(0, 0, 5), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+    glm::mat4 projection = glm::perspective(glm::radians(60.0f), (float)s_width/(float)s_height, 0.1f, 100.0f);
+    glm::mat4 mvpMatrix = projection * view * model;
+    glUniformMatrix4fv(glGetUniformLocation(shader.getProgram(), "u_mvpMatrix"), 1, GL_FALSE, (const float *)glm::value_ptr(mvpMatrix));
     while (!glfwWindowShouldClose(window))
     {
         glClearColor(0.0, 0.0, 0.0, 1.0);
