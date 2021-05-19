@@ -31,7 +31,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33453206-28e3-4bdf-8e43-241142cfcff6" name="Default Changelist" comment="" />
+    <list default="true" id="33453206-28e3-4bdf-8e43-241142cfcff6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/utils/logger.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/logger.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_vk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_vk.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/triangleVk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/triangleVk.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/triangleVk.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/triangleVk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/base.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/base.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,12 +60,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.advertisement.text.overridden" value="true" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/3rdparty" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/utils" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/utils" />
       <recent name="$PROJECT_DIR$/3rdparty" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -118,6 +127,8 @@
       <workItem from="1621329103015" duration="492000" />
       <workItem from="1621332145762" duration="3159000" />
       <workItem from="1621425158366" duration="1907000" />
+      <workItem from="1621427414359" duration="558000" />
+      <workItem from="1621427983985" duration="6860000" />
     </task>
     <servers />
   </component>
@@ -143,11 +154,6 @@
           <url>file://$PROJECT_DIR$/include/common/shaderUtil.h</url>
           <line>32</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/test/triangleVk.cpp</url>
-          <line>23</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

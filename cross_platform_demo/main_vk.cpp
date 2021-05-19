@@ -1,10 +1,10 @@
-#include "src/test/triangleVk.h"
-#include "src/utils/base.h"
+#include "triangleVk.h"
+#include "base.h"
+#include "logger.h"
 
 int main()
 {
     TriangleVk triangle;
     triangle.run();
-    std::cout << "hello world" << std::endl;
     return 0;
 }
