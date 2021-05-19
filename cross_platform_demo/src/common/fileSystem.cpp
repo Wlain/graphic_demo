@@ -4,7 +4,7 @@
 
 #include "fileSystem.h"
 
-namespace GraphicEngine
+namespace graphicEngine
 {
 std::string FileSystem::getPath(const std::string& path)
 {
@@ -30,4 +30,4 @@ std::string FileSystem::getPathRelativeBinary(const std::string& path)
 {
     return "../../" + path;
 }
-} // namespace GraphicEngine
+} // namespace graphicEngine

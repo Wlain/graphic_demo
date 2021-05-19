@@ -183,7 +183,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_WHOLE_SIZE (~0ULL)
 
 
-#include <glad/vk_platform.h>
+#include <glfw/deps/glad/vk_platform.h>
 #define VK_MAKE_VERSION(major, minor, patch) \
     (((major) << 22) | ((minor) << 12) | (patch))
 #define VK_VERSION_MAJOR(version) ((uint32_t)(version) >> 22)

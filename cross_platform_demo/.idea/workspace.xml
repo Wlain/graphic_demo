@@ -20,50 +20,18 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="cross_platform_demo" targetName="joysticks" />
-      <config projectName="cross_platform_demo" targetName="vulkan" />
-      <config projectName="cross_platform_demo" targetName="msaa" />
-      <config projectName="cross_platform_demo" targetName="tearing" />
-      <config projectName="cross_platform_demo" targetName="inputlag" />
-      <config projectName="cross_platform_demo" targetName="threads" />
-      <config projectName="cross_platform_demo" targetName="gamma" />
-      <config projectName="cross_platform_demo" targetName="particles" />
-      <config projectName="cross_platform_demo" targetName="monitors" />
-      <config projectName="cross_platform_demo" targetName="splitview" />
-      <config projectName="cross_platform_demo" targetName="glfwinfo" />
       <config projectName="cross_platform_demo" targetName="cross_platform_demo" />
       <config projectName="cross_platform_demo" targetName="uninstall" />
-      <config projectName="cross_platform_demo" targetName="icon" />
-      <config projectName="cross_platform_demo" targetName="simple" />
-      <config projectName="cross_platform_demo" targetName="cursor" />
-      <config projectName="cross_platform_demo" targetName="timeout" />
       <config projectName="cross_platform_demo" targetName="glfw" />
-      <config projectName="cross_platform_demo" targetName="gears" />
-      <config projectName="cross_platform_demo" targetName="windows" />
-      <config projectName="cross_platform_demo" targetName="boing" />
-      <config projectName="cross_platform_demo" targetName="iconify" />
-      <config projectName="cross_platform_demo" targetName="wave" />
-      <config projectName="cross_platform_demo" targetName="empty" />
-      <config projectName="cross_platform_demo" targetName="clipboard" />
-      <config projectName="cross_platform_demo" targetName="title" />
-      <config projectName="cross_platform_demo" targetName="reopen" />
-      <config projectName="cross_platform_demo" targetName="heightmap" />
-      <config projectName="cross_platform_demo" targetName="offscreen" />
-      <config projectName="cross_platform_demo" targetName="events" />
-      <config projectName="cross_platform_demo" targetName="sharing" />
-      <config projectName="cross_platform_demo" targetName="opacity" />
     </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="--validate" ENABLED="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33453206-28e3-4bdf-8e43-241142cfcff6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_gl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_gl.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="33453206-28e3-4bdf-8e43-241142cfcff6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,172 +61,35 @@
       <recent name="$PROJECT_DIR$/3rdparty" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/shaders" />
-      <recent name="$PROJECT_DIR$/resources/shaders/shaders" />
+      <recent name="$PROJECT_DIR$/src/test" />
+      <recent name="$PROJECT_DIR$/src/utils" />
+      <recent name="$PROJECT_DIR$/src/core" />
+      <recent name="$PROJECT_DIR$/src/common" />
+      <recent name="$PROJECT_DIR$/include" />
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.cross_platform_demo">
-    <configuration name="boing" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="boing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="boing">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="clipboard" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="clipboard" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="clipboard">
+    <configuration name="cross_platform_demo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="cross_platform_demo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="cross_platform_demo">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cross_platform_demo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="cross_platform_demo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="cross_platform_demo">
+    <configuration name="glfw" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glfw" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cursor" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="cursor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="cursor">
+    <configuration name="uninstall" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="uninstall" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="empty" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="empty" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="empty">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="events" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="events" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="events">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="gamma" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="gamma" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="gamma">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="gears" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="gears" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="gears">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="glfw" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glfw" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="glfwinfo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glfwinfo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="glfwinfo">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="heightmap" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="heightmap" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="heightmap">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="icon" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="icon" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="icon">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="iconify" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="iconify" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="iconify">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="inputlag" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="inputlag" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="inputlag">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="joysticks" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="joysticks" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="joysticks">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="monitors" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="monitors" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="monitors">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="msaa" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="msaa" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="msaa">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="offscreen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="offscreen" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="offscreen">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="opacity" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="opacity" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="opacity">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="particles" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="particles" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="particles">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="reopen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="reopen" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="reopen">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="sharing" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="sharing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="sharing">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="simple" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="simple" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="simple">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="splitview" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="splitview" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="splitview">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="tearing" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="tearing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="tearing">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="threads" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="threads" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="threads">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="timeout" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="timeout" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="timeout">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="title" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="title" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="title">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="uninstall" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="uninstall" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="vulkan" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="vulkan" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="vulkan">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="wave" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="wave" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="wave">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="windows" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="windows" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="windows">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -266,36 +97,7 @@
     <list>
       <item itemvalue="CMake Application.cross_platform_demo" />
       <item itemvalue="CMake Application.uninstall" />
-      <item itemvalue="CMake Application.boing" />
-      <item itemvalue="CMake Application.gears" />
-      <item itemvalue="CMake Application.heightmap" />
-      <item itemvalue="CMake Application.offscreen" />
-      <item itemvalue="CMake Application.particles" />
-      <item itemvalue="CMake Application.sharing" />
-      <item itemvalue="CMake Application.simple" />
-      <item itemvalue="CMake Application.splitview" />
-      <item itemvalue="CMake Application.wave" />
       <item itemvalue="CMake Application.glfw" />
-      <item itemvalue="CMake Application.clipboard" />
-      <item itemvalue="CMake Application.cursor" />
-      <item itemvalue="CMake Application.empty" />
-      <item itemvalue="CMake Application.events" />
-      <item itemvalue="CMake Application.gamma" />
-      <item itemvalue="CMake Application.glfwinfo" />
-      <item itemvalue="CMake Application.icon" />
-      <item itemvalue="CMake Application.iconify" />
-      <item itemvalue="CMake Application.inputlag" />
-      <item itemvalue="CMake Application.joysticks" />
-      <item itemvalue="CMake Application.monitors" />
-      <item itemvalue="CMake Application.msaa" />
-      <item itemvalue="CMake Application.opacity" />
-      <item itemvalue="CMake Application.reopen" />
-      <item itemvalue="CMake Application.tearing" />
-      <item itemvalue="CMake Application.threads" />
-      <item itemvalue="CMake Application.timeout" />
-      <item itemvalue="CMake Application.title" />
-      <item itemvalue="CMake Application.vulkan" />
-      <item itemvalue="CMake Application.windows" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -312,6 +114,10 @@
       <workItem from="1605507726774" duration="5947000" />
       <workItem from="1605513980218" duration="6108000" />
       <workItem from="1605577733749" duration="5394000" />
+      <workItem from="1621319168572" duration="7832000" />
+      <workItem from="1621329103015" duration="492000" />
+      <workItem from="1621332145762" duration="3159000" />
+      <workItem from="1621425158366" duration="1907000" />
     </task>
     <servers />
   </component>
@@ -330,80 +136,6 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="317" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605518379336">
-      <screen x="0" y="23" width="1792" height="1046" />
-    </state>
-    <state x="317" y="208" key="#com.intellij.execution.impl.EditConfigurationsDialog/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605518379336" />
-    <state x="614" y="368" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605513196409">
-      <screen x="0" y="23" width="1792" height="1046" />
-    </state>
-    <state x="614" y="368" key="#com.intellij.fileTypes.FileTypeChooser/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605513196409" />
-    <state x="614" y="369" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1605373525555" />
-    <state x="634" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605411622589">
-      <screen x="0" y="0" width="1792" height="1120" />
-    </state>
-    <state x="634" y="314" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1605411622589" />
-    <state width="497" height="463" key="DebuggerActiveHint" timestamp="1605579352779">
-      <screen x="0" y="25" width="1792" height="1038" />
-    </state>
-    <state width="497" height="463" key="DebuggerActiveHint/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605579352779" />
-    <state width="497" height="466" key="DebuggerActiveHint/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605518429548" />
-    <state width="1750" height="281" key="GridCell.Tab.0.bottom" timestamp="1605586133419">
-      <screen x="0" y="25" width="1792" height="1038" />
-    </state>
-    <state width="1750" height="281" key="GridCell.Tab.0.bottom/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605586133419" />
-    <state width="1358" height="353" key="GridCell.Tab.0.bottom/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983740" />
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1605412089719" />
-    <state width="1750" height="281" key="GridCell.Tab.0.center" timestamp="1605586133418">
-      <screen x="0" y="25" width="1792" height="1038" />
-    </state>
-    <state width="1750" height="281" key="GridCell.Tab.0.center/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605586133418" />
-    <state width="1358" height="353" key="GridCell.Tab.0.center/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983739" />
-    <state width="1750" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1605412089718" />
-    <state width="1750" height="281" key="GridCell.Tab.0.left" timestamp="1605586133418">
-      <screen x="0" y="25" width="1792" height="1038" />
-    </state>
-    <state width="1750" height="281" key="GridCell.Tab.0.left/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605586133418" />
-    <state width="1358" height="353" key="GridCell.Tab.0.left/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983739" />
-    <state width="1750" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1605412089717" />
-    <state width="1750" height="281" key="GridCell.Tab.0.right" timestamp="1605586133419">
-      <screen x="0" y="25" width="1792" height="1038" />
-    </state>
-    <state width="1750" height="281" key="GridCell.Tab.0.right/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605586133418" />
-    <state width="1358" height="353" key="GridCell.Tab.0.right/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983740" />
-    <state width="1750" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1605412089718" />
-    <state width="1750" height="347" key="GridCell.Tab.1.bottom" timestamp="1605579363440">
-      <screen x="0" y="25" width="1792" height="1038" />
-    </state>
-    <state width="1750" height="347" key="GridCell.Tab.1.bottom/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605579363440" />
-    <state width="1358" height="353" key="GridCell.Tab.1.bottom/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983741" />
-    <state width="1750" height="347" key="GridCell.Tab.1.center" timestamp="1605579363439">
-      <screen x="0" y="25" width="1792" height="1038" />
-    </state>
-    <state width="1750" height="347" key="GridCell.Tab.1.center/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605579363439" />
-    <state width="1358" height="353" key="GridCell.Tab.1.center/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983740" />
-    <state width="1750" height="347" key="GridCell.Tab.1.left" timestamp="1605579363438">
-      <screen x="0" y="25" width="1792" height="1038" />
-    </state>
-    <state width="1750" height="347" key="GridCell.Tab.1.left/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605579363438" />
-    <state width="1358" height="353" key="GridCell.Tab.1.left/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983740" />
-    <state width="1750" height="347" key="GridCell.Tab.1.right" timestamp="1605579363439">
-      <screen x="0" y="25" width="1792" height="1038" />
-    </state>
-    <state width="1750" height="347" key="GridCell.Tab.1.right/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605579363439" />
-    <state width="1358" height="353" key="GridCell.Tab.1.right/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605521983740" />
-    <state x="157" y="206" key="SettingsEditor" timestamp="1605518206829">
-      <screen x="0" y="23" width="1792" height="1046" />
-    </state>
-    <state x="157" y="206" key="SettingsEditor/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605518206829" />
-    <state x="597" y="317" width="598" height="730" key="find.popup" timestamp="1605578217339">
-      <screen x="0" y="25" width="1792" height="1038" />
-    </state>
-    <state x="597" y="317" width="598" height="730" key="find.popup/-382.-1415.2560.1415/0.25.1792.1038@0.25.1792.1038" timestamp="1605578217339" />
-    <state x="597" y="317" width="598" height="735" key="find.popup/-382.-1417.2560.1417/0.23.1792.1046@0.23.1792.1046" timestamp="1605513902366" />
-    <state x="597" y="315" width="598" height="490" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1605411425721" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -411,6 +143,11 @@
           <url>file://$PROJECT_DIR$/include/common/shaderUtil.h</url>
           <line>32</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/test/triangleVk.cpp</url>
+          <line>23</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

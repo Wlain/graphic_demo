@@ -103,8 +103,7 @@ To compile GLFW for Wayland, you need to have the Wayland packages installed,
 as well as the basic development tools like GCC and make.  For example, on
 Ubuntu and other distributions based on Debian GNU/Linux, you need to install
 the `libwayland-dev` package, which contains all Wayland headers and pulls in
-wayland-scanner, as well as the `wayland-protocols` and `extra-cmake-modules`
-packages.
+wayland-scanner, as well as the `wayland-protocols` package.
 
 Once you have installed the necessary packages, move on to @ref
 compile_generate.
@@ -212,11 +211,13 @@ library or as a DLL / shared library / dynamic library.
 
 @anchor GLFW_BUILD_EXAMPLES
 __GLFW_BUILD_EXAMPLES__ determines whether the GLFW examples are built
-along with the library.
+along with the library.  This is enabled by default unless GLFW is being built
+as a sub-project.
 
 @anchor GLFW_BUILD_TESTS
 __GLFW_BUILD_TESTS__ determines whether the GLFW test programs are
-built along with the library.
+built along with the library.  This is enabled by default unless GLFW is being
+built as a sub-project.
 
 @anchor GLFW_BUILD_DOCS
 __GLFW_BUILD_DOCS__ determines whether the GLFW documentation is built along
