@@ -17,8 +17,8 @@ find_package(Vulkan REQUIRED FATAL_ERROR)
 find_package(OpenCV)
 
 list(APPEND EXTERNAL_DIR
-        ${EXTERNAL_DIR}/stb/include
         ${EXTERNAL_DIR}/glm
+        ${EXTERNAL_DIR}/SOIL2
         ${EXTERNAL_DIR}/glfw/deps/glad
         ${EXTERNAL_DIR}/egl
         ${VK_SDK_DIR}
@@ -43,12 +43,12 @@ include_directories(${CMAKE_BINARY_DIR}/configuration)
 
 
 file(GLOB_RECURSE EXTERNAL_SRC
-        3rdparty/stb/src/*.cpp
         3rdparty/glfw/deps/glad/*.c
         3rdparty/glew/*.cpp
         3rdparty/glfw/deps/*.c
         3rdparty/glfw/deps/*.h
         3rdparty/egl/*.cpp
+        3rdparty/SOIL2/*.c
         )
 
 # 源文件目录
@@ -58,7 +58,6 @@ file(GLOB_RECURSE SOURCES
         src/*.inl
         src/*.cpp
         src/*.mm
-        src/*.cpp
         test/*.h
         test/*.cpp
         test/*.inl

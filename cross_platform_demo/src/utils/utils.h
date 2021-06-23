@@ -1,0 +1,49 @@
+//
+// Created by william on 2021/6/23.
+//
+
+#ifndef CROSS_PLATFORM_DEMO_UTILS_H
+#define CROSS_PLATFORM_DEMO_UTILS_H
+
+#include <glfw/deps/glad/gl.h>
+#include <string>
+
+namespace graphicEngine::gl
+{
+class Utils
+{
+public:
+    Utils();
+    static std::string readShaderFile(const char* filePath);
+    static bool checkOpenGLError();
+    static GLuint createShaderProgram(const char* vp, const char* fp);
+    static GLuint createShaderProgram(const char* vp, const char* gp, const char* fp);
+    static GLuint createShaderProgram(const char* vp, const char* tCS, const char* tES, const char* fp);
+    static GLuint createShaderProgram(const char* vp, const char* tCS, const char* tES, char* gp, const char* fp);
+    static GLuint loadTexture(const char* texImagePath);
+    static GLuint loadCubeMap(const char* mapDir);
+
+    static float* goldAmbient();
+    static float* goldDiffuse();
+    static float* goldSpecular();
+    static float goldShininess();
+
+    static float* silverAmbient();
+    static float* silverDiffuse();
+    static float* silverSpecular();
+    static float silverShininess();
+
+    static float* bronzeAmbient();
+    static float* bronzeDiffuse();
+    static float* bronzeSpecular();
+    static float bronzeShininess();
+
+private:
+    static void printShaderLog(GLuint shader);
+    static void printProgramLog(int program);
+    static GLuint prepareShader(int shaderType, const char* shaderPath);
+    static int finalizeShaderProgram(GLuint sProgram);
+};
+} // namespace graphicEngine::gl
+
+#endif //CROSS_PLATFORM_DEMO_UTILS_H

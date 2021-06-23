@@ -8,5 +8,8 @@ using namespace graphicEngine::gl;
 
 int main()
 {
-
+    Point point;
+    point.initialize();
+    point.draw();
+    return 0;
 }
