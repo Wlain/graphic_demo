@@ -5,7 +5,7 @@
 #ifndef CROSS_PLATFORM_DEMO_TRIANGLE_H
 #define CROSS_PLATFORM_DEMO_TRIANGLE_H
 
-#include "../../src/common/commonInterface.h"
+#include "commonInterface.h"
 
 namespace graphicEngine::gl
 {

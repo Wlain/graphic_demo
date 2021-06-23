@@ -10,8 +10,6 @@ namespace graphicEngine::gl
 {
 Triangle::~Triangle()
 {
-    glfwDestroyWindow(m_window);
-    glfwTerminate();
 }
 
 void Triangle::initialize()

@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.17)
 project(cross_platform_demo)
 
-set(USE_VULKAN ON)
-set(USE_OPENGL OFF)
+set(USE_VULKAN OFF)
+set(USE_OPENGL ON)
 set(USE_METAL OFF)
 set(USE_OPENCV OFF)
 
@@ -34,6 +34,8 @@ include_directories(
         ${PROJECT_SOURCE_DIR}/src/common
         ${PROJECT_SOURCE_DIR}/src/utils
         ${PROJECT_SOURCE_DIR}/src/test
+        ${PROJECT_SOURCE_DIR}/test/gl
+        ${PROJECT_SOURCE_DIR}/test/vk
 )
 
 configure_file(configuration/root_directory.h.in configuration/root_directory.h)
@@ -71,7 +73,7 @@ elseif (USE_OPENGL)
 elseif (USE_METAL)
     add_executable(cross_platform_demo ${SOURCES} main_mtl.mm)
 elseif (USE_OPENCV)
-    add_executable(cross_platform_demo ${SOURCES} main_cv.cpp)
+    add_executable(cross_platform_demo ${SOURCES} main_cv.cpp src/test/vulkanLayerExternsionDefine.cpp src/test/vulkanLayerExternsionDefine.h src/test/vulkanInstance.cpp src/test/vulkanInstance.h src/test/vulkanApplications.cpp src/test/vulkanApplications.h src/test/vulkanDevice.cpp src/test/vulkanDevice.h test/gl/background.cpp test/gl/background.h test/gl/point.cpp test/gl/point.h)
 endif ()
 
 target_link_libraries(cross_platform_demo

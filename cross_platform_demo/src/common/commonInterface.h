@@ -30,7 +30,7 @@ protected:
 protected:
     GLFWwindow* m_window = nullptr;
     std::unique_ptr<graphicEngine::Program> m_program;
-    std::string m_externPath = "/Users/william/git/demo/graphic_demo/cross_platform_demo/resources/shaders/";
+    std::string m_externPath = "/Users/william/git/learning/graphic_demo/cross_platform_demo/resources/shaders/";
     GLuint m_vbo = 0;
     GLuint m_vao = 0;
     int m_currentWidth = 0;

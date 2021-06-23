@@ -7,7 +7,11 @@ namespace graphicEngine
 {
 CommonInterface::CommonInterface() = default;
 
-CommonInterface::~CommonInterface() = default;
+CommonInterface::~CommonInterface()
+{
+    glfwTerminate();
+    exit(EXIT_SUCCESS);
+}
 
 void CommonInterface::errorCallback(int error, const char* description)
 {

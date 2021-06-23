@@ -21,8 +21,6 @@ namespace graphicEngine::gl
 
 Sharing::~Sharing()
 {
-    glfwTerminate();
-    exit(EXIT_SUCCESS);
 }
 
 void Sharing::initialize()
