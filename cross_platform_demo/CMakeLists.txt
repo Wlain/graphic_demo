@@ -17,9 +17,7 @@ find_package(Vulkan REQUIRED FATAL_ERROR)
 find_package(OpenCV)
 
 list(APPEND EXTERNAL_DIR
-        ${EXTERNAL_DIR}/glm
         ${EXTERNAL_DIR}/SOIL2
-        ${EXTERNAL_DIR}/glfw/deps/glad
         ${EXTERNAL_DIR}/egl
         ${VK_SDK_DIR}
         ${VK_SDK_DIR}/include
@@ -43,10 +41,6 @@ include_directories(${CMAKE_BINARY_DIR}/configuration)
 
 
 file(GLOB_RECURSE EXTERNAL_SRC
-        3rdparty/glfw/deps/glad/*.c
-        3rdparty/glew/*.cpp
-        3rdparty/glfw/deps/*.c
-        3rdparty/glfw/deps/*.h
         3rdparty/egl/*.cpp
         3rdparty/SOIL2/*.c
         )
@@ -64,6 +58,8 @@ file(GLOB_RECURSE SOURCES
         )
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glfw)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glm/glm)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glew/build/cmake)
 
 if (USE_VULKAN)
     add_executable(cross_platform_demo ${SOURCES} main_vk.cpp)
@@ -77,6 +73,7 @@ endif ()
 
 target_link_libraries(cross_platform_demo
         glfw
+        glew
         Vulkan::Vulkan
         ${VK_STATIC_LIB}
         ${OpenCV_LIBS}

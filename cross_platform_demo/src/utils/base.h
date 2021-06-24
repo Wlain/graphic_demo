@@ -11,8 +11,6 @@
 #include <cstdlib>
 #include <fstream>
 #include <functional>
-#include <glfw/deps/glad/gl.h>
-#include <glfw/deps/linmath.h>
 #include <glm/glm.hpp>
 #include <glm/mat4x4.hpp>
 #include <iostream>
@@ -23,6 +21,8 @@
 #include <tuple>
 #include <typeinfo>
 #include <vector>
+#include <GL/glew.h>
+#include <glfw/deps/linmath.h>
 #include <GLFW/glfw3.h>
 #include <vulkan/vulkan.h>
 

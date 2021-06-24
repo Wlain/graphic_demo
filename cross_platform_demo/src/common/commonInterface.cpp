@@ -39,7 +39,10 @@ void CommonInterface::initWithProperty(const std::tuple<std::string, std::string
     m_window = glfwCreateWindow(640, 480, std::get<0>(property).data(), nullptr, nullptr);
     glfwSetKeyCallback(m_window, keyCallback);
     glfwMakeContextCurrent(m_window);
-    gladLoadGL(glfwGetProcAddress);
+    if (glewInit() != GLEW_OK)
+    {
+        exit(EXIT_FAILURE);
+    }
     glfwSwapInterval(1);
     // init program
     m_program = std::make_unique<graphicEngine::Program>(m_externPath + std::get<1>(property).data(), m_externPath + std::get<2>(property).data());

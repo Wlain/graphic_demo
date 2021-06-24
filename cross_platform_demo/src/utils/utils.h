@@ -5,8 +5,7 @@
 #ifndef CROSS_PLATFORM_DEMO_UTILS_H
 #define CROSS_PLATFORM_DEMO_UTILS_H
 
-#include <glfw/deps/glad/gl.h>
-#include <string>
+#include "base.h"
 
 namespace graphicEngine::gl
 {

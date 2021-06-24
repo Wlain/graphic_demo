@@ -2,14 +2,14 @@
 // Created by william on 2020/11/14.
 //
 
-#include "point.h"
+#include "triangle.h"
 
 using namespace graphicEngine::gl;
 
 int main()
 {
-    Point point;
-    point.initialize();
-    point.draw();
+    Triangle triangle;
+    triangle.initialize();
+    triangle.draw();
     return 0;
 }
