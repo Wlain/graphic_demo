@@ -1,19 +1,18 @@
-//
-// Created by william on 2021/6/23.
-//
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <string>
 
-#ifndef CROSS_PLATFORM_DEMO_UTILS_H
-#define CROSS_PLATFORM_DEMO_UTILS_H
-
-#include "base.h"
-
-namespace graphicEngine::gl
-{
 class Utils
 {
+private:
+    static std::string readShaderFile(const char* filePath);
+    static void printShaderLog(GLuint shader);
+    static void printProgramLog(int prog);
+    static GLuint prepareShader(int shaderTYPE, const char* shaderPath);
+    static int finalizeShaderProgram(GLuint sprogram);
+
 public:
     Utils();
-    static std::string readShaderFile(const char* filePath);
     static bool checkOpenGLError();
     static GLuint createShaderProgram(const char* vp, const char* fp);
     static GLuint createShaderProgram(const char* vp, const char* gp, const char* fp);
@@ -36,13 +35,4 @@ public:
     static float* bronzeDiffuse();
     static float* bronzeSpecular();
     static float bronzeShininess();
-
-private:
-    static void printShaderLog(GLuint shader);
-    static void printProgramLog(int program);
-    static GLuint prepareShader(int shaderType, const char* shaderPath);
-    static int finalizeShaderProgram(GLuint sProgram);
 };
-} // namespace graphicEngine::gl
-
-#endif //CROSS_PLATFORM_DEMO_UTILS_H

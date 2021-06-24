@@ -8,9 +8,7 @@ using namespace graphicEngine;
 
 namespace graphicEngine::gl
 {
-Triangle::~Triangle()
-{
-}
+Triangle::~Triangle() = default;
 
 void Triangle::initialize()
 {
@@ -41,20 +39,14 @@ void Triangle::resize(int width, int height)
     glViewport(0.0f, 0.0f, width, height);
 }
 
-void Triangle::draw()
+void Triangle::display()
 {
-    while (!glfwWindowShouldClose(m_window))
-    {
-        CommonInterface::draw();
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-        glUseProgram(m_program->getProgram());
-        glUniformMatrix4fv(glGetUniformLocation(m_program->getProgram(), "MVP"), 1, GL_FALSE, (const GLfloat*)&m_mvpMatrix);
-        glBindVertexArray(m_vao);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        glfwSwapBuffers(m_window);
-        glfwPollEvents();
-    }
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glUseProgram(m_program->getProgram());
+    glUniformMatrix4fv(glGetUniformLocation(m_program->getProgram(), "MVP"), 1, GL_FALSE, (const GLfloat*)&m_mvpMatrix);
+    glBindVertexArray(m_vao);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
 } // namespace graphicEngine::gl

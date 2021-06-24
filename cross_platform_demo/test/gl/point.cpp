@@ -5,9 +5,7 @@
 #include "point.h"
 namespace graphicEngine::gl
 {
-Point::~Point()
-{
-}
+Point::~Point() = default;
 
 void Point::initialize()
 {
@@ -26,20 +24,14 @@ void Point::resize(int width, int height)
     CommonInterface::resize(width, height);
 }
 
-void Point::draw()
+void Point::display()
 {
-    CommonInterface::draw();
-    while (!glfwWindowShouldClose(m_window))
-    {
-        glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-        glUseProgram(m_program->getProgram());
-        glBindVertexArray(m_vao);
-        glPointSize(30.0f);
-        glDrawArrays(GL_POINTS, 0, 1);
-        glfwSwapBuffers(m_window);
-        glfwPollEvents();
-    }
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+    glUseProgram(m_program->getProgram());
+    glBindVertexArray(m_vao);
+    glPointSize(30.0f);
+    glDrawArrays(GL_POINTS, 0, 1);
 }
 
-}
+} // namespace graphicEngine::gl

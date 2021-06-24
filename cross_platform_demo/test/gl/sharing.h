@@ -12,7 +12,7 @@ namespace graphicEngine::gl
 class Sharing : public CommonInterface
 {
 public:
-    using CommonInterface = CommonInterface;
+    using CommonInterface::CommonInterface;
     ~Sharing() override;
 
 public:

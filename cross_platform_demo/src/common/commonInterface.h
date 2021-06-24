@@ -5,7 +5,7 @@
 #ifndef CROSS_PLATFORM_DEMO_COMMONINTERFACE_H
 #define CROSS_PLATFORM_DEMO_COMMONINTERFACE_H
 
-#include "../utils/base.h"
+#include "base.h"
 #include "program.h"
 
 namespace graphicEngine
@@ -20,12 +20,14 @@ public:
     virtual void initialize() = 0;
     virtual void update(float elapseTime);
     virtual void resize(int width, int height);
+    virtual void display();
     virtual void draw();
     static void errorCallback(int error, const char* description);
     static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 protected:
-    void initWithProperty(const std::tuple<std::string, std::string, std::string>& property);
+    void initWithProperty(const std::tuple<const char*, std::string, std::string>& property);
+    void initWithProperty(const char* title);
 
 protected:
     GLFWwindow* m_window = nullptr;

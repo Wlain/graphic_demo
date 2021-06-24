@@ -6,10 +6,7 @@
 
 namespace graphicEngine::gl
 {
-Background::~Background()
-{
-
-}
+Background::~Background() = default;
 
 void Background::initialize()
 {
@@ -26,16 +23,9 @@ void Background::resize(int width, int height)
     CommonInterface::resize(width, height);
 }
 
-void Background::draw()
+void Background::display()
 {
-    CommonInterface::draw();
-    while (!glfwWindowShouldClose(m_window))
-    {
-        glClearColor(1.0, 0.0, 0.0, 1.0);
-        glClear(GL_COLOR_BUFFER_BIT);
-        glfwSwapBuffers(m_window);
-        glfwPollEvents();
-    }
+    glClearColor(1.0, 0.0, 0.0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT);
 }
-
 } // namespace graphicEngine::gl

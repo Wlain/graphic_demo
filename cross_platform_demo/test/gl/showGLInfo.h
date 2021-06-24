@@ -1,22 +1,18 @@
 //
-// Created by william on 2021/6/23.
+// Created by william on 2021/6/24.
 //
-//    demo:
-//    Point point;
-//    point.initialize();
-//    point.draw();
 
-#ifndef CROSS_PLATFORM_DEMO_POINT_H
-#define CROSS_PLATFORM_DEMO_POINT_H
+#ifndef CROSS_PLATFORM_DEMO_SHOWGLINFO_H
+#define CROSS_PLATFORM_DEMO_SHOWGLINFO_H
 #include "commonInterface.h"
 
 namespace graphicEngine::gl
 {
-class Point : public CommonInterface
+class ShowGLInfo : public CommonInterface
 {
 public:
     using CommonInterface::CommonInterface;
-    ~Point() override;
+    ~ShowGLInfo() override;
 
 public:
     void initialize() override;
@@ -26,4 +22,4 @@ public:
 };
 } // namespace graphicEngine::gl
 
-#endif //CROSS_PLATFORM_DEMO_POINT_H
+#endif //CROSS_PLATFORM_DEMO_SHOWGLINFO_H

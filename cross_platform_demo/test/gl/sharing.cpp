@@ -18,10 +18,7 @@ auto randomTest()
 
 namespace graphicEngine::gl
 {
-
-Sharing::~Sharing()
-{
-}
+Sharing::~Sharing() = default;
 
 void Sharing::initialize()
 {
@@ -54,7 +51,7 @@ void Sharing::initialize()
         glBufferData(GL_ARRAY_BUFFER, sizeof(m_vertices), m_vertices, GL_STATIC_DRAW);
     }
     glUseProgram(m_program->getProgram());
-    glUniform1i(glGetUniformLocation(m_program->getProgram(), "texture"), 0);
+    glUniform1i(glGetUniformLocation(m_program->getProgram(), "inputTexture"), 0);
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, m_texture);
 //    glGenVertexArrays(1, &m_vao);

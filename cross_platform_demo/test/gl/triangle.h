@@ -9,7 +9,7 @@
 
 namespace graphicEngine::gl
 {
-class Triangle : CommonInterface
+class Triangle : public CommonInterface
 {
 public:
     typedef struct Vertex
@@ -26,7 +26,7 @@ public:
     void initialize() override;
     void update(float elapseTime) override;
     void resize(int width, int height) override;
-    void draw() override;
+    void display() override;
 
 private:
     Vertex m_vertices[3] = {
