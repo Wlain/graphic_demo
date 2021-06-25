@@ -8,13 +8,14 @@
 #include "triangle.h"
 #include "animation.h"
 #include "sharing.h"
+#include "cube.h"
 
 
 using namespace graphicEngine::gl;
 
 int main()
 {
-    Animation obj;
+    Cube obj;
     obj.initialize();
     obj.draw();
     return 0;

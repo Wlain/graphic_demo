@@ -13,6 +13,8 @@
 #include <functional>
 #include <glm/glm.hpp>
 #include <glm/mat4x4.hpp>
+#include <glm/gtc/type_ptr.hpp> // glm::value_ptr
+#include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 #include <memory>
 #include <sstream>
