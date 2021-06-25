@@ -1,31 +1,13 @@
 #version 410
 
-layout (location=0) in vec4 vertPos;
-layout (location=1) in vec4 vertNormal;
+layout (location=0) in vec3 position;
 
-out vec3 varyingNormal;
-
-struct PositionalLight
-{	vec4 ambient;
-	vec4 diffuse;
-	vec4 specular;
-	vec3 position;
-};
-struct Material
-{	vec4 ambient;  
-	vec4 diffuse;  
-	vec4 specular;  
-	float shininess;
-};
-
-uniform vec4 globalAmbient;
-uniform PositionalLight light;
-uniform Material material;
 uniform mat4 mv_matrix;
 uniform mat4 proj_matrix;
-uniform mat4 norm_matrix;
+
+out vec4 varyingColor;
 
 void main(void)
-{	varyingNormal = (norm_matrix * vertNormal).xyz;
-	gl_Position = mv_matrix * vertPos;
+{	gl_Position = proj_matrix * mv_matrix * vec4(position,1.0);
+	varyingColor = vec4(position,1.0)*0.5 + vec4(0.5, 0.5, 0.5, 0.5);
 }

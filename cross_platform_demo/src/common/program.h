@@ -5,7 +5,7 @@
 #ifndef CROSS_PLATFORM_DEMO_PROGRAM_H
 #define CROSS_PLATFORM_DEMO_PROGRAM_H
 
-#include "../utils/base.h"
+#include "base.h"
 
 namespace graphicEngine
 {

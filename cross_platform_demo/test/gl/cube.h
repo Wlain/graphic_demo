@@ -34,9 +34,12 @@ private:
         -1.0f,  1.0f, -1.0f, 1.0f,  1.0f, -1.0f, 1.0f,  1.0f,  1.0f,
         1.0f,  1.0f,  1.0f, -1.0f,  1.0f,  1.0f, -1.0f,  1.0f, -1.0f
     };
-    glm::vec3 m_camera{0.0f, 0.0f, 8.0f};
+    glm::vec3 m_camera{0.0f, 0.0f, 30.0f};
     glm::vec3 m_target{0.0f, -2.0f, 0.0f};
-    glm::mat4 m_pMat, m_vMat, m_mMat, m_mvMat;
+    glm::mat4 m_pMat, m_vMat, m_mMat, m_mvMat, m_tMat, m_rMat;
+    int m_displayLoopi = 0;
+    float m_currentTime;
+    float m_tf = 0.0f;
 };
 } // namespace graphicEngine::gl
 

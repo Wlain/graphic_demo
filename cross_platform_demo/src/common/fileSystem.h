@@ -4,7 +4,7 @@
 
 #ifndef CROSS_PLATFORM_DEMO_FILESYSTEM_H
 #define CROSS_PLATFORM_DEMO_FILESYSTEM_H
-#include "../utils/base.h"
+#include "base.h"
 
 namespace graphicEngine
 {
