@@ -5,6 +5,7 @@
 #ifndef C___BASE_H
 #define C___BASE_H
 
+// clang-format off
 #include <cassert>
 #include <cstddef>
 #include <cstdio>
@@ -28,6 +29,7 @@
 #include <GLFW/glfw3.h>
 #include <vulkan/vulkan.h>
 
+// clang-format on
 /// assert macros
 #define RAS_ASSERT(expression) assert(expression)
 
