@@ -9,7 +9,7 @@ Cube::~Cube() = default;
 
 void Cube::initialize()
 {
-    initWithProperty(std::make_tuple("cube", "cube.vert", "cube.frag"));
+    initWithProperty(m_property);
     glGenVertexArrays(1, &m_vao);
     glBindVertexArray(m_vao);
     glGenBuffers(1, &m_vbo);
@@ -55,4 +55,5 @@ void Cube::display()
         glDrawArrays(GL_TRIANGLES, 0, 36);
     }
 }
+
 } // namespace graphicEngine::gl

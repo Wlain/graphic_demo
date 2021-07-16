@@ -9,13 +9,14 @@
 #include "animation.h"
 #include "sharing.h"
 #include "cube.h"
+#include "instancing.h"
 
 
 using namespace graphicEngine::gl;
 
 int main()
 {
-    Cube obj;
+    Instancing obj;
     obj.initialize();
     obj.draw();
     return 0;
