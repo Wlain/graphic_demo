@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.17)
 project(cross_platform_demo)
 
-set(USE_VULKAN OFF)
-set(USE_OPENGL ON)
+set(USE_VULKAN ON)
+set(USE_OPENGL OFF)
 set(USE_METAL OFF)
 set(USE_OPENCV OFF)
 

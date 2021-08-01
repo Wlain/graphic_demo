@@ -22,7 +22,12 @@
     <generated>
       <config projectName="cross_platform_demo" targetName="cross_platform_demo" />
       <config projectName="cross_platform_demo" targetName="uninstall" />
+      <config projectName="cross_platform_demo" targetName="glm_dummy" />
+      <config projectName="cross_platform_demo" targetName="glew" />
+      <config projectName="cross_platform_demo" targetName="glewinfo" />
       <config projectName="cross_platform_demo" targetName="glfw" />
+      <config projectName="cross_platform_demo" targetName="visualinfo" />
+      <config projectName="cross_platform_demo" targetName="glew_s" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -32,18 +37,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33453206-28e3-4bdf-8e43-241142cfcff6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/test/gl/background.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/gl/background.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_gl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_gl.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_vk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_vk.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/commonInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/commonInterface.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/commonInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/commonInterface.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/gl/sharing.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/gl/sharing.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/gl/sharing.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/gl/sharing.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/gl/triangle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/test/gl/triangle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/gl/triangle.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/gl/triangle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/base.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/base.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/vk/triangle.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/vk/triangle.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,7 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/utils" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -178,6 +176,9 @@
       <workItem from="1624263376073" duration="752000" />
       <workItem from="1624264603094" duration="2495000" />
       <workItem from="1624421746731" duration="3762000" />
+      <workItem from="1626482183031" duration="7580000" />
+      <workItem from="1626581821691" duration="588000" />
+      <workItem from="1627809483733" duration="402000" />
     </task>
     <servers />
   </component>
@@ -203,11 +204,6 @@
           <url>file://$PROJECT_DIR$/include/common/shaderUtil.h</url>
           <line>32</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main_gl.cpp</url>
-          <line>12</line>
-          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/common/program.cpp</url>

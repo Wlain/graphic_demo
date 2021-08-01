@@ -14,8 +14,8 @@ std::vector<const char*> layerNames = {
 
 int main()
 {
-    //    TriangleVk triangle;
-    //    triangle.run();
+    TriangleVk triangle;
+    triangle.run();
     VulkanApplications applications;
     applications.initialize();
     return 0;

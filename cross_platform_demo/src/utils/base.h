@@ -59,4 +59,25 @@
         Logger::log(Logger::Level::Warn, __VA_ARGS__); \
     } while (0)
 
+#define COMMON_CREATE_FUNC(cls, funcName)      \
+    static inline cls* create()                \
+    {                                          \
+        auto* instance = new cls();             \
+        if (!instance->funcName())             \
+        {                                      \
+            delete instance;                   \
+            instance = nullptr;                \
+            printf("create %s failed!", #cls); \
+        }                                      \
+        return instance;                       \
+    }
+
+
+#define ARRAY_LEN(x) (sizeof(x) / sizeof(*x))
+
+#define CGE_ENUM_ALIAS(name, member) \
+    constexpr auto name##_##member = name::member
+
+
+
 #endif // C___BASE_H
