@@ -19,6 +19,7 @@ find_package(OpenCV)
 list(APPEND EXTERNAL_DIR
         ${EXTERNAL_DIR}/SOIL2
         ${EXTERNAL_DIR}/egl
+        ${EXTERNAL_DIR}/glew/include
         ${EXTERNAL_DIR}/glm
         ${VK_SDK_DIR}
         ${VK_SDK_DIR}/include
