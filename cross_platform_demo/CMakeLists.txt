@@ -19,6 +19,7 @@ find_package(OpenCV)
 list(APPEND EXTERNAL_DIR
         ${EXTERNAL_DIR}/SOIL2
         ${EXTERNAL_DIR}/egl
+        ${EXTERNAL_DIR}/glm
         ${VK_SDK_DIR}
         ${VK_SDK_DIR}/include
         ${OpenCV_INCLUDE_DIRS}
@@ -58,6 +59,7 @@ file(GLOB_RECURSE SOURCES
         )
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glfw)
+message(cwb + ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glm/glm)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glm/glm)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glew/build/cmake)
 
