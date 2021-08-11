@@ -62,7 +62,7 @@
 #define COMMON_CREATE_FUNC(cls, funcName)      \
     static inline cls* create()                \
     {                                          \
-        auto* instance = new cls();             \
+        auto* instance = new cls();            \
         if (!instance->funcName())             \
         {                                      \
             delete instance;                   \
@@ -72,12 +72,20 @@
         return instance;                       \
     }
 
+/// VK_CHECK macros
+#define VK_CHECK(expression)                                                              \
+    do                                                                                    \
+    {                                                                                     \
+        VkResult error = expression;                                                      \
+        if (error)                                                                        \
+        {                                                                                 \
+            RAS_ERROR("VkResult: (%d) :{}: Vulkan Assertion Failed", error, #expression); \
+        }                                                                                 \
+    } while (0)
 
 #define ARRAY_LEN(x) (sizeof(x) / sizeof(*x))
 
 #define CGE_ENUM_ALIAS(name, member) \
     constexpr auto name##_##member = name::member
-
-
-
+#include "logger.h"
 #endif // C___BASE_H

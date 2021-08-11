@@ -14,7 +14,6 @@ VulkanApplications::~VulkanApplications() = default;
 
 VkResult VulkanApplications::createVulkanInstance(std::vector<const char*>& layers, std::vector<const char*>& extensions, const char* applicationName)
 {
-    m_instanceObj.createInstance(layers, extensions, applicationName);
     return VK_SUCCESS;
 }
 

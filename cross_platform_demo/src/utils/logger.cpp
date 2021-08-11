@@ -43,4 +43,5 @@ void Logger::log(Logger::Level level, const char* message, ...)
         printf("%s, [Logger::Level::Error] : %s", timeBuf, str);
         break;
     }
+    printf("\n");
 }

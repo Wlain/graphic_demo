@@ -1,22 +1,12 @@
-#include "base.h"
-#include "logger.h"
-#include "triangleVk.h"
-#include "vulkanApplications.h"
-
-std::vector<const char*> instanceExtensionNames = {
-    VK_KHR_SURFACE_EXTENSION_NAME,
-    VK_EXT_DEBUG_REPORT_EXTENSION_NAME
-};
-
-std::vector<const char*> layerNames = {
-    "VK_LAYER_LUNARG_api_dump"
-};
-
+#include "instanceObject.h"
+#include "deviceObject.h"
 int main()
 {
-    TriangleVk triangle;
-    triangle.run();
-    VulkanApplications applications;
-    applications.initialize();
+//    TriangleVk triangle;
+//    triangle.run();
+//    triangle.cleanup();
+    auto instance = std::make_shared<InstanceObject>();
+    auto device = std::make_shared<DeviceObject>(instance);
+
     return 0;
 }

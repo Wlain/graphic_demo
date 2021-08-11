@@ -1,9 +1,8 @@
 //
-// Created by william on 2021/5/18.
+// Created by william on 2021/6/19.
 //
 
-#include "triangleVk.h"
-
+#include "instanceObject.h"
 /**
  * @brief 调试回调
  * @param messageSeverity 警告等级
@@ -31,7 +30,7 @@ static VKAPI_ATTR VkBool32 VKAPI_CALL
  * @param pDebugMessenger
  * @return
  */
-VkResult CreateDebugUtilsMessengerEXT(VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo,
+VkResult createDebugUtilsMessengerEXT(VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo,
                                       const VkAllocationCallbacks* pAllocator,
                                       VkDebugUtilsMessengerEXT* pDebugMessenger)
 {
@@ -52,7 +51,7 @@ VkResult CreateDebugUtilsMessengerEXT(VkInstance instance, const VkDebugUtilsMes
  * @param debugMessenger
  * @param pAllocator
  */
-void DestroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT debugMessenger,
+void destroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT debugMessenger,
                                    const VkAllocationCallbacks* pAllocator)
 {
     auto func = (PFN_vkDestroyDebugUtilsMessengerEXT)vkGetInstanceProcAddr(instance,
@@ -63,74 +62,19 @@ void DestroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT
     }
 }
 
-/**
- * @brief 运行
- */
-void TriangleVk::run()
-{
-    initWindow();
-    initVulkan();
-    mainLoop();
-    cleanup();
-}
-
-/**
- * @brief 初始化窗口
- */
-void TriangleVk::initWindow()
-{
-    if (glfwInit() == GLFW_FALSE)
-    {
-        RAS_ERROR("glfw init failed!");
-    }
-    glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-    m_window = glfwCreateWindow(WIDTH, HEIGHT, "Vulkan", VK_NULL_HANDLE, VK_NULL_HANDLE);
-}
-
-/**
- * 初始化vulkan
- */
-void TriangleVk::initVulkan()
-{
-    createInstance();
-    setupDebugMessenger();
-}
-
-/**
- * @brief 主循环
- */
-void TriangleVk::mainLoop()
-{
-    while (!glfwWindowShouldClose(m_window))
-    {
-        glfwPollEvents();
-    }
-}
-
-/**
- * 清空对象
- */
-void TriangleVk::cleanup()
-{
-    if (ENABLE_VALIDATION_LAYERS)
-    {
-        DestroyDebugUtilsMessengerEXT(m_instance, m_debugMessenger, VK_NULL_HANDLE);
-    }
-    vkDestroyInstance(m_instance, VK_NULL_HANDLE);
-    glfwDestroyWindow(m_window);
-    glfwTerminate();
-}
-
-/**
- *
- */
-void TriangleVk::createInstance()
+InstanceObject::InstanceObject()
 {
     if (ENABLE_VALIDATION_LAYERS && !checkValidationLayerSupport())
     {
         throw std::runtime_error("validation layers requested, but not available!");
     }
+    if (ENABLE_VALIDATION_LAYERS)
+    {
+        m_enabledExtensions.emplace_back("VK_LAYER_KHRONOS_validation");
+        //        m_enabledExtensions.emplace_back(VK_KHR_SURFACE_EXTENSION_NAME);
+        //        m_enabledExtensions.emplace_back(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
+    }
+    // 定义vulkan应用程序的结构体
     VkApplicationInfo appInfo{};
     appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
     appInfo.pApplicationName = "triangle";
@@ -138,6 +82,7 @@ void TriangleVk::createInstance()
     appInfo.pEngineName = "No Engine";
     appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
     appInfo.apiVersion = VK_API_VERSION_1_0;
+    // 定义vulkan实例创建的参数结构体
     VkInstanceCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
     createInfo.pNext = VK_NULL_HANDLE;
@@ -148,8 +93,8 @@ void TriangleVk::createInstance()
     VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo;
     if (ENABLE_VALIDATION_LAYERS)
     {
-        createInfo.enabledLayerCount = static_cast<uint32_t>(m_validationLayers.size());
-        createInfo.ppEnabledLayerNames = reinterpret_cast<const char* const*>(m_validationLayers.data());
+        createInfo.enabledLayerCount = static_cast<uint32_t>(m_enabledExtensions.size());
+        createInfo.ppEnabledLayerNames = reinterpret_cast<const char* const*>(m_enabledExtensions.data());
         populateDebugMessengerCreateInfo(debugCreateInfo);
         createInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
     }
@@ -158,13 +103,37 @@ void TriangleVk::createInstance()
         createInfo.enabledLayerCount = 0;
         createInfo.pNext = VK_NULL_HANDLE;
     }
-    if (vkCreateInstance(&createInfo, m_allocator, &m_instance) != VK_SUCCESS)
+    if (vkCreateInstance(&createInfo, m_allocator, &m_handle) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to create instance!");
     }
+    setupDebugMessenger();
 }
 
-bool TriangleVk::checkValidationLayerSupport()
+InstanceObject::~InstanceObject()
+{
+    if (ENABLE_VALIDATION_LAYERS)
+    {
+        destroyDebugUtilsMessengerEXT(m_handle, m_debugUtilsMessenger, VK_NULL_HANDLE);
+    }
+    vkDestroyInstance(m_handle, VK_NULL_HANDLE);
+    glfwDestroyWindow(m_window);
+    glfwTerminate();
+}
+
+std::vector<const char*> InstanceObject::getRequiredExtensions()
+{
+    uint32_t glfwExtensionCount = 0;
+    const char** glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
+    std::vector<const char*> extensions(glfwExtensions, glfwExtensions + glfwExtensionCount);
+    if (ENABLE_VALIDATION_LAYERS)
+    {
+        extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+    }
+    return extensions;
+}
+
+bool InstanceObject::checkValidationLayerSupport()
 {
     uint32_t extensionCount = 0;
     vkEnumerateInstanceLayerProperties(&extensionCount, VK_NULL_HANDLE);
@@ -175,7 +144,7 @@ bool TriangleVk::checkValidationLayerSupport()
     {
         RAS_INFO(layer.layerName);
     }
-    for (const auto& layerName : m_validationLayers)
+    for (const auto& layerName : m_enabledExtensions)
     {
         bool isFound = std::any_of(availableLayers.begin(), availableLayers.end(),
                                    [&](VkLayerProperties layerProperties) {
@@ -189,19 +158,7 @@ bool TriangleVk::checkValidationLayerSupport()
     return true;
 }
 
-std::vector<const char*> TriangleVk::getRequiredExtensions()
-{
-    uint32_t glfwExtensionCount = 0;
-    const char** glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
-    std::vector<const char*> extensions(glfwExtensions, glfwExtensions + glfwExtensionCount);
-    if (ENABLE_VALIDATION_LAYERS)
-    {
-        extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
-    }
-    return extensions;
-}
-
-void TriangleVk::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo)
+void InstanceObject::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo)
 {
     createInfo = {};
     createInfo.sType = VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT;
@@ -220,7 +177,7 @@ void TriangleVk::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInf
     createInfo.pUserData = VK_NULL_HANDLE;
 }
 
-void TriangleVk::setupDebugMessenger()
+void InstanceObject::setupDebugMessenger()
 {
     if (!ENABLE_VALIDATION_LAYERS)
     {
@@ -229,7 +186,7 @@ void TriangleVk::setupDebugMessenger()
     VkDebugUtilsMessengerCreateInfoEXT createInfo;
     populateDebugMessengerCreateInfo(createInfo);
 
-    if (CreateDebugUtilsMessengerEXT(m_instance, &createInfo, VK_NULL_HANDLE, &m_debugMessenger) != VK_SUCCESS)
+    if (createDebugUtilsMessengerEXT(m_handle, &createInfo, VK_NULL_HANDLE, &m_debugUtilsMessenger) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to set up debug messenger!");
     }

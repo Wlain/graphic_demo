@@ -5,14 +5,13 @@
 #ifndef CROSS_PLATFORM_DEMO_TRIANGLE_VK_H
 #define CROSS_PLATFORM_DEMO_TRIANGLE_VK_H
 #include "base.h"
+#include "vulkan/vulkan_core.h"
 #define ENABLE_VALIDATION_LAYERS 1
 
 class TriangleVk
 {
 public:
     void run();
-
-private:
     void createInstance();
     void initWindow();
     void initVulkan();
@@ -26,9 +25,10 @@ private:
     void setupDebugMessenger();
 
 private:
-    GLFWwindow* m_window = nullptr;
-    VkInstance m_instance{};
-    VkDebugUtilsMessengerEXT m_debugMessenger{};
+    GLFWwindow* m_window = VK_NULL_HANDLE;
+    VkInstance m_instance = VK_NULL_HANDLE;
+    VkAllocationCallbacks* m_allocator = VK_NULL_HANDLE;
+    VkDebugUtilsMessengerEXT m_debugMessenger = VK_NULL_HANDLE;
     std::vector<const char*> m_validationLayers = {
         "VK_LAYER_KHRONOS_validation"
     };

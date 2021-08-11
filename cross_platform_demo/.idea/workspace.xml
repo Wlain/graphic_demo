@@ -37,16 +37,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33453206-28e3-4bdf-8e43-241142cfcff6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/core/vk/deviceObject.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/vk/deviceObject.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/vk/instanceObject.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/vk/instanceObject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_vk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_vk.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_gl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/gl/context_gl.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_gl.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/gl/context_gl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_mtl.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/mtl/context_mtl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_mtl.mm" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/mtl/context_mtl.mm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_vk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/context_vk.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_vk.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/context_vk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/triangleVk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/triangleVk.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/triangleVk.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/triangleVk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanApplications.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/vulkanApplications.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanApplications.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/vulkanApplications.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanDevice.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanDevice.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanInstance.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanInstance.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/base.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/base.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/logger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/logger.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ClangdSettings">
-    <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
@@ -78,7 +97,7 @@
     <property name="cmake.loaded.for.project" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/utils" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -86,17 +105,17 @@
       <recent name="$PROJECT_DIR$/3rdparty" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/core/vk" />
+      <recent name="$PROJECT_DIR$/src/core/mtl" />
+      <recent name="$PROJECT_DIR$/src/core/gl" />
       <recent name="$PROJECT_DIR$/src/test" />
       <recent name="$PROJECT_DIR$/src/utils" />
-      <recent name="$PROJECT_DIR$/src/core" />
-      <recent name="$PROJECT_DIR$/src/common" />
-      <recent name="$PROJECT_DIR$/include" />
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.cross_platform_demo">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="cross_platform_demo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="cross_platform_demo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="cross_platform_demo">
@@ -184,7 +203,8 @@
       <workItem from="1626482183031" duration="7580000" />
       <workItem from="1626581821691" duration="588000" />
       <workItem from="1627809483733" duration="402000" />
-      <workItem from="1628607221877" duration="917000" />
+      <workItem from="1628607221877" duration="2343000" />
+      <workItem from="1628609606318" duration="16391000" />
     </task>
     <servers />
   </component>
@@ -223,5 +243,9 @@
         <watch expression="vertexCode" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
