@@ -62,6 +62,31 @@ void destroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT
     }
 }
 
+static VkBool32 demo_check_layers(uint32_t check_count, const char** check_names,
+                                  uint32_t layer_count,
+                                  VkLayerProperties* layers)
+{
+    uint32_t i, j;
+    for (i = 0; i < check_count; i++)
+    {
+        VkBool32 found = 0;
+        for (j = 0; j < layer_count; j++)
+        {
+            if (!strcmp(check_names[i], layers[j].layerName))
+            {
+                found = 1;
+                break;
+            }
+        }
+        if (!found)
+        {
+            fprintf(stderr, "Cannot find layer: %s\n", check_names[i]);
+            return 0;
+        }
+    }
+    return 1;
+}
+
 InstanceObject::InstanceObject()
 {
     if (ENABLE_VALIDATION_LAYERS && !checkValidationLayerSupport())
@@ -70,9 +95,10 @@ InstanceObject::InstanceObject()
     }
     if (ENABLE_VALIDATION_LAYERS)
     {
-        m_enabledExtensions.emplace_back("VK_LAYER_KHRONOS_validation");
-        //        m_enabledExtensions.emplace_back(VK_KHR_SURFACE_EXTENSION_NAME);
-        //        m_enabledExtensions.emplace_back(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
+                m_enabledExtensions.emplace_back("VK_LAYER_KHRONOS_validation");
+//                m_enabledExtensions.emplace_back(VK_EXT_DEBUG_REPORT_EXTENSION_NAME);
+//                m_enabledExtensions.emplace_back(VK_KHR_SURFACE_EXTENSION_NAME);
+//                m_enabledExtensions.emplace_back(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
     }
     // 定义vulkan应用程序的结构体
     VkApplicationInfo appInfo{};
@@ -83,31 +109,34 @@ InstanceObject::InstanceObject()
     appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
     appInfo.apiVersion = VK_API_VERSION_1_0;
     // 定义vulkan实例创建的参数结构体
-    VkInstanceCreateInfo createInfo{};
-    createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-    createInfo.pNext = VK_NULL_HANDLE;
-    createInfo.pApplicationInfo = &appInfo;
+    VkInstanceCreateInfo instanceInfo{};
+    instanceInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+    instanceInfo.pNext = VK_NULL_HANDLE;
+    instanceInfo.pApplicationInfo = &appInfo;
     auto extensions = getRequiredExtensions();
-    createInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size());
-    createInfo.ppEnabledExtensionNames = extensions.data();
+//    m_enabledExtensions = extensions;
+    instanceInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size());
+    instanceInfo.ppEnabledExtensionNames = extensions.data();
+    //    instanceInfo.enabledLayerCount = static_cast<uint32_t>(m_enabledExtensions.size());
+    //    instanceInfo.ppEnabledLayerNames = reinterpret_cast<const char* const*>(m_enabledExtensions.data());
     VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo;
     if (ENABLE_VALIDATION_LAYERS)
     {
-        createInfo.enabledLayerCount = static_cast<uint32_t>(m_enabledExtensions.size());
-        createInfo.ppEnabledLayerNames = reinterpret_cast<const char* const*>(m_enabledExtensions.data());
+        instanceInfo.enabledLayerCount = static_cast<uint32_t>(m_validationLayers.size());
+        instanceInfo.ppEnabledLayerNames = reinterpret_cast<const char* const*>(m_validationLayers.data());
         populateDebugMessengerCreateInfo(debugCreateInfo);
-        createInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
+        instanceInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
     }
     else
     {
-        createInfo.enabledLayerCount = 0;
-        createInfo.pNext = VK_NULL_HANDLE;
+        instanceInfo.enabledLayerCount = 0;
+        instanceInfo.pNext = VK_NULL_HANDLE;
     }
-    if (vkCreateInstance(&createInfo, m_allocator, &m_handle) != VK_SUCCESS)
+    if (vkCreateInstance(&instanceInfo, m_allocator, &m_handle) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to create instance!");
     }
-    setupDebugMessenger();
+    //    setupDebugMessenger();
 }
 
 InstanceObject::~InstanceObject()
@@ -137,23 +166,20 @@ bool InstanceObject::checkValidationLayerSupport()
 {
     uint32_t extensionCount = 0;
     vkEnumerateInstanceLayerProperties(&extensionCount, VK_NULL_HANDLE);
-    RAS_INFO("extensionCount:%d\n", extensionCount);
+    RAS_INFO("extensionCount:%d", extensionCount);
     std::vector<VkLayerProperties> availableLayers(extensionCount);
     vkEnumerateInstanceLayerProperties(&extensionCount, availableLayers.data());
     for (auto& layer : availableLayers)
     {
         RAS_INFO(layer.layerName);
     }
-    for (const auto& layerName : m_enabledExtensions)
+    for (const auto& layerName : m_validationLayers)
     {
         bool isFound = std::any_of(availableLayers.begin(), availableLayers.end(),
                                    [&](VkLayerProperties layerProperties) {
                                        return std::string_view(layerName) == layerProperties.layerName;
                                    });
-        if (!isFound)
-        {
-            return false;
-        }
+        if (!isFound) { return false; }
     }
     return true;
 }

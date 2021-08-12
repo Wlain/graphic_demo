@@ -83,7 +83,7 @@
         }                                                                                 \
     } while (0)
 
-#define ARRAY_LEN(x) (sizeof(x) / sizeof(*x))
+#define ARRAY_SIZE(x) (sizeof(x) / sizeof(*x))
 
 #define CGE_ENUM_ALIAS(name, member) \
     constexpr auto name##_##member = name::member

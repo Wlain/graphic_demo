@@ -37,30 +37,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33453206-28e3-4bdf-8e43-241142cfcff6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/core/vk/deviceObject.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/vk/deviceObject.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/vk/instanceObject.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/vk/instanceObject.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_vk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_vk.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/context_gl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/gl/context_gl.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/context_gl.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/gl/context_gl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/context_mtl.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/mtl/context_mtl.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/context_mtl.mm" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/mtl/context_mtl.mm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/context_vk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/context_vk.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/context_vk.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/context_vk.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/triangleVk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/triangleVk.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/triangleVk.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/triangleVk.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/vulkanApplications.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/vulkanApplications.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/vulkanApplications.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/vulkanApplications.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/vulkanDevice.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/vulkanDevice.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/vulkanInstance.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/vulkanInstance.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/vk/deviceObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/physicalDeviceObject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/vk/deviceObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/physicalDeviceObject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/vk/instanceObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/instanceObject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/vk/instanceObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/instanceObject.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/base.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/base.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/logger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/logger.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +105,11 @@
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="cross_platform_demo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="cross_platform_demo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="cross_platform_demo">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -156,11 +148,6 @@
     <configuration name="visualinfo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="visualinfo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="visualinfo">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -204,7 +191,9 @@
       <workItem from="1626581821691" duration="588000" />
       <workItem from="1627809483733" duration="402000" />
       <workItem from="1628607221877" duration="2343000" />
-      <workItem from="1628609606318" duration="16391000" />
+      <workItem from="1628609606318" duration="18375000" />
+      <workItem from="1628683791727" duration="1070000" />
+      <workItem from="1628732414867" duration="14840000" />
     </task>
     <servers />
   </component>
@@ -241,6 +230,8 @@
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="vertexCode" />
+        <watch expression="m_physicalDevice-&gt;instance()-&gt;allocator()" language="ObjectiveC" />
+        <watch expression="deviceInfo" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>

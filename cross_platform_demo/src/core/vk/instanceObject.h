@@ -20,10 +20,10 @@ public:
     /// 不可赋值
     InstanceObject& operator=(const InstanceObject&) = delete;
     InstanceObject& operator=(InstanceObject&&) = delete;
-    inline VkInstance handle()
-    {
-        return m_handle;
-    }
+    inline VkInstance handle() { return m_handle; }
+    inline const VkAllocationCallbacks* allocator() { return m_allocator; }
+    inline std::vector<const char*>& enabledExtensions() { return m_enabledExtensions; };
+    inline std::vector<const char*>& validationLayers() { return m_validationLayers; };
 
 private:
     bool checkValidationLayerSupport();
@@ -38,6 +38,8 @@ public:
     VkInstance m_handle = VK_NULL_HANDLE;
     /// 可用扩展
     std::vector<const char*> m_enabledExtensions;
+    /// 验证层
+    std::vector<const char*> m_validationLayers;
     /// debug调试信息
     VkDebugUtilsMessengerEXT m_debugUtilsMessenger = VK_NULL_HANDLE;
     /// debug回调report

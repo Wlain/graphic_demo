@@ -73,7 +73,7 @@ elseif (USE_OPENGL)
 elseif (USE_METAL)
     add_executable(cross_platform_demo ${SOURCES} main_mtl.mm)
 elseif (USE_OPENCV)
-    add_executable(cross_platform_demo ${SOURCES} main_cv.cpp src/test/vulkanLayerExternsionDefine.cpp src/test/vulkanLayerExternsionDefine.h src/core/vk/instanceObject.cpp src/core/vk/instanceObject.h src/test/vulkanApplications.cpp src/test/vulkanApplications.h src/core/vk/deviceObject.cpp src/core/vk/deviceObject.h test/gl/background.cpp test/gl/background.h test/gl/point.cpp test/gl/point.h)
+    add_executable(cross_platform_demo ${SOURCES} main_cv.cpp src/test/vulkanLayerExternsionDefine.cpp src/test/vulkanLayerExternsionDefine.h src/core/vk/instanceObject.cpp src/core/vk/instanceObject.h src/test/vulkanApplications.cpp src/test/vulkanApplications.h src/core/vk/physicalDeviceObject.cpp src/core/vk/physicalDeviceObject.h test/gl/background.cpp test/gl/background.h test/gl/point.cpp test/gl/point.h src/core/vk/deviceObject.cpp src/core/vk/deviceObject.h)
 endif ()
 
 target_link_libraries(cross_platform_demo

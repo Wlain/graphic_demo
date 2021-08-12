@@ -1,54 +1,53 @@
 //
-// Created by william on 2021/6/20.
+// Created by ytech on 2021/8/11.
 //
 
 #include "deviceObject.h"
 
 #include "instanceObject.h"
 
-DeviceObject::DeviceObject(std::shared_ptr<InstanceObject>& instance) :
-    m_instance(instance)
+DeviceObject::DeviceObject(std::shared_ptr<PhysicalDeviceObject> physicalDeviceObject) :
+    m_physicalDevice(std::move(physicalDeviceObject))
 {
-    uint32_t physicalDeviceCount = 0;
-    VK_CHECK(vkEnumeratePhysicalDevices(m_instance->handle(), &physicalDeviceCount, VK_NULL_HANDLE));
-    std::vector<VkPhysicalDevice> devices(physicalDeviceCount);
-    VK_CHECK(vkEnumeratePhysicalDevices(m_instance->handle(), &physicalDeviceCount, devices.data()));
-    RAS_INFO("numbers of physical devices is %d", devices.size());
-    for (auto device : devices)
-    {
-        vkGetPhysicalDeviceProperties(device, &m_properties);
-        vkGetPhysicalDeviceMemoryProperties(device, &m_memoryProperties);
-        vkGetPhysicalDeviceFeatures(device, &m_features);
-        RAS_INFO("Found GPU %s", m_properties.deviceName);
-        m_allowedMemoryTypes = std::vector<VkMemoryType>(m_memoryProperties.memoryTypes,  m_memoryProperties.memoryTypes + m_memoryProperties.memoryTypeCount);
-        RAS_INFO("numbers of m_allowedMemoryTypes is %d", m_allowedMemoryTypes.size());
-        m_allowedHeapTypes = std::vector<VkMemoryHeap>(m_memoryProperties.memoryHeaps,  m_memoryProperties.memoryHeaps + m_memoryProperties.memoryHeapCount);
-        RAS_INFO("numbers of m_allowedHeapTypes is %d", m_allowedHeapTypes.size());
-        uint32_t queueFamilyPropertyCount = 0;
-        vkGetPhysicalDeviceQueueFamilyProperties(device, &queueFamilyPropertyCount, VK_NULL_HANDLE);
-        m_queueFamilyProperties.resize(queueFamilyPropertyCount);
-        vkGetPhysicalDeviceQueueFamilyProperties(device, &queueFamilyPropertyCount, m_queueFamilyProperties.data());
-        m_handler = device;
-        break;
+    VkDeviceCreateInfo deviceInfo{};
+    deviceInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+    deviceInfo.pNext = VK_NULL_HANDLE;
+    VkDeviceQueueCreateInfo queueInfo = {};
+    queueInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
+    queueInfo.pNext = VK_NULL_HANDLE;
+    m_queueIndex = m_physicalDevice->queueIndex(VK_QUEUE_GRAPHICS_BIT);
+    queueInfo.queueFamilyIndex = m_queueIndex;
+    queueInfo.queueCount = 1;
+    float devicePriorities = 1.0f;
+    queueInfo.pQueuePriorities = &devicePriorities;
+    deviceInfo.queueCreateInfoCount = 1;
+    deviceInfo.pQueueCreateInfos = &queueInfo;
+    VkPhysicalDeviceFeatures features = {};
+    vkGetPhysicalDeviceFeatures(m_physicalDevice->handle(), &features);
+    /// 需要手动开启
+    features.samplerAnisotropy = VK_TRUE;
+//    features.sampleRateShading = VK_TRUE;
+//    /// 开启几何着色器
+//    features.geometryShader = VK_TRUE;
+    deviceInfo.pEnabledFeatures = &features;
+    // get extension names
+    uint32_t _extensionCount = 0;
+    vkEnumerateDeviceExtensionProperties(m_physicalDevice->handle(), NULL, &_extensionCount, NULL);
+    std::vector<const char *> extNames;
+    std::vector<VkExtensionProperties> extProps(_extensionCount);
+    vkEnumerateDeviceExtensionProperties(m_physicalDevice->handle(), NULL, &_extensionCount, extProps.data());
+    for (uint32_t i = 0; i < _extensionCount; i++) {
+        extNames.push_back(extProps[i].extensionName);
     }
+    deviceInfo.enabledExtensionCount = extNames.size();
+    deviceInfo.ppEnabledExtensionNames = extNames.data();
+//    deviceInfo.enabledExtensionCount = m_physicalDevice->instance()->enabledExtensions().size();
+//    deviceInfo.ppEnabledExtensionNames = m_physicalDevice->instance()->enabledExtensions().data();
+    ///     deviceInfo.enabledLayerCount = 0;
+    ///    deviceInfo.ppEnabledLayerNames = VK_NULL_HANDLE;这两个东西在VK2.0已经被忽略了
+    deviceInfo.enabledLayerCount = m_physicalDevice->instance()->validationLayers().size();
+    deviceInfo.ppEnabledLayerNames = m_physicalDevice->instance()->validationLayers().data();
+    VK_CHECK(vkCreateDevice(m_physicalDevice->handle(), &deviceInfo, m_physicalDevice->instance()->allocator(), &m_handle));
 }
 
 DeviceObject::~DeviceObject() = default;
-
-VkResult DeviceObject::createDevice(std::vector<const char*>& layers, std::vector<const char*>& extensions)
-{
-    return VK_ERROR_INITIALIZATION_FAILED;
-}
-
-void DeviceObject::destroyDevice()
-{
-}
-
-void DeviceObject::getPhysicalDeviceQueuesAndProperties()
-{
-}
-
-uint32_t DeviceObject::getGraphicsQueueHandle()
-{
-    return 0;
-}

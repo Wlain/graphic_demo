@@ -1641,6 +1641,12 @@
 		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/instanceObject.h">
 			<Option target="cross_platform_demo"/>
 		</Unit>
+		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/physicalDeviceObject.cpp">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/physicalDeviceObject.h">
+			<Option target="cross_platform_demo"/>
+		</Unit>
 		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/test/triangleVk.cpp">
 			<Option target="cross_platform_demo"/>
 		</Unit>
