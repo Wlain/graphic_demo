@@ -44,7 +44,7 @@
 #include "./gtx/bit.hpp"
 #include "./gtx/closest_point.hpp"
 #include "./gtx/color_encoding.hpp"
-#include "./gtx/color_space.hpp"
+#include "./gtx/colorSpace.hpp"
 #include "./gtx/color_space_YCoCg.hpp"
 #include "./gtx/compatibility.hpp"
 #include "./gtx/component_wise.hpp"

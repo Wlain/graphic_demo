@@ -124,18 +124,18 @@ static GLFWbool chooseEGLConfig(const _GLFWctxconfig* ctxconfig,
 
 #if defined(_GLFW_X11)
         {
-            XVisualInfo vi = {0};
+            XVisualInfo vertexInputCreatInfo = {0};
 
             // Only consider EGLConfigs with associated Visuals
-            vi.visualid = getEGLConfigAttrib(n, EGL_NATIVE_VISUAL_ID);
-            if (!vi.visualid)
+            vertexInputCreatInfo.visualid = getEGLConfigAttrib(n, EGL_NATIVE_VISUAL_ID);
+            if (!vertexInputCreatInfo.visualid)
                 continue;
 
             if (desired->transparent)
             {
                 int count;
                 XVisualInfo* vis =
-                    XGetVisualInfo(_glfw.x11.display, VisualIDMask, &vi, &count);
+                    XGetVisualInfo(_glfw.x11.display, VisualIDMask, &vertexInputCreatInfo, &count);
                 if (vis)
                 {
                     u->transparent = _glfwIsVisualTransparentX11(vis[0].visual);
@@ -226,7 +226,7 @@ static void swapBuffersEGL(_GLFWwindow* window)
     if (window != _glfwPlatformGetTls(&_glfw.contextSlot))
     {
         _glfwInputError(GLFW_PLATFORM_ERROR,
-                        "EGL: The context must be current on the calling thread when swapping buffers");
+                        "EGL: The context must be current on the calling thread when swapping swapChainBuffers");
         return;
     }
 

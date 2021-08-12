@@ -279,15 +279,15 @@ components of the accumulation buffer.  A value of `GLFW_DONT_CARE` means the
 application has no preference.
 
 @par
-Accumulation buffers are a legacy OpenGL feature and should not be used in new
+Accumulation swapChainBuffers are a legacy OpenGL feature and should not be used in new
 code.
 
 @anchor GLFW_AUX_BUFFERS
-__GLFW_AUX_BUFFERS__ specifies the desired number of auxiliary buffers.  A value
+__GLFW_AUX_BUFFERS__ specifies the desired number of auxiliary swapChainBuffers.  A value
 of `GLFW_DONT_CARE` means the application has no preference.
 
 @par
-Auxiliary buffers are a legacy OpenGL feature and should not be used in new
+Auxiliary swapChainBuffers are a legacy OpenGL feature and should not be used in new
 code.
 
 @anchor GLFW_STEREO
@@ -349,7 +349,7 @@ will have no effect.
 
 @par
 __OSMesa:__ As its name implies, an OpenGL context created with OSMesa does not
-update the window contents when its buffers are swapped.  Use OpenGL functions
+update the window contents when its swapChainBuffers are swapped.  Use OpenGL functions
 or the OSMesa native access functions @ref glfwGetOSMesaColorBuffer and @ref
 glfwGetOSMesaDepthBuffer to retrieve the framebuffer contents.
 
@@ -476,7 +476,7 @@ ignored on other platforms.
 
 @anchor GLFW_COCOA_RETINA_FRAMEBUFFER_hint
 __GLFW_COCOA_RETINA_FRAMEBUFFER__ specifies whether to use full resolution
-framebuffers on Retina displays.  Possible values are `GLFW_TRUE` and
+frameBuffers on Retina displays.  Possible values are `GLFW_TRUE` and
 `GLFW_FALSE`.  This is ignored on other platforms.
 
 @anchor GLFW_COCOA_FRAME_NAME_hint
@@ -1181,7 +1181,7 @@ Both methods require the platform to support it and not every version of every
 platform GLFW supports does this, so there are mechanisms to check whether the
 window really is transparent.
 
-Window framebuffers can be made transparent on a per-pixel per-frame basis with
+Window frameBuffers can be made transparent on a per-pixel per-frame basis with
 the [GLFW_TRANSPARENT_FRAMEBUFFER](@ref GLFW_TRANSPARENT_FRAMEBUFFER_hint)
 window hint.
 
@@ -1429,11 +1429,11 @@ respectively.
 @section buffer_swap Buffer swapping
 
 GLFW windows are by default double buffered.  That means that you have two
-rendering buffers; a front buffer and a back buffer.  The front buffer is
+rendering swapChainBuffers; a front buffer and a back buffer.  The front buffer is
 the one being displayed and the back buffer the one you render to.
 
 When the entire frame has been rendered, it is time to swap the back and the
-front buffers in order to display what has been rendered and begin rendering
+front swapChainBuffers in order to display what has been rendered and begin rendering
 a new frame.  This is done with @ref glfwSwapBuffers.
 
 @code
@@ -1443,7 +1443,7 @@ glfwSwapBuffers(window);
 Sometimes it can be useful to select when the buffer swap will occur.  With the
 function @ref glfwSwapInterval it is possible to select the minimum number of
 monitor refreshes the driver should wait from the time @ref glfwSwapBuffers was
-called before swapping the buffers:
+called before swapping the swapChainBuffers:
 
 @code
 glfwSwapInterval(1);

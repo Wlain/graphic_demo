@@ -16806,7 +16806,7 @@ GLboolean glewCreateContext (struct createParams *params)
   ctx = glXCreateContext(dpy, vi, None, True);
   if (NULL == ctx) return GL_TRUE;
   /* create window */
-  /*wnd = XCreateSimpleWindow(dpy, RootWindow(dpy, vi->screen), 0, 0, 1, 1, 1, 0, 0);*/
+  /*wnd = XCreateSimpleWindow(dpy, RootWindow(dpy, vertexInputCreatInfo->screen), 0, 0, 1, 1, 1, 0, 0);*/
   cmap = XCreateColormap(dpy, RootWindow(dpy, vi->screen), vi->visual, AllocNone);
   swa.border_pixel = 0;
   swa.colormap = cmap;

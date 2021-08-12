@@ -838,7 +838,7 @@ unsigned int
 		(z_pos_buffer == NULL) ||
 		(z_neg_buffer == NULL) )
 	{
-		result_string_pointer = "Invalid cube map buffers list";
+		result_string_pointer = "Invalid cube map swapChainBuffers list";
 		return 0;
 	}
 	/*	capability checking	*/

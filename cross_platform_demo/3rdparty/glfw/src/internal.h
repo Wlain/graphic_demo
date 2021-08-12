@@ -311,7 +311,7 @@ struct _GLFWctxconfig
 
 // Framebuffer configuration
 //
-// This describes buffers and their sizes.  It also contains
+// This describes swapChainBuffers and their sizes.  It also contains
 // a platform-specific ID used to map back to the backend API object.
 //
 // It is used to pass framebuffer parameters from shared code to the platform

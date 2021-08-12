@@ -12,7 +12,7 @@ set(EXTERNAL_DIR ${ROOT_DIR}/3rdparty)
 
 # vulkan
 find_package(Vulkan REQUIRED FATAL_ERROR)
-
+message(cwb+${OpenCV_DIR})
 # opencv
 find_package(OpenCV)
 
@@ -39,7 +39,6 @@ include_directories(
 configure_file(configuration/root_directory.h.in configuration/root_directory.h)
 include_directories(${CMAKE_BINARY_DIR}/configuration)
 
-
 file(GLOB_RECURSE EXTERNAL_SRC
         3rdparty/egl/*.cpp
         3rdparty/SOIL2/*.c
@@ -60,6 +59,7 @@ file(GLOB_RECURSE SOURCES
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glfw)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glm/glm)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/glew/build/cmake)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/volk)
 
 if (USE_VULKAN)
     add_executable(cross_platform_demo ${SOURCES} main_vk.cpp)
@@ -68,12 +68,13 @@ elseif (USE_OPENGL)
 elseif (USE_METAL)
     add_executable(cross_platform_demo ${SOURCES} main_mtl.mm)
 elseif (USE_OPENCV)
-    add_executable(cross_platform_demo ${SOURCES} main_cv.cpp src/test/vulkanLayerExternsionDefine.cpp src/test/vulkanLayerExternsionDefine.h src/test/vulkanInstance.cpp src/test/vulkanInstance.h src/test/vulkanApplications.cpp src/test/vulkanApplications.h src/test/vulkanDevice.cpp src/test/vulkanDevice.h test/gl/background.cpp test/gl/background.h test/gl/point.cpp test/gl/point.h)
+    add_executable(cross_platform_demo ${SOURCES} main_cv.cpp)
 endif ()
 
 target_link_libraries(cross_platform_demo
         glfw
         glew
+        volk_headers
         Vulkan::Vulkan
         ${VK_STATIC_LIB}
         ${OpenCV_LIBS}

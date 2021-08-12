@@ -14,8 +14,8 @@ GL_QCOM_extended_get
 	GL_TEXTURE_OBJECT_VALID_QCOM 0x8BDB
 	GL_STATE_RESTORE 0x8BDC
 	void glExtGetBufferPointervQCOM (GLenum target, void** params)
-	void glExtGetBuffersQCOM (GLuint* buffers, GLint maxBuffers, GLint* numBuffers)
-	void glExtGetFramebuffersQCOM (GLuint* framebuffers, GLint maxFramebuffers, GLint* numFramebuffers)
+	void glExtGetBuffersQCOM (GLuint* swapChainBuffers, GLint maxBuffers, GLint* numBuffers)
+	void glExtGetFramebuffersQCOM (GLuint* frameBuffers, GLint maxFramebuffers, GLint* numFramebuffers)
 	void glExtGetRenderbuffersQCOM (GLuint* renderbuffers, GLint maxRenderbuffers, GLint* numRenderbuffers)
 	void glExtGetTexLevelParameterivQCOM (GLuint texture, GLenum face, GLint level, GLenum pname, GLint* params)
 	void glExtGetTexSubImageQCOM (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, void *texels)

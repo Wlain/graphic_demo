@@ -24057,7 +24057,7 @@ GLboolean GLEWAPIENTRY glewIsSupported (const char* name)
         }
 #endif
 #ifdef GL_EXT_texture_object
-        if (_glewStrSame3(&pos, &len, (const GLubyte*)"texture_object", 14))
+        if (_glewStrSame3(&pos, &len, (const GLubyte*)"textureObject", 14))
         {
           ret = GLEW_EXT_texture_object;
           continue;

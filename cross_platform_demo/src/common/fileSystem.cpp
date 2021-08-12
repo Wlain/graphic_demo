@@ -14,7 +14,7 @@ std::string FileSystem::getPath(const std::string& path)
 
 const std::string& FileSystem::getRoot()
 {
-    static std::string root("/Users/william/git/demo/graphic_demo/cross_platform_demo");
+    static std::string root("/Users/william/git/Demo/graphic_demo/cross_platform_demo");
     return root;
 }
 

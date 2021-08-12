@@ -1,12 +1,12 @@
 /// @ref gtx_color_space
-/// @file glm/gtx/color_space.hpp
+/// @file glm/gtx/colorSpace.hpp
 ///
 /// @see core (dependence)
 ///
 /// @defgroup gtx_color_space GLM_GTX_color_space
 /// @ingroup gtx
 ///
-/// Include <glm/gtx/color_space.hpp> to use the features of this extension.
+/// Include <glm/gtx/colorSpace.hpp> to use the features of this extension.
 ///
 /// Related to RGB to HSV conversions and operations.
 

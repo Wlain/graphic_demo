@@ -5648,12 +5648,12 @@ GLFWAPI void glfwMakeContextCurrent(GLFWwindow* window);
  */
 GLFWAPI GLFWwindow* glfwGetCurrentContext(void);
 
-/*! @brief Swaps the front and back buffers of the specified window.
+/*! @brief Swaps the front and back swapChainBuffers of the specified window.
  *
- *  This function swaps the front and back buffers of the specified window when
+ *  This function swaps the front and back swapChainBuffers of the specified window when
  *  rendering with OpenGL or OpenGL ES.  If the swap interval is greater than
  *  zero, the GPU driver waits the specified number of screen updates before
- *  swapping the buffers.
+ *  swapping the swapChainBuffers.
  *
  *  The specified window must have an OpenGL or OpenGL ES context.  Specifying
  *  a window without a context will generate a @ref GLFW_NO_WINDOW_CONTEXT
@@ -5662,7 +5662,7 @@ GLFWAPI GLFWwindow* glfwGetCurrentContext(void);
  *  This function does not apply to Vulkan.  If you are rendering with Vulkan,
  *  see `vkQueuePresentKHR` instead.
  *
- *  @param[in] window The window whose buffers to swap.
+ *  @param[in] window The window whose swapChainBuffers to swap.
  *
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED, @ref
  *  GLFW_NO_WINDOW_CONTEXT and @ref GLFW_PLATFORM_ERROR.
@@ -5686,7 +5686,7 @@ GLFWAPI void glfwSwapBuffers(GLFWwindow* window);
  *
  *  This function sets the swap interval for the current OpenGL or OpenGL ES
  *  context, i.e. the number of screen updates to wait from the time @ref
- *  glfwSwapBuffers was called before swapping the buffers and returning.  This
+ *  glfwSwapBuffers was called before swapping the swapChainBuffers and returning.  This
  *  is sometimes called _vertical synchronization_, _vertical retrace
  *  synchronization_ or just _vsync_.
  *
@@ -5700,10 +5700,10 @@ GLFWAPI void glfwSwapBuffers(GLFWwindow* window);
  *  without a current context will cause a @ref GLFW_NO_CURRENT_CONTEXT error.
  *
  *  This function does not apply to Vulkan.  If you are rendering with Vulkan,
- *  see the present mode of your swapchain instead.
+ *  see the present mode of your swapChain instead.
  *
  *  @param[in] interval The minimum number of screen updates to wait for
- *  until the buffers are swapped by @ref glfwSwapBuffers.
+ *  until the swapChainBuffers are swapped by @ref glfwSwapBuffers.
  *
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED, @ref
  *  GLFW_NO_CURRENT_CONTEXT and @ref GLFW_PLATFORM_ERROR.

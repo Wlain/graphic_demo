@@ -3726,7 +3726,7 @@ static void stbi__setup_jpeg(stbi__jpeg *j)
 #endif
 }
 
-// clean up the temporary component buffers
+// clean up the temporary component swapChainBuffers
 static void stbi__cleanup_jpeg(stbi__jpeg *j)
 {
    stbi__free_jpeg_components(j, j->s->img_n, 0);
@@ -6797,7 +6797,7 @@ static void *stbi__gif_load(stbi__context *s, int *x, int *y, int *comp, int req
       STBI_FREE(g.out);
    }
 
-   // free buffers needed for multiple frame loading;
+   // free swapChainBuffers needed for multiple frame loading;
    STBI_FREE(g.history);
    STBI_FREE(g.background);
 

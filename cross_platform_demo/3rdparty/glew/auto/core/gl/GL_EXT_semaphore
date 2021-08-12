@@ -7,5 +7,5 @@ GL_EXT_semaphore
 	void glGetSemaphoreParameterui64vEXT (GLuint semaphore, GLenum pname, GLuint64* params)
 	GLboolean glIsSemaphoreEXT (GLuint semaphore)
 	void glSemaphoreParameterui64vEXT (GLuint semaphore, GLenum pname, const GLuint64* params)
-	void glSignalSemaphoreEXT (GLuint semaphore, GLuint numBufferBarriers, const GLuint* buffers, GLuint numTextureBarriers, const GLuint *textures, const GLenum *dstLayouts)
-	void glWaitSemaphoreEXT (GLuint semaphore, GLuint numBufferBarriers, const GLuint* buffers, GLuint numTextureBarriers, const GLuint *textures, const GLenum *srcLayouts)
+	void glSignalSemaphoreEXT (GLuint semaphore, GLuint numBufferBarriers, const GLuint* swapChainBuffers, GLuint numTextureBarriers, const GLuint *textures, const GLenum *dstLayouts)
+	void glWaitSemaphoreEXT (GLuint semaphore, GLuint numBufferBarriers, const GLuint* swapChainBuffers, GLuint numTextureBarriers, const GLuint *textures, const GLenum *srcLayouts)

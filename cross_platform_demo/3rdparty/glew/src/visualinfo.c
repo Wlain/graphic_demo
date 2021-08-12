@@ -25,7 +25,7 @@
 ** g        = # bits of green
 ** b        = # bits of blue
 ** a        = # bits of alpha
-** axbf     = # aux buffers
+** axbf     = # aux swapChainBuffers
 ** dpth     = # bits of depth
 ** stcl     = # bits of stencil
 */
@@ -74,7 +74,7 @@ typedef struct GLContextStruct
   CGLContextObj ctx, octx;
 #elif !defined(__HAIKU__)
   Display* dpy;
-  XVisualInfo* vi;
+  XVisualInfo* vertexInputCreatInfo;
   GLXContext ctx;
   Window wnd;
   Colormap cmap;
@@ -419,7 +419,7 @@ VisualInfoARB (GLContext* ctx)
       /* alpha */
       if (value[12]) fprintf(file, "%2d | ", value[12]); 
       else fprintf(file, " . | ");
-      /* aux buffers */
+      /* aux swapChainBuffers */
       if (value[20]) fprintf(file, "%2d ", value[20]);
       else fprintf(file, " . ");
       /* depth */
@@ -880,7 +880,7 @@ VisualInfo (GLContext* ctx)
           else
             fprintf(file, " . | ");
         }
-        /* aux buffers */
+        /* aux swapChainBuffers */
         ret = glXGetFBConfigAttrib(ctx->dpy, fbc[i], GLX_AUX_BUFFERS, &value);
         if (Success != ret)
         {
@@ -1198,7 +1198,7 @@ DestroyContext (GLContext* ctx)
 void InitContext (GLContext* ctx)
 {
   ctx->dpy = NULL;
-  ctx->vi = NULL;
+  ctx->vertexInputCreatInfo = NULL;
   ctx->ctx = NULL;
   ctx->wnd = 0;
   ctx->cmap = 0;
@@ -1217,19 +1217,19 @@ GLboolean CreateContext (GLContext* ctx)
   /* query for glx */
   if (!glXQueryExtension(ctx->dpy, &erb, &evb)) return GL_TRUE;
   /* choose visual */
-  ctx->vi = glXChooseVisual(ctx->dpy, DefaultScreen(ctx->dpy), attrib);
-  if (NULL == ctx->vi) return GL_TRUE;
+  ctx->vertexInputCreatInfo = glXChooseVisual(ctx->dpy, DefaultScreen(ctx->dpy), attrib);
+  if (NULL == ctx->vertexInputCreatInfo) return GL_TRUE;
   /* create context */
-  ctx->ctx = glXCreateContext(ctx->dpy, ctx->vi, None, True);
+  ctx->ctx = glXCreateContext(ctx->dpy, ctx->vertexInputCreatInfo, None, True);
   if (NULL == ctx->ctx) return GL_TRUE;
   /* create window */
-  /*wnd = XCreateSimpleWindow(dpy, RootWindow(dpy, vi->screen), 0, 0, 1, 1, 1, 0, 0);*/
-  ctx->cmap = XCreateColormap(ctx->dpy, RootWindow(ctx->dpy, ctx->vi->screen),
-                              ctx->vi->visual, AllocNone);
+  /*wnd = XCreateSimpleWindow(dpy, RootWindow(dpy, vertexInputCreatInfo->screen), 0, 0, 1, 1, 1, 0, 0);*/
+  ctx->cmap = XCreateColormap(ctx->dpy, RootWindow(ctx->dpy, ctx->vertexInputCreatInfo->screen),
+                              ctx->vertexInputCreatInfo->visual, AllocNone);
   swa.border_pixel = 0;
   swa.colormap = ctx->cmap;
-  ctx->wnd = XCreateWindow(ctx->dpy, RootWindow(ctx->dpy, ctx->vi->screen), 
-                           0, 0, 1, 1, 0, ctx->vi->depth, InputOutput, ctx->vi->visual, 
+  ctx->wnd = XCreateWindow(ctx->dpy, RootWindow(ctx->dpy, ctx->vertexInputCreatInfo->screen),
+                           0, 0, 1, 1, 0, ctx->vertexInputCreatInfo->depth, InputOutput, ctx->vertexInputCreatInfo->visual,
                            CWBorderPixel | CWColormap, &swa);
   /* make context current */
   if (!glXMakeCurrent(ctx->dpy, ctx->wnd, ctx->ctx)) return GL_TRUE;
@@ -1241,7 +1241,7 @@ void DestroyContext (GLContext* ctx)
   if (NULL != ctx->dpy && NULL != ctx->ctx) glXDestroyContext(ctx->dpy, ctx->ctx);
   if (NULL != ctx->dpy && 0 != ctx->wnd) XDestroyWindow(ctx->dpy, ctx->wnd);
   if (NULL != ctx->dpy && 0 != ctx->cmap) XFreeColormap(ctx->dpy, ctx->cmap);
-  if (NULL != ctx->vi) XFree(ctx->vi);
+  if (NULL != ctx->vertexInputCreatInfo) XFree(ctx->vertexInputCreatInfo);
   if (NULL != ctx->dpy) XCloseDisplay(ctx->dpy);
 }
 

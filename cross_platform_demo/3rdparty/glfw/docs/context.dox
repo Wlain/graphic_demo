@@ -45,7 +45,7 @@ what kind of context is created.  See
 
 When creating a window and its OpenGL or OpenGL ES context with @ref
 glfwCreateWindow, you can specify another window whose context the new one
-should share its objects (textures, vertex and element buffers, etc.) with.
+should share its objects (textures, vertex and element swapChainBuffers, etc.) with.
 
 @code
 GLFWwindow* second_window = glfwCreateWindow(640, 480, "Second Window", NULL, first_window);

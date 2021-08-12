@@ -16,7 +16,7 @@ write a small but complete program.
 There are guides for each section of the API:
 
  - @ref intro_guide – initialization, error handling and high-level design
- - @ref window_guide – creating and working with windows and framebuffers
+ - @ref window_guide – creating and working with windows and frameBuffers
  - @ref context_guide – working with OpenGL and OpenGL ES contexts
  - @ref vulkan_guide - working with Vulkan objects and extensions
  - @ref monitor_guide – enumerating and working with monitors and video modes

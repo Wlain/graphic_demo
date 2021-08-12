@@ -3,3 +3,8 @@
 //
 
 #include "context_vk.h"
+
+namespace graphicEngine::vk
+{
+
+}

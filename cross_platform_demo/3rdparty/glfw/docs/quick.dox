@@ -274,26 +274,26 @@ double time = glfwGetTime();
 @endcode
 
 
-@subsection quick_swap_buffers Swapping buffers
+@subsection quick_swap_buffers Swapping swapChainBuffers
 
 GLFW windows by default use double buffering.  That means that each window has
-two rendering buffers; a front buffer and a back buffer.  The front buffer is
+two rendering swapChainBuffers; a front buffer and a back buffer.  The front buffer is
 the one being displayed and the back buffer the one you render to.
 
-When the entire frame has been rendered, the buffers need to be swapped with one
+When the entire frame has been rendered, the swapChainBuffers need to be swapped with one
 another, so the back buffer becomes the front buffer and vice versa.
 
 @code
 glfwSwapBuffers(window);
 @endcode
 
-The swap interval indicates how many frames to wait until swapping the buffers,
+The swap interval indicates how many frames to wait until swapping the swapChainBuffers,
 commonly known as _vsync_.  By default, the swap interval is zero, meaning
 buffer swapping will occur immediately.  On fast machines, many of those frames
 will never be seen, as the screen is still only updated typically 60-75 times
 per second, so this wastes a lot of CPU and GPU cycles.
 
-Also, because the buffers will be swapped in the middle the screen update,
+Also, because the swapChainBuffers will be swapped in the middle the screen update,
 leading to [screen tearing](https://en.wikipedia.org/wiki/Screen_tearing).
 
 For these reasons, applications will typically want to set the swap interval to

@@ -202,7 +202,7 @@ const _GLFWfbconfig* _glfwChooseFBConfig(const _GLFWfbconfig* desired,
             continue;
         }
 
-        // Count number of missing buffers
+        // Count number of missing swapChainBuffers
         {
             missing = 0;
 
@@ -223,7 +223,7 @@ const _GLFWfbconfig* _glfwChooseFBConfig(const _GLFWfbconfig* desired,
 
             if (desired->samples > 0 && current->samples == 0)
             {
-                // Technically, several multisampling buffers could be
+                // Technically, several multisampling swapChainBuffers could be
                 // involved, but that's a lower level implementation detail and
                 // not important to us here, so we count them as one
                 missing++;
@@ -316,8 +316,8 @@ const _GLFWfbconfig* _glfwChooseFBConfig(const _GLFWfbconfig* desired,
         }
 
         // Figure out if the current one is better than the best one found so far
-        // Least number of missing buffers is the most important heuristic,
-        // then color buffer size match and lastly size match for other buffers
+        // Least number of missing swapChainBuffers is the most important heuristic,
+        // then color buffer size match and lastly size match for other swapChainBuffers
 
         if (missing < leastMissing)
             closest = current;
@@ -650,7 +650,7 @@ GLFWAPI void glfwSwapBuffers(GLFWwindow* handle)
     if (window->context.client == GLFW_NO_API)
     {
         _glfwInputError(GLFW_NO_WINDOW_CONTEXT,
-                        "Cannot swap buffers of a window that has no OpenGL or OpenGL ES context");
+                        "Cannot swap swapChainBuffers of a window that has no OpenGL or OpenGL ES context");
         return;
     }
 

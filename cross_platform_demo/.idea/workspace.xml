@@ -20,9 +20,10 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
+      <config projectName="cross_platform_demo" targetName="volk" />
       <config projectName="cross_platform_demo" targetName="cross_platform_demo" />
-      <config projectName="cross_platform_demo" targetName="uninstall" />
       <config projectName="cross_platform_demo" targetName="glm_dummy" />
+      <config projectName="cross_platform_demo" targetName="uninstall" />
       <config projectName="cross_platform_demo" targetName="glew" />
       <config projectName="cross_platform_demo" targetName="glewinfo" />
       <config projectName="cross_platform_demo" targetName="glfw" />
@@ -37,11 +38,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33453206-28e3-4bdf-8e43-241142cfcff6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/core/vk/commonHandle_vk.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/vk/instance.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/vk/instance.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/vk/physicalDevice.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/vk/physicalDevice.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/triangleTestForglfw.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/triangleTestForglfw.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/SOIL2/SOIL2.c" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/SOIL2/SOIL2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/SOIL2/stb_image.h" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/SOIL2/stb_image.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/auto/core/gl/GL_EXT_semaphore" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/auto/core/gl/GL_EXT_semaphore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/auto/core/gl/GL_VERSION_1_5" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/auto/core/gl/GL_VERSION_1_5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_ARB_direct_state_access" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_ARB_direct_state_access" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_ARB_framebuffer_object" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_ARB_framebuffer_object" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_ARB_multi_bind" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_ARB_multi_bind" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_ARB_vertex_buffer_object" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_ARB_vertex_buffer_object" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_EXT_framebuffer_object" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_EXT_framebuffer_object" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_EXT_semaphore" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_EXT_semaphore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_EXT_texture_object" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_EXT_texture_object" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_QCOM_extended_get" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/auto/extensions/gl/GL_QCOM_extended_get" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/build/conan/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/build/conan/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/doc/glew.html" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/doc/glew.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/src/glew.c" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/src/glew.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/src/glewinfo.c" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/src/glewinfo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glew/src/visualinfo.c" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glew/src/visualinfo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/docs/compat.dox" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/docs/compat.dox" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/docs/context.dox" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/docs/context.dox" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/docs/main.dox" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/docs/main.dox" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/docs/quick.dox" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/docs/quick.dox" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/docs/window.dox" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/docs/window.dox" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/include/GLFW/glfw3.h" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/include/GLFW/glfw3.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/src/context.c" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/src/context.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/src/egl_context.c" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/src/egl_context.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/src/internal.h" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/src/internal.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/src/vulkan.c" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/src/vulkan.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/src/window.c" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/src/window.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glfw/tests/triangle-vulkan.c" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glfw/tests/triangle-vulkan.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glm/glm/ext.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glm/glm/ext.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glm/glm/gtc/color_space.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glm/glm/gtc/color_space.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glm/glm/gtc/color_space.inl" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glm/glm/gtc/color_space.inl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glm/glm/gtx/color_space.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glm/glm/gtx/color_space.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3rdparty/glm/glm/gtx/color_space.inl" beforeDir="false" afterPath="$PROJECT_DIR$/3rdparty/glm/glm/gtx/color_space.inl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_vk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_vk.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/fileSystem.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/fileSystem.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_gl.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/gl/context_gl.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_gl.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/gl/context_gl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_mtl.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/mtl/context_mtl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_mtl.mm" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/mtl/context_mtl.mm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_vk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/context_vk.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/context_vk.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/context_vk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/triangleVk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/triangleVk.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/triangleVk.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/triangleVk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanApplications.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanApplications.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanDevice.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanDevice.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanInstance.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanInstance.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/base.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/base.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/vk/triangle.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/vk/triangle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/gl/point.h" beforeDir="false" afterPath="$PROJECT_DIR$/test/gl/point.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,29 +128,24 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.advertisement.text.overridden" value="true" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/utils" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/3rdparty" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/utils" />
       <recent name="$PROJECT_DIR$/3rdparty" />
+      <recent name="$PROJECT_DIR$/src/utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/core/vk" />
+      <recent name="$PROJECT_DIR$/src/core/gl" />
+      <recent name="$PROJECT_DIR$/src/core/mtl" />
       <recent name="$PROJECT_DIR$/src/test" />
       <recent name="$PROJECT_DIR$/src/utils" />
-      <recent name="$PROJECT_DIR$/src/core" />
-      <recent name="$PROJECT_DIR$/src/common" />
-      <recent name="$PROJECT_DIR$/include" />
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.cross_platform_demo">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="cross_platform_demo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="cross_platform_demo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="cross_platform_demo">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -134,6 +186,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="volk" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="volk" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -148,6 +205,7 @@
       <item itemvalue="CMake Application.uninstall" />
       <item itemvalue="CMake Application.glfw" />
       <item itemvalue="CMake Application.glm_dummy" />
+      <item itemvalue="CMake Application.volk" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -178,7 +236,12 @@
       <workItem from="1624421746731" duration="3762000" />
       <workItem from="1626482183031" duration="7580000" />
       <workItem from="1626581821691" duration="588000" />
-      <workItem from="1627809483733" duration="402000" />
+      <workItem from="1627809483733" duration="1587000" />
+      <workItem from="1627831579187" duration="9228000" />
+      <workItem from="1627955244029" duration="3713000" />
+      <workItem from="1628330830228" duration="16363000" />
+      <workItem from="1628610034610" duration="2809000" />
+      <workItem from="1628657706286" duration="3905000" />
     </task>
     <servers />
   </component>

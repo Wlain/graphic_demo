@@ -1,7 +1,7 @@
 //
 // Created by william on 2021/6/23.
 //
-//    demo:
+//    Demo:
 //    Point point;
 //    point.initialize();
 //    point.draw();
