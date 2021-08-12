@@ -10,9 +10,9 @@ PhysicalDeviceObject::PhysicalDeviceObject(std::shared_ptr<InstanceObject>& inst
     m_instance(instance)
 {
     uint32_t physicalDeviceCount = 0;
-    VK_CHECK(vkEnumeratePhysicalDevices(m_instance->handle(), &physicalDeviceCount, VK_NULL_HANDLE));
+    VK_CHECK(vkEnumeratePhysicalDevices(m_instance->handler(), &physicalDeviceCount, VK_NULL_HANDLE));
     std::vector<VkPhysicalDevice> devices(physicalDeviceCount);
-    VK_CHECK(vkEnumeratePhysicalDevices(m_instance->handle(), &physicalDeviceCount, devices.data()));
+    VK_CHECK(vkEnumeratePhysicalDevices(m_instance->handler(), &physicalDeviceCount, devices.data()));
     RAS_INFO("numbers of physical devices is %d", devices.size());
     for (auto device : devices)
     {

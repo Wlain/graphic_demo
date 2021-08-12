@@ -20,8 +20,12 @@ public:
     /// 不可赋值
     PhysicalDeviceObject& operator=(const PhysicalDeviceObject&) = delete;
     PhysicalDeviceObject& operator=(PhysicalDeviceObject&&) = delete;
+    inline operator VkPhysicalDevice() { return m_handler; }
+    inline operator const VkPhysicalDevice() const { return m_handler; }
 
-    inline VkPhysicalDevice handle() const { return m_handler; }
+    inline VkPhysicalDevice handler() { return m_handler; }
+    inline const VkPhysicalDevice handler() const { return m_handler; }
+
     inline std::shared_ptr<InstanceObject>& instance() { return m_instance; }
     inline VkPhysicalDeviceFeatures& features() { return m_features; }
     inline VkPhysicalDeviceMemoryProperties& memoryProperties() { return m_memoryProperties; }

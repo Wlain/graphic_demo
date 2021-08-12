@@ -1152,7 +1152,7 @@ If you wish to be notified when the contents of a window is damaged and needs
 to be refreshed, set a window refresh callback.
 
 @code
-glfwSetWindowRefreshCallback(m_handle, window_refresh_callback);
+glfwSetWindowRefreshCallback(m_handler, window_refresh_callback);
 @endcode
 
 The callback function is called when the contents of the window needs to be

@@ -12,10 +12,13 @@ public:
     DeviceObject(std::shared_ptr<PhysicalDeviceObject> physicalDeviceObject);
     ~DeviceObject();
     inline VkQueue& queue() { return m_queue; }
-
+    inline operator VkDevice() { return m_handler; }
+    inline operator const VkDevice() const { return m_handler; }
+    inline VkDevice handler() { return m_handler; }
+    inline VkDevice handler() const { return m_handler; }
 private:
     std::shared_ptr<PhysicalDeviceObject> m_physicalDevice;
-    VkDevice m_handle = VK_NULL_HANDLE;
+    VkDevice m_handler = VK_NULL_HANDLE;
     VkQueue m_queue = VK_NULL_HANDLE;
     uint32_t m_queueIndex = 1;
 };

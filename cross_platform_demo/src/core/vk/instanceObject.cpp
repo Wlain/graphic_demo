@@ -62,47 +62,123 @@ void destroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT
     }
 }
 
-static VkBool32 demo_check_layers(uint32_t check_count, const char** check_names,
-                                  uint32_t layer_count,
-                                  VkLayerProperties* layers)
+bool validateLayers(const std::vector<const char*>& required, const std::vector<VkLayerProperties>& available)
 {
-    uint32_t i, j;
-    for (i = 0; i < check_count; i++)
+    for (auto layer : required)
     {
-        VkBool32 found = 0;
-        for (j = 0; j < layer_count; j++)
+        bool found = std::any_of(available.begin(), available.end(), [&](VkLayerProperties properties) {
+            return (strcmp(properties.layerName, layer) == 0);
+        });
+        if (found)
         {
-            if (!strcmp(check_names[i], layers[j].layerName))
-            {
-                found = 1;
-                break;
-            }
+            return true;
         }
-        if (!found)
+        else
         {
-            fprintf(stderr, "Cannot find layer: %s\n", check_names[i]);
-            return 0;
+            RAS_ERROR("Validation Layer {} not found", layer);
+            return false;
         }
     }
-    return 1;
+}
+
+std::vector<const char*> getOptimalValidationLayers(const std::vector<VkLayerProperties>& supportedInstanceLayers)
+{
+    std::vector<std::vector<const char*>> validationLayerPriorityList = {
+        /// The preferred validation layer is "VK_LAYER_KHRONOS_validation"
+        { "VK_LAYER_KHRONOS_validation" },
+        /// Otherwise we fallback to using the LunarG meta layer
+        { "VK_LAYER_LUNARG_standard_validation" },
+        /// Otherwise we attempt to enable the individual layers that compose the LunarG meta layer since it doesn't exist
+        {
+            "VK_LAYER_GOOGLE_threading",
+            "VK_LAYER_LUNARG_parameter_validation",
+            "VK_LAYER_LUNARG_object_tracker",
+            "VK_LAYER_LUNARG_core_validation",
+            "VK_LAYER_GOOGLE_unique_objects",
+        },
+        /// Otherwise as a last resort we fallback to attempting to enable the LunarG core layer
+        { "VK_LAYER_LUNARG_core_validation" }
+    };
+
+    for (auto& validationLayers : validationLayerPriorityList)
+    {
+        if (validateLayers(validationLayers, supportedInstanceLayers))
+        {
+            return validationLayers;
+        }
+        RAS_WARN("Couldn't enable validation layers (see log for error) - falling back");
+    }
+    return {};
 }
 
 InstanceObject::InstanceObject()
 {
-    if (ENABLE_VALIDATION_LAYERS && !checkValidationLayerSupport())
-    {
-        throw std::runtime_error("validation layers requested, but not available!");
-    }
+    /// 获取支持的扩展
+    uint32_t instanceExtensionCount;
+    VK_CHECK(vkEnumerateInstanceExtensionProperties(nullptr, &instanceExtensionCount, nullptr));
+    std::vector<VkExtensionProperties> availableInstanceExtensions(instanceExtensionCount);
+    VK_CHECK(vkEnumerateInstanceExtensionProperties(nullptr, &instanceExtensionCount, availableInstanceExtensions.data()));
     if (ENABLE_VALIDATION_LAYERS)
     {
-                m_enabledExtensions.emplace_back("VK_LAYER_KHRONOS_validation");
-//                m_enabledExtensions.emplace_back(VK_EXT_DEBUG_REPORT_EXTENSION_NAME);
-//                m_enabledExtensions.emplace_back(VK_KHR_SURFACE_EXTENSION_NAME);
-//                m_enabledExtensions.emplace_back(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
+        bool debugUtils = false;
+        bool headlessExtension = false;
+        for (auto& availableExtension : availableInstanceExtensions)
+        {
+            if (strcmp(availableExtension.extensionName, VK_EXT_DEBUG_UTILS_EXTENSION_NAME) == 0)
+            {
+                debugUtils = true;
+                RAS_INFO("%s is available, enabling it", VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+                m_enabledExtensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+            }
+            if (strcmp(availableExtension.extensionName, VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME) == 0)
+            {
+                headlessExtension = true;
+                RAS_INFO("%s is available, enabling it", VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
+                m_enabledExtensions.push_back(VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
+            }
+            if (strcmp(availableExtension.extensionName, VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME) == 0)
+            {
+                RAS_INFO("%s is available, enabling it", VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
+                m_enabledExtensions.push_back(VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
+            }
+        }
+        if (!debugUtils)
+        {
+            m_enabledExtensions.push_back(VK_EXT_DEBUG_REPORT_EXTENSION_NAME);
+        }
+        if (!headlessExtension)
+        {
+            RAS_WARN("{} is not available, disabling swapchain creation", VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
+        }
     }
+
+    /// 获取支持的层
+    uint32_t instanceLayerCount;
+    VK_CHECK(vkEnumerateInstanceLayerProperties(&instanceLayerCount, nullptr));
+    std::vector<VkLayerProperties> supportedValidationLayers(instanceLayerCount);
+    VK_CHECK(vkEnumerateInstanceLayerProperties(&instanceLayerCount, supportedValidationLayers.data()));
+    if (ENABLE_VALIDATION_LAYERS)
+    {
+        // Determine the optimal validation layers to enable that are necessary for useful debugging
+        std::vector<const char*> optimalValidationLayers = getOptimalValidationLayers(supportedValidationLayers);
+        m_validationLayers.insert(m_validationLayers.end(), optimalValidationLayers.begin(), optimalValidationLayers.end());
+    }
+
+    if (validateLayers(m_validationLayers, supportedValidationLayers))
+    {
+        RAS_INFO("Enabled Validation Layers:");
+        for (const auto& layer : m_validationLayers)
+        {
+            RAS_INFO("%s", layer);
+        }
+    }
+    else
+    {
+        throw std::runtime_error("Required validation layers are missing.");
+    }
+
     // 定义vulkan应用程序的结构体
-    VkApplicationInfo appInfo{};
-    appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+    VkApplicationInfo appInfo{ VK_STRUCTURE_TYPE_APPLICATION_INFO };
     appInfo.pApplicationName = "triangle";
     appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
     appInfo.pEngineName = "No Engine";
@@ -113,17 +189,13 @@ InstanceObject::InstanceObject()
     instanceInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
     instanceInfo.pNext = VK_NULL_HANDLE;
     instanceInfo.pApplicationInfo = &appInfo;
-    auto extensions = getRequiredExtensions();
-//    m_enabledExtensions = extensions;
-    instanceInfo.enabledExtensionCount = static_cast<uint32_t>(extensions.size());
-    instanceInfo.ppEnabledExtensionNames = extensions.data();
-    //    instanceInfo.enabledLayerCount = static_cast<uint32_t>(m_enabledExtensions.size());
-    //    instanceInfo.ppEnabledLayerNames = reinterpret_cast<const char* const*>(m_enabledExtensions.data());
-    VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo;
+    instanceInfo.enabledExtensionCount = static_cast<uint32_t>(m_enabledExtensions.size());
+    instanceInfo.ppEnabledExtensionNames = reinterpret_cast<const char* const*>(m_enabledExtensions.data());
     if (ENABLE_VALIDATION_LAYERS)
     {
         instanceInfo.enabledLayerCount = static_cast<uint32_t>(m_validationLayers.size());
         instanceInfo.ppEnabledLayerNames = reinterpret_cast<const char* const*>(m_validationLayers.data());
+        VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo{};
         populateDebugMessengerCreateInfo(debugCreateInfo);
         instanceInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
     }
@@ -132,56 +204,22 @@ InstanceObject::InstanceObject()
         instanceInfo.enabledLayerCount = 0;
         instanceInfo.pNext = VK_NULL_HANDLE;
     }
-    if (vkCreateInstance(&instanceInfo, m_allocator, &m_handle) != VK_SUCCESS)
+    if (vkCreateInstance(&instanceInfo, m_allocator, &m_handler) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to create instance!");
     }
-    //    setupDebugMessenger();
+    setupDebugMessenger();
 }
 
 InstanceObject::~InstanceObject()
 {
     if (ENABLE_VALIDATION_LAYERS)
     {
-        destroyDebugUtilsMessengerEXT(m_handle, m_debugUtilsMessenger, VK_NULL_HANDLE);
+        destroyDebugUtilsMessengerEXT(m_handler, m_debugUtilsMessenger, VK_NULL_HANDLE);
     }
-    vkDestroyInstance(m_handle, VK_NULL_HANDLE);
+    vkDestroyInstance(m_handler, VK_NULL_HANDLE);
     glfwDestroyWindow(m_window);
     glfwTerminate();
-}
-
-std::vector<const char*> InstanceObject::getRequiredExtensions()
-{
-    uint32_t glfwExtensionCount = 0;
-    const char** glfwExtensions = glfwGetRequiredInstanceExtensions(&glfwExtensionCount);
-    std::vector<const char*> extensions(glfwExtensions, glfwExtensions + glfwExtensionCount);
-    if (ENABLE_VALIDATION_LAYERS)
-    {
-        extensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
-    }
-    return extensions;
-}
-
-bool InstanceObject::checkValidationLayerSupport()
-{
-    uint32_t extensionCount = 0;
-    vkEnumerateInstanceLayerProperties(&extensionCount, VK_NULL_HANDLE);
-    RAS_INFO("extensionCount:%d", extensionCount);
-    std::vector<VkLayerProperties> availableLayers(extensionCount);
-    vkEnumerateInstanceLayerProperties(&extensionCount, availableLayers.data());
-    for (auto& layer : availableLayers)
-    {
-        RAS_INFO(layer.layerName);
-    }
-    for (const auto& layerName : m_validationLayers)
-    {
-        bool isFound = std::any_of(availableLayers.begin(), availableLayers.end(),
-                                   [&](VkLayerProperties layerProperties) {
-                                       return std::string_view(layerName) == layerProperties.layerName;
-                                   });
-        if (!isFound) { return false; }
-    }
-    return true;
 }
 
 void InstanceObject::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo)
@@ -212,7 +250,7 @@ void InstanceObject::setupDebugMessenger()
     VkDebugUtilsMessengerCreateInfoEXT createInfo;
     populateDebugMessengerCreateInfo(createInfo);
 
-    if (createDebugUtilsMessengerEXT(m_handle, &createInfo, VK_NULL_HANDLE, &m_debugUtilsMessenger) != VK_SUCCESS)
+    if (createDebugUtilsMessengerEXT(m_handler, &createInfo, VK_NULL_HANDLE, &m_debugUtilsMessenger) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to set up debug messenger!");
     }

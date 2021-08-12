@@ -20,22 +20,23 @@ public:
     /// 不可赋值
     InstanceObject& operator=(const InstanceObject&) = delete;
     InstanceObject& operator=(InstanceObject&&) = delete;
-    inline VkInstance handle() { return m_handle; }
+    inline operator VkInstance() { return m_handler; }
+    inline operator const VkInstance() const { return m_handler; }
+    inline VkInstance handler() { return m_handler; }
+    inline VkInstance handler() const { return m_handler; }
     inline const VkAllocationCallbacks* allocator() { return m_allocator; }
     inline std::vector<const char*>& enabledExtensions() { return m_enabledExtensions; };
     inline std::vector<const char*>& validationLayers() { return m_validationLayers; };
 
 private:
-    bool checkValidationLayerSupport();
-    static std::vector<const char*> getRequiredExtensions();
-    static void populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo);
+    void populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo);
     void setupDebugMessenger();
 
 public:
     /// glfw窗口
     GLFWwindow* m_window = VK_NULL_HANDLE;
     /// vulkan实例对象的变量
-    VkInstance m_handle = VK_NULL_HANDLE;
+    VkInstance m_handler = VK_NULL_HANDLE;
     /// 可用扩展
     std::vector<const char*> m_enabledExtensions;
     /// 验证层

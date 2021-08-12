@@ -23,31 +23,27 @@ DeviceObject::DeviceObject(std::shared_ptr<PhysicalDeviceObject> physicalDeviceO
     deviceInfo.queueCreateInfoCount = 1;
     deviceInfo.pQueueCreateInfos = &queueInfo;
     VkPhysicalDeviceFeatures features = {};
-    vkGetPhysicalDeviceFeatures(m_physicalDevice->handle(), &features);
-    /// 需要手动开启
-    features.samplerAnisotropy = VK_TRUE;
-//    features.sampleRateShading = VK_TRUE;
-//    /// 开启几何着色器
-//    features.geometryShader = VK_TRUE;
+    vkGetPhysicalDeviceFeatures(m_physicalDevice->handler(), &features);
     deviceInfo.pEnabledFeatures = &features;
     // get extension names
     uint32_t _extensionCount = 0;
-    vkEnumerateDeviceExtensionProperties(m_physicalDevice->handle(), NULL, &_extensionCount, NULL);
-    std::vector<const char *> extNames;
+    vkEnumerateDeviceExtensionProperties(m_physicalDevice->handler(), NULL, &_extensionCount, NULL);
+    std::vector<const char*> extNames;
     std::vector<VkExtensionProperties> extProps(_extensionCount);
-    vkEnumerateDeviceExtensionProperties(m_physicalDevice->handle(), NULL, &_extensionCount, extProps.data());
-    for (uint32_t i = 0; i < _extensionCount; i++) {
+    vkEnumerateDeviceExtensionProperties(m_physicalDevice->handler(), NULL, &_extensionCount, extProps.data());
+    for (uint32_t i = 0; i < _extensionCount; i++)
+    {
         extNames.push_back(extProps[i].extensionName);
     }
     deviceInfo.enabledExtensionCount = extNames.size();
     deviceInfo.ppEnabledExtensionNames = extNames.data();
-//    deviceInfo.enabledExtensionCount = m_physicalDevice->instance()->enabledExtensions().size();
-//    deviceInfo.ppEnabledExtensionNames = m_physicalDevice->instance()->enabledExtensions().data();
+    //    deviceInfo.enabledExtensionCount = m_physicalDevice->instance()->enabledExtensions().size();
+    //    deviceInfo.ppEnabledExtensionNames = m_physicalDevice->instance()->enabledExtensions().data();
     ///     deviceInfo.enabledLayerCount = 0;
     ///    deviceInfo.ppEnabledLayerNames = VK_NULL_HANDLE;这两个东西在VK2.0已经被忽略了
     deviceInfo.enabledLayerCount = m_physicalDevice->instance()->validationLayers().size();
     deviceInfo.ppEnabledLayerNames = m_physicalDevice->instance()->validationLayers().data();
-    VK_CHECK(vkCreateDevice(m_physicalDevice->handle(), &deviceInfo, m_physicalDevice->instance()->allocator(), &m_handle));
+    VK_CHECK(vkCreateDevice(m_physicalDevice->handler(), &deviceInfo, m_physicalDevice->instance()->allocator(), &m_handler));
 }
 
 DeviceObject::~DeviceObject() = default;
