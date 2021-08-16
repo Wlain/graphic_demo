@@ -1,0 +1,12 @@
+//
+// Created by william on 2021/8/15.
+//
+
+#ifndef CROSS_PLATFORM_DEMO_DESCRIPTORPOOL_H
+#define CROSS_PLATFORM_DEMO_DESCRIPTORPOOL_H
+
+class DescriptorPool
+{
+};
+
+#endif //CROSS_PLATFORM_DEMO_DESCRIPTORPOOL_H

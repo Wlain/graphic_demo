@@ -1,0 +1,12 @@
+//
+// Created by william on 2021/8/15.
+//
+
+#ifndef CROSS_PLATFORM_DEMO_PIPELINELAYOUT_H
+#define CROSS_PLATFORM_DEMO_PIPELINELAYOUT_H
+
+class PipelineLayout
+{
+};
+
+#endif //CROSS_PLATFORM_DEMO_PIPELINELAYOUT_H

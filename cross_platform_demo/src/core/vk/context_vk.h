@@ -7,6 +7,7 @@
 
 class context_vk
 {
+
 };
 
 #endif //CROSS_PLATFORM_DEMO_CONTEXT_VK_H
