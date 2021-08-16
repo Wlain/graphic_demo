@@ -4,7 +4,7 @@
 
 #ifndef CROSS_PLATFORM_DEMO_VULKANAPPLICATIONS_H
 #define CROSS_PLATFORM_DEMO_VULKANAPPLICATIONS_H
-#include "core/vk/instanceObject.h"
+#include "core/vk/instance.h"
 #include "vulkanLayerExternsionDefine.h"
 
 class VulkanApplications
@@ -23,7 +23,7 @@ public:
     bool render();       // Render primitives
 
 private:
-    InstanceObject m_instanceObj;
+    Instance m_instanceObj;
 };
 
 #endif //CROSS_PLATFORM_DEMO_VULKANAPPLICATIONS_H

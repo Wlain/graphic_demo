@@ -13,7 +13,7 @@
  * @return
  */
 static VKAPI_ATTR VkBool32 VKAPI_CALL
-    debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType,
+    debugMessageCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType,
                   const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData)
 {
     (void)messageSeverity;
@@ -81,7 +81,7 @@ void TriangleVk::initWindow()
 {
     if (glfwInit() == GLFW_FALSE)
     {
-        RAS_ERROR("glfw init failed!");
+        LOG_ERROR("glfw init failed!");
     }
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
@@ -168,12 +168,12 @@ bool TriangleVk::checkValidationLayerSupport()
 {
     uint32_t extensionCount = 0;
     vkEnumerateInstanceLayerProperties(&extensionCount, VK_NULL_HANDLE);
-    RAS_INFO("extensionCount:%d\n", extensionCount);
+    LOG_INFO("extensionCount:%d\n", extensionCount);
     std::vector<VkLayerProperties> availableLayers(extensionCount);
     vkEnumerateInstanceLayerProperties(&extensionCount, availableLayers.data());
     for (auto& layer : availableLayers)
     {
-        RAS_INFO(layer.layerName);
+        LOG_INFO(layer.layerName);
     }
     for (const auto& layerName : m_validationLayers)
     {
@@ -215,7 +215,7 @@ void TriangleVk::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInf
     createInfo.messageType =
         VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT |
         VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT;
-    createInfo.pfnUserCallback = debugCallback;
+    createInfo.pfnUserCallback = debugMessageCallback;
     createInfo.pNext = VK_NULL_HANDLE;
     createInfo.pUserData = VK_NULL_HANDLE;
 }

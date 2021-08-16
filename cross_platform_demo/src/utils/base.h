@@ -31,29 +31,28 @@
 
 // clang-format on
 /// assert macros
-#define RAS_ASSERT(expression) assert(expression)
+#define ASSERT(expression) assert(expression)
 
 /// Error macro
 #ifdef RAS_ERRORS_AS_WARNINGS
-    #define RAS_ERROR RAS_WARN
+    #define LOG_ERROR LOG_WARN
 #else
-    #define RAS_ERROR(...)                                  \
+    #define LOG_ERROR(...)                                  \
         do                                                  \
         {                                                   \
             Logger::log(Logger::Level::Error, __VA_ARGS__); \
-            RAS_ASSERT(0);                                  \
         } while (0)
 #endif
 
 /// Info macro
-#define RAS_INFO(...)                                  \
+#define LOG_INFO(...)                                  \
     do                                                 \
     {                                                  \
         Logger::log(Logger::Level::Info, __VA_ARGS__); \
     } while (0)
 
 /// Warn macro
-#define RAS_WARN(...)                                  \
+#define LOG_WARN(...)                                  \
     do                                                 \
     {                                                  \
         Logger::log(Logger::Level::Warn, __VA_ARGS__); \
@@ -79,7 +78,7 @@
         VkResult error = expression;                                                      \
         if (error)                                                                        \
         {                                                                                 \
-            RAS_ERROR("VkResult: (%d) :{}: Vulkan Assertion Failed", error, #expression); \
+            LOG_ERROR("VkResult: (%d) :{}: Vulkan Assertion Failed", error, #expression); \
         }                                                                                 \
     } while (0)
 
@@ -87,5 +86,6 @@
 
 #define CGE_ENUM_ALIAS(name, member) \
     constexpr auto name##_##member = name::member
+
 #include "logger.h"
 #endif // C___BASE_H

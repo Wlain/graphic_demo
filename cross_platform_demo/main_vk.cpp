@@ -1,10 +1,12 @@
-#include "instanceObject.h"
-#include "physicalDeviceObject.h"
-#include "deviceObject.h"
+#include "device.h"
+#include "instance.h"
+#include "physicalDevice.h"
+
+
 int main()
 {
-    auto instance = std::make_shared<InstanceObject>();
-    auto physicalDevice = std::make_shared<PhysicalDeviceObject>(instance);
-    auto device = std::make_shared<DeviceObject>(physicalDevice);
+    auto instance = std::make_shared<Instance>();
+//    auto physicalDevice = std::make_shared<PhysicalDevice>(instance);
+//    auto device = std::make_shared<Device>(physicalDevice);
     return 0;
 }

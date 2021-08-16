@@ -2,7 +2,9 @@
 // Created by william on 2021/6/19.
 //
 
-#include "instanceObject.h"
+#include "instance.h"
+
+#include "physicalDevice.h"
 /**
  * @brief 调试回调
  * @param messageSeverity 警告等级
@@ -12,13 +14,42 @@
  * @return
  */
 static VKAPI_ATTR VkBool32 VKAPI_CALL
-    debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType,
-                  const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData)
+    debugUtilMessageCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType,
+                             const VkDebugUtilsMessengerCallbackDataEXT* callbackData, void* pUserData)
 {
-    (void)messageSeverity;
-    (void)messageType;
     (void)pUserData;
-    std::cerr << "validation layer: " << pCallbackData->pMessage << std::endl;
+    // Log debug messge
+    if (messageSeverity & VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT)
+    {
+        LOG_WARN("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage);
+    }
+    else if (messageType & VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT)
+    {
+        LOG_ERROR("{} - {}: {}", callbackData->messageIdNumber, callbackData->pMessageIdName, callbackData->pMessage);
+    }
+    return VK_FALSE;
+}
+
+static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT /*type*/,
+                                                    uint64_t /*object*/, size_t /*location*/, int32_t /*message_code*/,
+                                                    const char* layerPrefix, const char* message, void* /*user_data*/)
+{
+    if (flags & VK_DEBUG_REPORT_ERROR_BIT_EXT)
+    {
+        LOG_ERROR("{}: {}", layerPrefix, message);
+    }
+    else if (flags & VK_DEBUG_REPORT_WARNING_BIT_EXT)
+    {
+        LOG_WARN("{}: {}", layerPrefix, message);
+    }
+    else if (flags & VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT)
+    {
+        LOG_WARN("{}: {}", layerPrefix, message);
+    }
+    else
+    {
+        LOG_INFO("{}: {}", layerPrefix, message);
+    }
     return VK_FALSE;
 }
 
@@ -75,7 +106,7 @@ bool validateLayers(const std::vector<const char*>& required, const std::vector<
         }
         else
         {
-            RAS_ERROR("Validation Layer {} not found", layer);
+            LOG_ERROR("Validation Layer %s not found", layer);
             return false;
         }
     }
@@ -84,11 +115,11 @@ bool validateLayers(const std::vector<const char*>& required, const std::vector<
 std::vector<const char*> getOptimalValidationLayers(const std::vector<VkLayerProperties>& supportedInstanceLayers)
 {
     std::vector<std::vector<const char*>> validationLayerPriorityList = {
-        /// The preferred validation layer is "VK_LAYER_KHRONOS_validation"
+        /// 首选的验证层是"VK_LAYER_KHRONOS_validation"
         { "VK_LAYER_KHRONOS_validation" },
-        /// Otherwise we fallback to using the LunarG meta layer
+        /// 否则我们会退回到使用LunarG基础层
         { "VK_LAYER_LUNARG_standard_validation" },
-        /// Otherwise we attempt to enable the individual layers that compose the LunarG meta layer since it doesn't exist
+        /// 否则我们将尝试启用组成LunarG元层的各个层，一旦它不存在。
         {
             "VK_LAYER_GOOGLE_threading",
             "VK_LAYER_LUNARG_parameter_validation",
@@ -96,7 +127,7 @@ std::vector<const char*> getOptimalValidationLayers(const std::vector<VkLayerPro
             "VK_LAYER_LUNARG_core_validation",
             "VK_LAYER_GOOGLE_unique_objects",
         },
-        /// Otherwise as a last resort we fallback to attempting to enable the LunarG core layer
+        /// 否则，作为最后的手段，我们将退回到尝试启用LunarG核心层
         { "VK_LAYER_LUNARG_core_validation" }
     };
 
@@ -106,12 +137,12 @@ std::vector<const char*> getOptimalValidationLayers(const std::vector<VkLayerPro
         {
             return validationLayers;
         }
-        RAS_WARN("Couldn't enable validation layers (see log for error) - falling back");
+        LOG_WARN("Couldn't enable validation layers (see log for error) - falling back");
     }
     return {};
 }
 
-InstanceObject::InstanceObject()
+Instance::Instance()
 {
     /// 获取支持的扩展
     uint32_t instanceExtensionCount;
@@ -127,18 +158,18 @@ InstanceObject::InstanceObject()
             if (strcmp(availableExtension.extensionName, VK_EXT_DEBUG_UTILS_EXTENSION_NAME) == 0)
             {
                 debugUtils = true;
-                RAS_INFO("%s is available, enabling it", VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+                LOG_INFO("%s is available, enabling it", VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
                 m_enabledExtensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
             }
             if (strcmp(availableExtension.extensionName, VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME) == 0)
             {
                 headlessExtension = true;
-                RAS_INFO("%s is available, enabling it", VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
+                LOG_INFO("%s is available, enabling it", VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
                 m_enabledExtensions.push_back(VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
             }
             if (strcmp(availableExtension.extensionName, VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME) == 0)
             {
-                RAS_INFO("%s is available, enabling it", VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
+                LOG_INFO("%s is available, enabling it", VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
                 m_enabledExtensions.push_back(VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
             }
         }
@@ -148,8 +179,22 @@ InstanceObject::InstanceObject()
         }
         if (!headlessExtension)
         {
-            RAS_WARN("{} is not available, disabling swapchain creation", VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
+            LOG_WARN("%s is not available, disabling swapchain creation", VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
         }
+    }
+
+    auto extensionError = VK_FALSE;
+    for (auto extension : m_enabledExtensions)
+    {
+        if (std::find_if(availableInstanceExtensions.begin(), availableInstanceExtensions.end(),
+                         [&extension](VkExtensionProperties availableExtension) { return strcmp(availableExtension.extensionName, extension) == 0; }) == availableInstanceExtensions.end())
+        {
+            LOG_ERROR("Required instance extension {} not available, cannot run", extension);
+        }
+    }
+    if (extensionError)
+    {
+        throw std::runtime_error("Required instance extensions are missing.");
     }
 
     /// 获取支持的层
@@ -166,11 +211,10 @@ InstanceObject::InstanceObject()
 
     if (validateLayers(m_validationLayers, supportedValidationLayers))
     {
-        RAS_INFO("Enabled Validation Layers:");
-        for (const auto& layer : m_validationLayers)
-        {
-            RAS_INFO("%s", layer);
-        }
+        LOG_INFO("Enabled Validation Layers:");
+        std::for_each(m_validationLayers.begin(), m_validationLayers.end(), [](const char* validationLayer) {
+            LOG_INFO("%s", validationLayer);
+        });
     }
     else
     {
@@ -181,7 +225,7 @@ InstanceObject::InstanceObject()
     VkApplicationInfo appInfo{ VK_STRUCTURE_TYPE_APPLICATION_INFO };
     appInfo.pApplicationName = "triangle";
     appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
-    appInfo.pEngineName = "No Engine";
+    appInfo.pEngineName = "Vulkan Demo";
     appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
     appInfo.apiVersion = VK_API_VERSION_1_0;
     // 定义vulkan实例创建的参数结构体
@@ -204,54 +248,98 @@ InstanceObject::InstanceObject()
         instanceInfo.enabledLayerCount = 0;
         instanceInfo.pNext = VK_NULL_HANDLE;
     }
-    if (vkCreateInstance(&instanceInfo, m_allocator, &m_handler) != VK_SUCCESS)
+    if (vkCreateInstance(&instanceInfo, m_allocator, &m_handle) != VK_SUCCESS)
     {
         throw std::runtime_error("failed to create instance!");
     }
     setupDebugMessenger();
 }
 
-InstanceObject::~InstanceObject()
+Instance::~Instance()
 {
     if (ENABLE_VALIDATION_LAYERS)
     {
-        destroyDebugUtilsMessengerEXT(m_handler, m_debugUtilsMessenger, VK_NULL_HANDLE);
+        destroyDebugUtilsMessengerEXT(m_handle, m_debugUtilsMessenger, VK_NULL_HANDLE);
     }
-    vkDestroyInstance(m_handler, VK_NULL_HANDLE);
+    vkDestroyInstance(m_handle, VK_NULL_HANDLE);
     glfwDestroyWindow(m_window);
     glfwTerminate();
 }
 
-void InstanceObject::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& createInfo)
+void Instance::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& debugUtilsCreateInfo)
 {
-    createInfo = {};
-    createInfo.sType = VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT;
+    debugUtilsCreateInfo = {};
+    debugUtilsCreateInfo.sType = VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT;
     /// messageSeverity字段允许你指定你的回调函数在何种严重等级下被触发
-    createInfo.messageSeverity =
+    debugUtilsCreateInfo.messageSeverity =
         VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT |
         VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT;
-    createInfo.messageSeverity =
+    debugUtilsCreateInfo.messageSeverity =
         VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT |
         VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT;
-    createInfo.messageType =
+    debugUtilsCreateInfo.messageType =
         VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT |
         VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT;
-    createInfo.pfnUserCallback = debugCallback;
-    createInfo.pNext = VK_NULL_HANDLE;
-    createInfo.pUserData = VK_NULL_HANDLE;
+    debugUtilsCreateInfo.pfnUserCallback = debugUtilMessageCallback;
+    debugUtilsCreateInfo.pNext = VK_NULL_HANDLE;
+    debugUtilsCreateInfo.pUserData = VK_NULL_HANDLE;
 }
 
-void InstanceObject::setupDebugMessenger()
+void Instance::setupDebugMessenger()
 {
-    if (!ENABLE_VALIDATION_LAYERS)
+    if (ENABLE_VALIDATION_LAYERS)
     {
-        return;
-    }
-    VkDebugUtilsMessengerCreateInfoEXT createInfo;
-    populateDebugMessengerCreateInfo(createInfo);
+        VkDebugUtilsMessengerCreateInfoEXT createInfo;
+        populateDebugMessengerCreateInfo(createInfo);
 
-    if (createDebugUtilsMessengerEXT(m_handler, &createInfo, VK_NULL_HANDLE, &m_debugUtilsMessenger) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to set up debug messenger!");
+        if (createDebugUtilsMessengerEXT(m_handle, &createInfo, VK_NULL_HANDLE, &m_debugUtilsMessenger) != VK_SUCCESS)
+        {
+            throw std::runtime_error("failed to set up debug messenger!");
+        }
     }
+}
+
+PhysicalDevice& Instance::getSuitableGpu(VkSurfaceKHR surface)
+{
+    assert(!m_gpus.empty() && "No physical devices were found on the system.");
+    for (auto& gpu : m_gpus)
+    {
+        if (gpu->properties().deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU)
+        {
+            // See if it work with the surface
+            size_t queueCount = gpu->queueFamilyProperties().size();
+            for (uint32_t queueIdx = 0; static_cast<size_t>(queueIdx) < queueCount; queueIdx++)
+            {
+                if (gpu->isPresentSupported(surface, queueIdx))
+                {
+                    return *gpu;
+                }
+            }
+        }
+    }
+
+    LOG_WARN("Couldn't find a discrete physical device, picking default GPU");
+    return *m_gpus.at(0);
+}
+
+PhysicalDevice& Instance::getFirstGpu()
+{
+    assert(!m_gpus.empty() && "No physical devices were found on the system.");
+
+    // 找到一个DISCRETE的GPU
+    for (auto& gpu : m_gpus)
+    {
+        if (gpu->properties().deviceType == VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU)
+        {
+            return *gpu;
+        }
+    }
+
+    LOG_WARN("Couldn't find a discrete physical device, picking default GPU");
+    return *m_gpus.at(0);
+}
+
+bool Instance::isEnabled(const char* extension) const
+{
+    return std::find_if(m_enabledExtensions.begin(), m_enabledExtensions.end(), [extension](const char* enabledExtension) { return strcmp(extension, enabledExtension) == 0; }) != m_enabledExtensions.end();
 }
