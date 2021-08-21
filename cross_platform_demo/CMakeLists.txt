@@ -12,7 +12,7 @@ set(EXTERNAL_DIR ${ROOT_DIR}/3rdparty)
 
 # vulkan
 find_package(Vulkan REQUIRED FATAL_ERROR)
-message(cwb+${OpenCV_DIR})
+
 # opencv
 find_package(OpenCV)
 
@@ -88,4 +88,11 @@ target_link_libraries(cross_platform_demo
         "-framework Accelerate"
         "-framework IOSurface"
         )
+
+#INCLUDE_DIRECTORIES("/usr/local/include")   #brew安装头文件的目录 /usr/local/include, 包括GLFW的头文件
+#INCLUDE_DIRECTORIES("$ENV{VULKAN_SDK}/include")   # VULKAN 的头文件
+#LINK_LIBRARIES("/usr/local/Cellar/glfw/3.3.4/lib/libglfw.3.3.dylib")  # GLFW的动态链接库。brew安装链接库的目录 /usr/local/lib
+#LINK_LIBRARIES("$ENV{VULKAN_SDK}/lib/libvulkan.1.dylib")  # vulkan 的动态链接库
+#LINK_LIBRARIES("$ENV{VULKAN_SDK}/lib/libvulkan.1.2.182.dylib")  #
+
 target_compile_options(cross_platform_demo PUBLIC "-fobjc-arc")
