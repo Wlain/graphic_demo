@@ -9,4 +9,15 @@
 #include <vulkan/vulkan.h>
 #define ENABLE_VALIDATION_LAYERS 1
 
+/// VK_CHECK macros
+#define VK_CHECK(expression)                                                              \
+    do                                                                                    \
+    {                                                                                     \
+        VkResult ASSERT_ONLY error = expression;                                          \
+        if (error)                                                                        \
+        {                                                                                 \
+            LOG_ERROR("VkResult: (%d) :{}: Vulkan Assertion Failed", error, #expression); \
+        }                                                                                 \
+    } while (0)
+
 #endif //CROSS_PLATFORM_DEMO_COMMONDEFINE_VK_H

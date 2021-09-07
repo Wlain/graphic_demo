@@ -1656,6 +1656,12 @@
 		<Unit filename="/Users/william/git/sample/graphic_demo/cross_platform_demo/src/core/vk/device.h">
 			<Option target="cross_platform_demo"/>
 		</Unit>
+		<Unit filename="/Users/william/git/sample/graphic_demo/cross_platform_demo/src/core/vk/device2.cpp">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/william/git/sample/graphic_demo/cross_platform_demo/src/core/vk/device2.h">
+			<Option target="cross_platform_demo"/>
+		</Unit>
 		<Unit filename="/Users/william/git/sample/graphic_demo/cross_platform_demo/src/core/vk/framebuffer.cpp">
 			<Option target="cross_platform_demo"/>
 		</Unit>

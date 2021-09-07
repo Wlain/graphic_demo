@@ -1,55 +1,69 @@
 //
-// Created by ytech on 2021/8/11.
+// Created by william on 2021/9/7.
 //
 
 #include "device.h"
-
-#include "instance.h"
-#include "physicalDevice.h"
-
-Device::Device(PhysicalDevice* gpu, VkSurfaceKHR surface, const char* extensions):
-    m_gpu(gpu),
-    m_resourceCache(*this)
+Device::Device(VkPhysicalDevice* gpu) :
+    m_gpu(gpu)
 {
-    VkDeviceCreateInfo deviceInfo{};
-    deviceInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
-    deviceInfo.pNext = VK_NULL_HANDLE;
+}
+
+Device::~Device() = default;
+
+VkResult Device::createDevice(std::vector<const char*>& layers, std::vector<const char*>& extensions)
+{
+    m_layerExtension.m_requestedLayerNames = layers;
+    m_layerExtension.m_requestedExtensionNames = extensions;
+    VkResult result;
     VkDeviceQueueCreateInfo queueInfo = {};
+    queueInfo.queueFamilyIndex = m_graphicsQueueHandle;
     queueInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
     queueInfo.pNext = VK_NULL_HANDLE;
-    m_queueIndex = gpu->queueIndex(VK_QUEUE_GRAPHICS_BIT);
-    queueInfo.queueFamilyIndex = m_queueIndex;
     queueInfo.queueCount = 1;
     float devicePriorities = 1.0f;
     queueInfo.pQueuePriorities = &devicePriorities;
+
+    VkDeviceCreateInfo deviceInfo{};
+    deviceInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+    deviceInfo.pNext = VK_NULL_HANDLE;
     deviceInfo.queueCreateInfoCount = 1;
     deviceInfo.pQueueCreateInfos = &queueInfo;
-    VkPhysicalDeviceFeatures features = {};
-    vkGetPhysicalDeviceFeatures(gpu->handle(), &features);
-    deviceInfo.pEnabledFeatures = &features;
-    // 获取设备层扩展
-    uint32_t extensionCount = 0;
-    vkEnumerateDeviceExtensionProperties(gpu->handle(), NULL, &extensionCount, NULL);
-    std::vector<const char*> extNames;
-    std::vector<VkExtensionProperties> extProps(extensionCount);
-    vkEnumerateDeviceExtensionProperties(gpu->handle(), NULL, &extensionCount, extProps.data());
-    for (uint32_t i = 0; i < extensionCount; i++)
-    {
-        extNames.push_back(extProps[i].extensionName);
-    }
-    deviceInfo.enabledExtensionCount = extNames.size();
-    deviceInfo.ppEnabledExtensionNames = extNames.data();
     /// deviceInfo.enabledLayerCount, deviceInfo.ppEnabledLayerNames 这两个东西在VK2.0已经被忽略了
     deviceInfo.enabledLayerCount = 0;
     deviceInfo.ppEnabledLayerNames = nullptr;
-    VK_CHECK(vkCreateDevice(gpu->handle(), &deviceInfo, gpu->instance().allocator(), &m_handle));
+    deviceInfo.enabledExtensionCount = (uint32_t)extensions.size();
+    deviceInfo.ppEnabledExtensionNames = !extensions.empty() ? extensions.data() : nullptr;
+    deviceInfo.pEnabledFeatures = nullptr;
+    result = vkCreateDevice(*m_gpu, &deviceInfo, nullptr, &m_device);
+    return result;
 }
 
-Device::~Device()
+void Device::destroyDevice()
 {
-    m_resourceCache.clear();
-    if (m_handle != VK_NULL_HANDLE)
+    vkDestroyDevice(m_device, nullptr);
+}
+
+/// 查询queueFamilyProps
+void Device::getPhysicalDeviceQueuesAndProperties()
+{
+    vkGetPhysicalDeviceQueueFamilyProperties(*m_gpu, &m_queueFamilyCount, nullptr);
+    m_queueFamilyProps.resize(m_queueFamilyCount);
+    vkGetPhysicalDeviceQueueFamilyProperties(*m_gpu, &m_queueFamilyCount, m_queueFamilyProps.data());
+}
+
+uint32_t Device::getGraphicsQueueHandle()
+{
+    bool found = false;
+    for (unsigned int i = 0; i < m_queueFamilyCount; i++)
     {
-        vkDestroyDevice(m_handle, nullptr);
+        if (m_queueFamilyProps[i].queueFlags & VK_QUEUE_GRAPHICS_BIT)
+        {
+            found = true;
+            m_queueFamilyCount = i;
+            break;
+        }
     }
+    // Assert if there is no queue found.
+    assert(found);
+    return 0;
 }

@@ -40,33 +40,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33453206-28e3-4bdf-8e43-241142cfcff6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/3rdparty/volk/volk.cbp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/bin/visualinfo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/vk/layerAndExtension.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/vk/layerAndExtension.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/vulkanApplication.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/vulkanApplication.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/GLFW.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/GLFW.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/cmake_uninstall.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/cmake_uninstall.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/src/libglfw3.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/src/libglfw3.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/configuration/root_directory.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/configuration/root_directory.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lib/libGLEWd.2.1.0.dylib" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/libGLEWd.2.1.0.dylib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_vk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_vk.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/vk/commonDefine_vk.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/commonDefine_vk.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/vk/device.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/device.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/vk/device.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/device.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/vk/device.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/device2.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/vk/device.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/device2.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/vk/instance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/instance.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/vk/instance.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/instance.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/vulkanApplications.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/vulkanApplications.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/vulkanLayerExternsionDefine.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/vulkanLayerExternsionDefine.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/vk/physicalDevice.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/physicalDevice.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/vk/physicalDevice.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/physicalDevice.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/vk/pipeline.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/pipeline.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanApplication.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/vulkanApplication.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/vulkanApplication.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/vulkanApplication.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/base.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/base.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -249,13 +237,6 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="vertexCode" />
-        <watch expression="m_physicalDevice-&gt;instance()-&gt;allocator()" language="ObjectiveC" />
-        <watch expression="deviceInfo" language="ObjectiveC" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

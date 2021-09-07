@@ -2,8 +2,8 @@
 // Created by william on 2021/6/20.
 //
 
-#ifndef CROSS_PLATFORM_DEMO_PHYSICALDEVICE_H
-#define CROSS_PLATFORM_DEMO_PHYSICALDEVICE_H
+#ifndef CROSS_PLATFORM_DEMO_PHYSICALDEVICE2_H
+#define CROSS_PLATFORM_DEMO_PHYSICALDEVICE2_H
 #include "commonDefine_vk.h"
 
 class Instance;
@@ -64,4 +64,4 @@ public:
     std::vector<VkMemoryHeap> m_allowedHeapTypes;
     void* m_lastRequestedExtensionFeature = VK_NULL_HANDLE;
 };
-#endif //CROSS_PLATFORM_DEMO_PHYSICALDEVICE_H
+#endif //CROSS_PLATFORM_DEMO_PHYSICALDEVICE2_H

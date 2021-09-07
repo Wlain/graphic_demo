@@ -3,8 +3,10 @@
 //
 
 #include "physicalDevice.h"
-#include <vulkan/vulkan_core.h>
+
 #include "instance.h"
+
+#include <vulkan/vulkan_core.h>
 
 PhysicalDevice::PhysicalDevice(Instance& instance, VkPhysicalDevice& physicalDevice) :
     m_instance(instance), m_handle(physicalDevice)

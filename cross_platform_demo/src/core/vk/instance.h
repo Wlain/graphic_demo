@@ -24,7 +24,7 @@ public:
     /// 不可复制
 
     VkResult createInstance(std::vector<const char*>& layers, std::vector<const char*>& extensions, const char* applicationName);
-
+    void destroyInstance();
     Instance(const Instance&) = delete;
     /// 不可移动
     Instance(Instance&&) = delete;
@@ -46,8 +46,6 @@ private:
     void setupDebugMessenger();
 
 public:
-    /// glfw窗口
-    GLFWwindow* m_window = VK_NULL_HANDLE;
     /// vulkan实例对象的变量
     VkInstance m_handle = VK_NULL_HANDLE;
     /// 物理设备

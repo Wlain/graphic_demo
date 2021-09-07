@@ -64,16 +64,6 @@
     #define ASSERT_ONLY
 #endif
 
-/// VK_CHECK macros
-#define VK_CHECK(expression)                                                              \
-    do                                                                                    \
-    {                                                                                     \
-        VkResult ASSERT_ONLY error = expression;                                          \
-        if (error)                                                                        \
-        {                                                                                 \
-            LOG_ERROR("VkResult: (%d) :{}: Vulkan Assertion Failed", error, #expression); \
-        }                                                                                 \
-    } while (0)
 
 #define ARRAY_SIZE(x) (sizeof(x) / sizeof(*x))
 

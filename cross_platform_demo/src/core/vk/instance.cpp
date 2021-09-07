@@ -256,13 +256,11 @@ Instance::Instance()
 
 Instance::~Instance()
 {
-    if (ENABLE_VALIDATION_LAYERS)
-    {
-        destroyDebugUtilsMessengerEXT(m_handle, m_debugUtilsMessenger, VK_NULL_HANDLE);
-    }
-    vkDestroyInstance(m_handle, VK_NULL_HANDLE);
-    glfwDestroyWindow(m_window);
-    glfwTerminate();
+//    if (ENABLE_VALIDATION_LAYERS)
+//    {
+//        destroyDebugUtilsMessengerEXT(m_handle, m_debugUtilsMessenger, VK_NULL_HANDLE);
+//    }
+//    vkDestroyInstance(m_handle, VK_NULL_HANDLE);
 }
 
 void Instance::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& debugUtilsCreateInfo)
@@ -366,11 +364,16 @@ VkResult Instance::createInstance(std::vector<const char*>& layers, std::vector<
     instanceInfo.pApplicationInfo = &appInfo;
 
     instanceInfo.enabledLayerCount = (uint32_t)layers.size();
-    instanceInfo.ppEnabledLayerNames = !layers.empty() ? extensions.data() : nullptr;
+    instanceInfo.ppEnabledLayerNames = !layers.empty() ? layers.data() : nullptr;
 
     instanceInfo.enabledExtensionCount = (uint32_t)extensions.size();
     instanceInfo.ppEnabledExtensionNames = !extensions.empty() ? extensions.data() : nullptr;
     VkResult result = vkCreateInstance(&instanceInfo, nullptr, &m_handle);
     ASSERT(result == VK_SUCCESS);
     return result;
+}
+
+void Instance::destroyInstance()
+{
+    vkDestroyInstance(m_handle, VK_NULL_HANDLE);
 }

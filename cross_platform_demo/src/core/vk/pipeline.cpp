@@ -23,6 +23,6 @@ Pipeline::~Pipeline()
 {
     if (m_handle != VK_NULL_HANDLE)
     {
-        vkDestroyPipeline(m_device.handle(), m_handle, nullptr);
+        vkDestroyPipeline(m_device, m_handle, nullptr);
     }
 }

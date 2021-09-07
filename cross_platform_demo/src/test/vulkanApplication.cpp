@@ -3,19 +3,19 @@
 //
 
 #include "vulkanApplication.h"
-#include "physicalDevice.h"
+
+#include "device.h"
 
 std::unique_ptr<VulkanApplication> VulkanApplication::s_instance;
 std::once_flag VulkanApplication::s_onlyOnce;
 
-extern std::vector<const char *> instanceExtensionNames;
-extern std::vector<const char *> layerNames;
-extern std::vector<const char *> deviceExtensionNames;
+extern std::vector<const char*> instanceExtensionNames;
+extern std::vector<const char*> layerNames;
+extern std::vector<const char*> deviceExtensionNames;
 
 VulkanApplication::VulkanApplication()
 {
     m_instanceObj.m_layerExtension.getInstanceLayerProperties();
-    m_deviceObj = nullptr;
 }
 
 VulkanApplication::~VulkanApplication() = default;
@@ -45,19 +45,22 @@ void VulkanApplication::update()
 }
 bool VulkanApplication::render()
 {
-    return false;
+    return true;
 }
 
 VulkanApplication* VulkanApplication::getInstance()
 {
-    return nullptr;
-}
-void VulkanApplication::destroy()
-{
+    std::call_once(s_onlyOnce, []() { s_instance.reset(new VulkanApplication()); });
+    return s_instance.get();
 }
 
-/// 创建逻辑设备。
-/// 逻辑设备的创建过程需要以下步骤：
+void VulkanApplication::destroy()
+{
+    m_deviceObj->destroyDevice();
+    m_instanceObj.destroyInstance();
+}
+
+/// 创建逻辑设备需要以下步骤：
 /// 1.获取物理设备的特定层和相应的扩展[可选]。
 /// 2.创建用户定义的VulkanDevice对象
 /// 3.提供需要在该物理设备中启用的层和扩展列表。
@@ -69,11 +72,26 @@ void VulkanApplication::destroy()
 
 VkResult VulkanApplication::handShakeWithDevice(VkPhysicalDevice* gpu, std::vector<const char*>& layers, std::vector<const char*>& extensions)
 {
-    m_deviceObj = Device(gpu);
-
-    return VK_ERROR_INITIALIZATION_FAILED;
+    m_deviceObj = new Device(gpu);
+    if (!m_deviceObj)
+    {
+        return VK_ERROR_OUT_OF_HOST_MEMORY;
+    }
+    // 1.获取物理设备的特定层和相应的扩展[可选]。
+    m_deviceObj->m_layerExtension.getDeviceExtensionProperties(gpu);
+    // 4.获取物理设备或GPU属性
+    vkGetPhysicalDeviceProperties(*gpu, &m_deviceObj->m_gpuProps);
+    vkGetPhysicalDeviceMemoryProperties(*gpu, &m_deviceObj->m_memoryProperties);
+    m_deviceObj->getPhysicalDeviceQueuesAndProperties();
+    m_deviceObj->getGraphicsQueueHandle();
+    return m_deviceObj->createDevice(layers, extensions);
 }
-VkResult VulkanApplication::enumeratePhysicalDevices(std::vector<VkPhysicalDevice>& gpus)
+
+void VulkanApplication::enumeratePhysicalDevices(std::vector<VkPhysicalDevice>& gpuLists)
 {
-    return VK_ERROR_INITIALIZATION_FAILED;
+    uint32_t gpuDeviceCount;
+    VK_CHECK(vkEnumeratePhysicalDevices(m_instanceObj, &gpuDeviceCount, nullptr));
+    ASSERT(gpuDeviceCount);
+    gpuLists.resize(gpuDeviceCount);
+    VK_CHECK(vkEnumeratePhysicalDevices(m_instanceObj, &gpuDeviceCount, gpuLists.data()));
 }
