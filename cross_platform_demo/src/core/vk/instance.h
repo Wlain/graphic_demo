@@ -42,6 +42,8 @@ public:
     bool isEnabled(const char* extension) const;
 
 private:
+    void populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT& debugUtilsCreateInfo);
+    void setupDebugMessenger();
 
 public:
     /// vulkan实例对象的变量
@@ -50,6 +52,10 @@ public:
     std::vector<std::unique_ptr<PhysicalDevice>> m_gpus;
     /// 层和扩展
     LayerAndExtension m_layerExtension;
+    /// debug调试信息
+    VkDebugUtilsMessengerEXT m_debugUtilsMessenger = VK_NULL_HANDLE;
+    /// debug回调report
+    VkDebugReportCallbackEXT m_debugReportCallback = VK_NULL_HANDLE;
     VkAllocationCallbacks* m_allocator = VK_NULL_HANDLE;
 };
 
