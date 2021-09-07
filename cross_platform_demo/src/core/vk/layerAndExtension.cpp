@@ -7,7 +7,12 @@
 #include "vulkanApplication.h"
 LayerAndExtension::LayerAndExtension() = default;
 
-LayerAndExtension::~LayerAndExtension() = default;
+LayerAndExtension::~LayerAndExtension()
+{
+    VkDebugReportCallbackEXT m_debugReportCallback = VK_NULL_HANDLE;
+    PFN_vkCreateDebugReportCallbackEXT m_dbgCreateDebugReportCallback = VK_NULL_HANDLE;
+    PFN_vkDestroyDebugReportCallbackEXT m_dbgDestroyDebugReportCallback = VK_NULL_HANDLE;
+}
 
 VkResult LayerAndExtension::getInstanceLayerProperties()
 {
@@ -121,4 +126,54 @@ VkResult LayerAndExtension::getDeviceExtensionProperties(VkPhysicalDevice* gpu)
         }
     }
     return result;
+}
+
+bool LayerAndExtension::isLayersSupported(std::vector<const char*>& layerNames)
+{
+    return false;
+}
+
+VkResult LayerAndExtension::createDebugUtilsMessengerEXT()
+{
+    return VK_ERROR_INITIALIZATION_FAILED;
+}
+
+void LayerAndExtension::destroyDebugUtilsMessengerEXT()
+{
+    auto* appObj = VulkanApplication::getInstance();
+    auto& instance = appObj->m_instanceObj;
+    m_dbgDestroyDebugReportCallback(instance, m_debugReportCallback, nullptr);
+}
+
+VKAPI_ATTR VkBool32 VKAPI_CALL LayerAndExtension::debugFunction(VkFlags msgFlags, VkDebugReportObjectTypeEXT objType,
+                                                                uint64_t srcObject, size_t location, int32_t msgCode,
+                                                                const char* layerPrefix, const char* msg, void* userData)
+{
+    if (msgFlags & VK_DEBUG_REPORT_ERROR_BIT_EXT)
+    {
+        std::cout << "[VK_DEBUG_REPORT] ERROR: [" << layerPrefix << "] Code" << msgCode << ":" << msg << std::endl;
+    }
+    else if (msgFlags & VK_DEBUG_REPORT_WARNING_BIT_EXT)
+    {
+        std::cout << "[VK_DEBUG_REPORT] WARNING: [" << layerPrefix << "] Code" << msgCode << ":" << msg << std::endl;
+    }
+    else if (msgFlags & VK_DEBUG_REPORT_INFORMATION_BIT_EXT)
+    {
+        std::cout << "[VK_DEBUG_REPORT] INFORMATION: [" << layerPrefix << "] Code" << msgCode << ":" << msg << std::endl;
+    }
+    else if (msgFlags & VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT)
+    {
+        std::cout << "[VK_DEBUG_REPORT] PERFORMANCE: [" << layerPrefix << "] Code" << msgCode << ":" << msg << std::endl;
+    }
+    else if (msgFlags & VK_DEBUG_REPORT_DEBUG_BIT_EXT)
+    {
+        std::cout << "[VK_DEBUG_REPORT] DEBUG: [" << layerPrefix << "] Code" << msgCode << ":" << msg << std::endl;
+    }
+    else
+    {
+        return VK_FALSE;
+    }
+
+    fflush(stdout);
+    return VK_TRUE;
 }

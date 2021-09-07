@@ -41,21 +41,20 @@
   <component name="ChangeListManager">
     <list default="true" id="33453206-28e3-4bdf-8e43-241142cfcff6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/GLFW.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/GLFW.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/cmake_uninstall.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/cmake_uninstall.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/src/glfw3ConfigVersion.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/src/glfw3ConfigVersion.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/src/libglfw3.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3rdparty/glfw/src/libglfw3.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/configuration/root_directory.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/configuration/root_directory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cross_platform_demo.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/vk/commonDefine_vk.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/commonDefine_vk.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/vk/device.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/device2.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/vk/device.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/device2.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/vk/instance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/instance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_vk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main_vk.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/vk/instance.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/instance.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/vk/physicalDevice.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/physicalDevice.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/vk/physicalDevice.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/physicalDevice.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/vk/pipeline.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/pipeline.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/vk/layerAndExtension.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/layerAndExtension.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/vk/layerAndExtension.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/vk/layerAndExtension.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/vulkanApplication.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/vulkanApplication.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/vulkanApplication.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/vulkanApplication.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/base.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/base.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,52 +107,52 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake Application.cross_platform_demo">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cross_platform_demo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="cross_platform_demo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="cross_platform_demo">
+    <configuration name="cross_platform_demo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="cross_platform_demo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="cross_platform_demo">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="glew" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glew" CONFIG_NAME="Debug">
+    <configuration name="glew" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glew" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="glew_s" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glew_s" CONFIG_NAME="Debug">
+    <configuration name="glew_s" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glew_s" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="glewinfo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glewinfo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="glewinfo">
+    <configuration name="glewinfo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glewinfo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="glewinfo">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="glfw" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glfw" CONFIG_NAME="Debug">
+    <configuration name="glfw" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glfw" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="glm_dummy" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glm_dummy" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="glm_dummy">
+    <configuration name="glm_dummy" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="glm_dummy" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="glm_dummy">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="uninstall" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="uninstall" CONFIG_NAME="Debug">
+    <configuration name="uninstall" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="uninstall" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="visualinfo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="visualinfo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="visualinfo">
+    <configuration name="visualinfo" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cross_platform_demo" TARGET_NAME="visualinfo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cross_platform_demo" RUN_TARGET_NAME="visualinfo">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>

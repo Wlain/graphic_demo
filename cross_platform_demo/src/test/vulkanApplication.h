@@ -38,6 +38,8 @@ private:
 public:
     Instance m_instanceObj; // Vulkan Instance object
     Device* m_deviceObj = nullptr;
+private:
+    bool m_isDebug = false;
 };
 
 #endif //CROSS_PLATFORM_DEMO_VULKANAPPLICATION_H

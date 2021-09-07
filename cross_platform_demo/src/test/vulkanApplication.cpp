@@ -40,9 +40,11 @@ void VulkanApplication::initialize()
 void VulkanApplication::prepare()
 {
 }
+
 void VulkanApplication::update()
 {
 }
+
 bool VulkanApplication::render()
 {
     return true;

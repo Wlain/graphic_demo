@@ -1,1 +1,1 @@
-const char* loadRoot = "/Users/william/git/sample/graphic_demo/cross_platform_demo";
+const char* loadRoot = "/Users/ytech/Developor/graphic_demo/cross_platform_demo";
