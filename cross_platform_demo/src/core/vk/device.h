@@ -12,7 +12,7 @@
 class Device
 {
 public:
-    Device(PhysicalDevice& gpu, VkSurfaceKHR surface, const char* extensions);
+    explicit Device(PhysicalDevice* gpu, VkSurfaceKHR surface = {}, const char* extensions = {});
     ~Device();
     /// 不可复制
     Device(const Device&) = delete;
@@ -29,7 +29,7 @@ public:
     inline VkDevice handle() const { return m_handle; }
 
 private:
-    const PhysicalDevice& m_gpu;
+    PhysicalDevice* m_gpu;
     ResourceCache m_resourceCache;
     VkDevice m_handle = VK_NULL_HANDLE;
     VkQueue m_queue = VK_NULL_HANDLE;

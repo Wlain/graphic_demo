@@ -35,7 +35,7 @@ build-android/external
 *.includes
 *.autosave
 .DS_Store
-.idea
+.idea/*
 .gradle
 .externalNativeBuild
 *.iml

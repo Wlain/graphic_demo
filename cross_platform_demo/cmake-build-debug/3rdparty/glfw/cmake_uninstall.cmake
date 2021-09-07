@@ -1,9 +1,9 @@
 
-if (NOT EXISTS "/Users/william/git/learning/graphic_demo/cross_platform_demo/cmake-build-debug/3rdparty/glfw/install_manifest.txt")
-    message(FATAL_ERROR "Cannot find install manifest: \"/Users/william/git/learning/graphic_demo/cross_platform_demo/cmake-build-debug/3rdparty/glfw/install_manifest.txt\"")
+if (NOT EXISTS "/Users/william/git/sample/graphic_demo/cross_platform_demo/cmake-build-debug/3rdparty/glfw/install_manifest.txt")
+    message(FATAL_ERROR "Cannot find install manifest: \"/Users/william/git/sample/graphic_demo/cross_platform_demo/cmake-build-debug/3rdparty/glfw/install_manifest.txt\"")
 endif()
 
-file(READ "/Users/william/git/learning/graphic_demo/cross_platform_demo/cmake-build-debug/3rdparty/glfw/install_manifest.txt" files)
+file(READ "/Users/william/git/sample/graphic_demo/cross_platform_demo/cmake-build-debug/3rdparty/glfw/install_manifest.txt" files)
 string(REGEX REPLACE "\n" ";" files "${files}")
 
 foreach (file ${files})

@@ -27,14 +27,13 @@
 #include <GL/glew.h>
 #include <glfw/deps/linmath.h>
 #include <GLFW/glfw3.h>
-#include <vulkan/vulkan.h>
-
 // clang-format on
+
 /// assert macros
 #define ASSERT(expression) assert(expression)
 
 /// Error macro
-#ifdef RAS_ERRORS_AS_WARNINGS
+#ifdef ERRORS_AS_WARNINGS
     #define LOG_ERROR LOG_WARN
 #else
     #define LOG_ERROR(...)                                  \
@@ -58,24 +57,18 @@
         Logger::log(Logger::Level::Warn, __VA_ARGS__); \
     } while (0)
 
-#define COMMON_CREATE_FUNC(cls, funcName)      \
-    static inline cls* create()                \
-    {                                          \
-        auto* instance = new cls();            \
-        if (!instance->funcName())             \
-        {                                      \
-            delete instance;                   \
-            instance = nullptr;                \
-            printf("create %s failed!", #cls); \
-        }                                      \
-        return instance;                       \
-    }
+
+#if defined(NDEBUG) && defined(__GNUC__)
+    #define ASSERT_ONLY __attribute__((unused))
+#else
+    #define ASSERT_ONLY
+#endif
 
 /// VK_CHECK macros
 #define VK_CHECK(expression)                                                              \
     do                                                                                    \
     {                                                                                     \
-        VkResult error = expression;                                                      \
+        VkResult ASSERT_ONLY error = expression;                                          \
         if (error)                                                                        \
         {                                                                                 \
             LOG_ERROR("VkResult: (%d) :{}: Vulkan Assertion Failed", error, #expression); \

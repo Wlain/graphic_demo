@@ -5,6 +5,7 @@
 #ifndef CROSS_PLATFORM_DEMO_INSTANCE_H
 #define CROSS_PLATFORM_DEMO_INSTANCE_H
 #include "commonDefine_vk.h"
+#include "layerAndExtension.h"
 #include "resourceCache.h"
 
 class PhysicalDevice;
@@ -21,6 +22,9 @@ public:
     Instance();
     ~Instance();
     /// 不可复制
+
+    VkResult createInstance(std::vector<const char*>& layers, std::vector<const char*>& extensions, const char* applicationName);
+
     Instance(const Instance&) = delete;
     /// 不可移动
     Instance(Instance&&) = delete;
@@ -31,10 +35,7 @@ public:
     inline operator const VkInstance() const { return m_handle; }
     inline VkInstance handle() { return m_handle; }
     inline VkInstance handle() const { return m_handle; }
-    inline std::vector<const char*>& extensions() { return m_enabledExtensions; };
-    inline std::vector<const char*>& validationLayers() { return m_validationLayers; };
     inline const VkAllocationCallbacks* allocator() { return m_allocator; }
-
 
     PhysicalDevice& getSuitableGpu(VkSurfaceKHR);
     PhysicalDevice& getFirstGpu();
@@ -51,10 +52,8 @@ public:
     VkInstance m_handle = VK_NULL_HANDLE;
     /// 物理设备
     std::vector<std::unique_ptr<PhysicalDevice>> m_gpus;
-    /// 可用扩展
-    std::vector<const char*> m_enabledExtensions;
-    /// 验证层
-    std::vector<const char*> m_validationLayers;
+    /// 层和扩展
+    LayerAndExtension m_layerExtension;
     /// debug调试信息
     VkDebugUtilsMessengerEXT m_debugUtilsMessenger = VK_NULL_HANDLE;
     /// debug回调report

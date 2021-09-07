@@ -149,110 +149,109 @@ Instance::Instance()
     VK_CHECK(vkEnumerateInstanceExtensionProperties(nullptr, &instanceExtensionCount, nullptr));
     std::vector<VkExtensionProperties> availableInstanceExtensions(instanceExtensionCount);
     VK_CHECK(vkEnumerateInstanceExtensionProperties(nullptr, &instanceExtensionCount, availableInstanceExtensions.data()));
-    if (ENABLE_VALIDATION_LAYERS)
-    {
-        bool debugUtils = false;
-        bool headlessExtension = false;
-        for (auto& availableExtension : availableInstanceExtensions)
-        {
-            if (strcmp(availableExtension.extensionName, VK_EXT_DEBUG_UTILS_EXTENSION_NAME) == 0)
-            {
-                debugUtils = true;
-                LOG_INFO("%s is available, enabling it", VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
-                m_enabledExtensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
-            }
-            if (strcmp(availableExtension.extensionName, VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME) == 0)
-            {
-                headlessExtension = true;
-                LOG_INFO("%s is available, enabling it", VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
-                m_enabledExtensions.push_back(VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
-            }
-            if (strcmp(availableExtension.extensionName, VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME) == 0)
-            {
-                LOG_INFO("%s is available, enabling it", VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
-                m_enabledExtensions.push_back(VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
-            }
-        }
-        if (!debugUtils)
-        {
-            m_enabledExtensions.push_back(VK_EXT_DEBUG_REPORT_EXTENSION_NAME);
-        }
-        if (!headlessExtension)
-        {
-            LOG_WARN("%s is not available, disabling swapchain creation", VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
-        }
-    }
+//    if (ENABLE_VALIDATION_LAYERS)
+//    {
+//        bool debugUtils = false;
+//        bool headlessExtension = false;
+//        for (auto& availableExtension : availableInstanceExtensions)
+//        {
+//            if (strcmp(availableExtension.extensionName, VK_EXT_DEBUG_UTILS_EXTENSION_NAME) == 0)
+//            {
+//                debugUtils = true;
+//                LOG_INFO("%s is available, enabling it", VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+//                m_enabledExtensions.push_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
+//            }
+//            if (strcmp(availableExtension.extensionName, VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME) == 0)
+//            {
+//                headlessExtension = true;
+//                LOG_INFO("%s is available, enabling it", VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
+//                m_enabledExtensions.push_back(VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
+//            }
+//            if (strcmp(availableExtension.extensionName, VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME) == 0)
+//            {
+//                LOG_INFO("%s is available, enabling it", VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
+//                m_enabledExtensions.push_back(VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME);
+//            }
+//        }
+//        if (!debugUtils)
+//        {
+//            m_enabledExtensions.push_back(VK_EXT_DEBUG_REPORT_EXTENSION_NAME);
+//        }
+//        if (!headlessExtension)
+//        {
+//            LOG_WARN("%s is not available, disabling swapchain creation", VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME);
+//        }
+//    }
 
-    auto extensionError = VK_FALSE;
-    for (auto extension : m_enabledExtensions)
-    {
-        if (std::find_if(availableInstanceExtensions.begin(), availableInstanceExtensions.end(),
-                         [&extension](VkExtensionProperties availableExtension) { return strcmp(availableExtension.extensionName, extension) == 0; }) == availableInstanceExtensions.end())
-        {
-            LOG_ERROR("Required instance extension {} not available, cannot run", extension);
-        }
-    }
-    if (extensionError)
-    {
-        throw std::runtime_error("Required instance extensions are missing.");
-    }
+//    auto extensionError = VK_FALSE;
+//    for (auto extension : m_enabledExtensions)
+//    {
+//        if (std::find_if(availableInstanceExtensions.begin(), availableInstanceExtensions.end(),
+//                         [&extension](VkExtensionProperties availableExtension) { return strcmp(availableExtension.extensionName, extension) == 0; }) == availableInstanceExtensions.end())
+//        {
+//            LOG_ERROR("Required instance extension {} not available, cannot run", extension);
+//        }
+//    }
+//    if (extensionError)
+//    {
+//        throw std::runtime_error("Required instance extensions are missing.");
+//    }
 
     /// 获取支持的层
-    uint32_t instanceLayerCount;
-    VK_CHECK(vkEnumerateInstanceLayerProperties(&instanceLayerCount, nullptr));
-    std::vector<VkLayerProperties> supportedValidationLayers(instanceLayerCount);
-    VK_CHECK(vkEnumerateInstanceLayerProperties(&instanceLayerCount, supportedValidationLayers.data()));
-    if (ENABLE_VALIDATION_LAYERS)
-    {
-        // Determine the optimal validation layers to enable that are necessary for useful debugging
-        std::vector<const char*> optimalValidationLayers = getOptimalValidationLayers(supportedValidationLayers);
-        m_validationLayers.insert(m_validationLayers.end(), optimalValidationLayers.begin(), optimalValidationLayers.end());
-    }
-
-    if (validateLayers(m_validationLayers, supportedValidationLayers))
-    {
-        LOG_INFO("Enabled Validation Layers:");
-        std::for_each(m_validationLayers.begin(), m_validationLayers.end(), [](const char* validationLayer) {
-            LOG_INFO("%s", validationLayer);
-        });
-    }
-    else
-    {
-        throw std::runtime_error("Required validation layers are missing.");
-    }
-
+//    uint32_t instanceLayerCount;
+//    VK_CHECK(vkEnumerateInstanceLayerProperties(&instanceLayerCount, nullptr));
+//    std::vector<VkLayerProperties> supportedValidationLayers(instanceLayerCount);
+//    VK_CHECK(vkEnumerateInstanceLayerProperties(&instanceLayerCount, supportedValidationLayers.data()));
+//    if (ENABLE_VALIDATION_LAYERS)
+//    {
+//        // Determine the optimal validation layers to enable that are necessary for useful debugging
+//        std::vector<const char*> optimalValidationLayers = getOptimalValidationLayers(supportedValidationLayers);
+//        m_validationLayers.insert(m_validationLayers.end(), optimalValidationLayers.begin(), optimalValidationLayers.end());
+//    }
+//
+//    if (validateLayers(m_validationLayers, supportedValidationLayers))
+//    {
+//        LOG_INFO("Enabled Validation Layers:");
+//        std::for_each(m_validationLayers.begin(), m_validationLayers.end(), [](const char* validationLayer) {
+//            LOG_INFO("%s", validationLayer);
+//        });
+//    }
+//    else
+//    {
+//        throw std::runtime_error("Required validation layers are missing.");
+//    }
     // 定义vulkan应用程序的结构体
-    VkApplicationInfo appInfo{ VK_STRUCTURE_TYPE_APPLICATION_INFO };
-    appInfo.pApplicationName = "triangle";
-    appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
-    appInfo.pEngineName = "Vulkan Demo";
-    appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
-    appInfo.apiVersion = VK_API_VERSION_1_0;
-    // 定义vulkan实例创建的参数结构体
-    VkInstanceCreateInfo instanceInfo{};
-    instanceInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
-    instanceInfo.pNext = VK_NULL_HANDLE;
-    instanceInfo.pApplicationInfo = &appInfo;
-    instanceInfo.enabledExtensionCount = static_cast<uint32_t>(m_enabledExtensions.size());
-    instanceInfo.ppEnabledExtensionNames = reinterpret_cast<const char* const*>(m_enabledExtensions.data());
-    if (ENABLE_VALIDATION_LAYERS)
-    {
-        instanceInfo.enabledLayerCount = static_cast<uint32_t>(m_validationLayers.size());
-        instanceInfo.ppEnabledLayerNames = reinterpret_cast<const char* const*>(m_validationLayers.data());
-        VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo{};
-        populateDebugMessengerCreateInfo(debugCreateInfo);
-        instanceInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
-    }
-    else
-    {
-        instanceInfo.enabledLayerCount = 0;
-        instanceInfo.pNext = VK_NULL_HANDLE;
-    }
-    if (vkCreateInstance(&instanceInfo, m_allocator, &m_handle) != VK_SUCCESS)
-    {
-        throw std::runtime_error("failed to create instance!");
-    }
-    setupDebugMessenger();
+//    VkApplicationInfo appInfo{ VK_STRUCTURE_TYPE_APPLICATION_INFO };
+//    appInfo.pApplicationName = "triangle";
+//    appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
+//    appInfo.pEngineName = "Vulkan Demo";
+//    appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
+//    appInfo.apiVersion = VK_API_VERSION_1_0;
+//    // 定义vulkan实例创建的参数结构体
+//    VkInstanceCreateInfo instanceInfo{};
+//    instanceInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
+//    instanceInfo.pNext = VK_NULL_HANDLE;
+//    instanceInfo.pApplicationInfo = &appInfo;
+//    instanceInfo.enabledExtensionCount = static_cast<uint32_t>(m_enabledExtensions.size());
+//    instanceInfo.ppEnabledExtensionNames = reinterpret_cast<const char* const*>(m_enabledExtensions.data());
+//    if (ENABLE_VALIDATION_LAYERS)
+//    {
+//        instanceInfo.enabledLayerCount = static_cast<uint32_t>(m_validationLayers.size());
+//        instanceInfo.ppEnabledLayerNames = reinterpret_cast<const char* const*>(m_validationLayers.data());
+//        VkDebugUtilsMessengerCreateInfoEXT debugCreateInfo{};
+//        populateDebugMessengerCreateInfo(debugCreateInfo);
+//        instanceInfo.pNext = (VkDebugUtilsMessengerCreateInfoEXT*)&debugCreateInfo;
+//    }
+//    else
+//    {
+//        instanceInfo.enabledLayerCount = 0;
+//        instanceInfo.pNext = VK_NULL_HANDLE;
+//    }
+//    if (vkCreateInstance(&instanceInfo, m_allocator, &m_handle) != VK_SUCCESS)
+//    {
+//        throw std::runtime_error("failed to create instance!");
+//    }
+//    setupDebugMessenger();
 }
 
 Instance::~Instance()
@@ -341,5 +340,37 @@ PhysicalDevice& Instance::getFirstGpu()
 
 bool Instance::isEnabled(const char* extension) const
 {
-    return std::find_if(m_enabledExtensions.begin(), m_enabledExtensions.end(), [extension](const char* enabledExtension) { return strcmp(extension, enabledExtension) == 0; }) != m_enabledExtensions.end();
+    return std::find_if(m_layerExtension.m_requestedExtensionNames.begin(), m_layerExtension.m_requestedExtensionNames.end(), [extension](const char* enabledExtension) { return strcmp(extension, enabledExtension) == 0; }) != m_layerExtension.m_requestedExtensionNames.end();
+}
+
+VkResult Instance::createInstance(std::vector<const char*>& layers, std::vector<const char*>& extensions, const char* applicationName)
+{
+    m_layerExtension.m_requestedLayerNames = layers;
+    m_layerExtension.m_requestedExtensionNames = extensions;
+
+    VkApplicationInfo appInfo{};
+    appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+    appInfo.pNext = nullptr;
+    appInfo.pApplicationName = applicationName;
+    appInfo.applicationVersion = 1;
+    appInfo.pEngineName = applicationName;
+    appInfo.engineVersion = 1;
+    // VK_API_VERSION is now deprecated, use VK_MAKE_VERSION instead.
+    appInfo.apiVersion = VK_MAKE_VERSION(1, 0, 0);
+
+    // 定义instance CI
+    VkInstanceCreateInfo instanceInfo{};
+    instanceInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
+    instanceInfo.pNext = nullptr;
+    instanceInfo.flags = 0;
+    instanceInfo.pApplicationInfo = &appInfo;
+
+    instanceInfo.enabledLayerCount = (uint32_t)layers.size();
+    instanceInfo.ppEnabledLayerNames = !layers.empty() ? extensions.data() : nullptr;
+
+    instanceInfo.enabledExtensionCount = (uint32_t)extensions.size();
+    instanceInfo.ppEnabledExtensionNames = !extensions.empty() ? extensions.data() : nullptr;
+    VkResult result = vkCreateInstance(&instanceInfo, nullptr, &m_handle);
+    ASSERT(result == VK_SUCCESS);
+    return result;
 }
