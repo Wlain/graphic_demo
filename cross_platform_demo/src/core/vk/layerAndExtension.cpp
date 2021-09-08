@@ -9,9 +9,9 @@ LayerAndExtension::LayerAndExtension() = default;
 
 LayerAndExtension::~LayerAndExtension()
 {
-    VkDebugReportCallbackEXT m_debugReportCallback = VK_NULL_HANDLE;
-    PFN_vkCreateDebugReportCallbackEXT m_dbgCreateDebugReportCallback = VK_NULL_HANDLE;
-    PFN_vkDestroyDebugReportCallbackEXT m_dbgDestroyDebugReportCallback = VK_NULL_HANDLE;
+    m_debugReportCallback = VK_NULL_HANDLE;
+    m_dbgCreateDebugReportCallback = VK_NULL_HANDLE;
+    m_dbgDestroyDebugReportCallback = VK_NULL_HANDLE;
 }
 
 VkResult LayerAndExtension::getInstanceLayerProperties()
@@ -96,7 +96,7 @@ VkResult LayerAndExtension::getExtensionProperties(LayerProperties& layerProps, 
 /// 获取设备的扩展
 VkResult LayerAndExtension::getDeviceExtensionProperties(VkPhysicalDevice* gpu)
 {
-    VkResult result;
+    VkResult result = VK_ERROR_INITIALIZATION_FAILED;
     // 对每一个层查询所有扩展信息，并进行保存
     std::cout << "\nDevice extensions\n"
               << std::endl;
@@ -130,20 +130,34 @@ VkResult LayerAndExtension::getDeviceExtensionProperties(VkPhysicalDevice* gpu)
 
 bool LayerAndExtension::isLayersSupported(std::vector<const char*>& layerNames)
 {
-    return false;
+    auto checkCount = (uint32_t)layerNames.size();
+    auto layerCount = (uint32_t)m_layerPropertyList.size();
+    std::vector<const char*> unSupportLayerNames;
+    for (uint32_t i = 0; i < checkCount; i++) {
+		VkBool32 isSupported = 0;
+		for (uint32_t j = 0; j < layerCount; j++) {
+			if (!strcmp(layerNames[i], m_layerPropertyList[j].properties.layerName)) {
+				isSupported = 1;
+			}
+		}
+
+		if (!isSupported) {
+			std::cout << "No Layer support found, removed from layer: " << layerNames[i] << std::endl;
+			unSupportLayerNames.push_back(layerNames[i]);
+		}
+		else {
+			std::cout << "Layer supported: " << layerNames[i] << std::endl;
+		}
+	}
+
+	for (auto i : unSupportLayerNames) {
+		auto it = std::find(layerNames.begin(), layerNames.end(), i);
+		if (it != layerNames.end()) layerNames.erase(it);
+	}
+
+	return true;
 }
 
-VkResult LayerAndExtension::createDebugUtilsMessengerEXT()
-{
-    return VK_ERROR_INITIALIZATION_FAILED;
-}
-
-void LayerAndExtension::destroyDebugUtilsMessengerEXT()
-{
-    auto* appObj = VulkanApplication::getInstance();
-    auto& instance = appObj->m_instanceObj;
-    m_dbgDestroyDebugReportCallback(instance, m_debugReportCallback, nullptr);
-}
 
 VKAPI_ATTR VkBool32 VKAPI_CALL LayerAndExtension::debugFunction(VkFlags msgFlags, VkDebugReportObjectTypeEXT objType,
                                                                 uint64_t srcObject, size_t location, int32_t msgCode,
@@ -176,4 +190,54 @@ VKAPI_ATTR VkBool32 VKAPI_CALL LayerAndExtension::debugFunction(VkFlags msgFlags
 
     fflush(stdout);
     return VK_TRUE;
+}
+
+VkResult LayerAndExtension::createDebugReportCallback()
+{
+    VkResult result;
+    VulkanApplication* appObj = VulkanApplication::getInstance();
+    auto& instance = appObj->m_instanceObj;
+    // Get vkCreateDebugReportCallbackEXT API
+    m_dbgCreateDebugReportCallback = (PFN_vkCreateDebugReportCallbackEXT)vkGetInstanceProcAddr(instance, "vkCreateDebugReportCallbackEXT");
+    if (! m_dbgCreateDebugReportCallback) {
+        std::cout << "Error: GetInstanceProcAddr unable to locate vkCreateDebugReportCallbackEXT function." << std::endl;
+        return VK_ERROR_INITIALIZATION_FAILED;
+    }
+    std::cout << "GetInstanceProcAddr loaded dbgCreateDebugReportCallback function\n";
+
+    // Get vkDestroyDebugReportCallbackEXT API
+    m_dbgDestroyDebugReportCallback = (PFN_vkDestroyDebugReportCallbackEXT)vkGetInstanceProcAddr(instance, "vkDestroyDebugReportCallbackEXT");
+    if (! m_dbgDestroyDebugReportCallback) {
+        std::cout << "Error: GetInstanceProcAddr unable to locate vkDestroyDebugReportCallbackEXT function." << std::endl;
+        return VK_ERROR_INITIALIZATION_FAILED;
+    }
+    std::cout << "GetInstanceProcAddr loaded dbgDestroyDebugReportCallback function\n";
+
+    // Define the debug report control structure, provide the reference of 'debugFunction'
+    // , this function prints the debug information on the console.
+    m_dbgReportCreateInfo.sType		= VK_STRUCTURE_TYPE_DEBUG_REPORT_CREATE_INFO_EXT;
+    m_dbgReportCreateInfo.pfnCallback = debugFunction;
+    m_dbgReportCreateInfo.pUserData	= nullptr;
+    m_dbgReportCreateInfo.pNext		= nullptr;
+    m_dbgReportCreateInfo.flags		= VK_DEBUG_REPORT_WARNING_BIT_EXT |
+                                       VK_DEBUG_REPORT_PERFORMANCE_WARNING_BIT_EXT |
+                                       VK_DEBUG_REPORT_ERROR_BIT_EXT |
+                                       VK_DEBUG_REPORT_DEBUG_BIT_EXT;
+
+    // Create the debug report callback and store the handle into 'debugReportCallback'
+    result = m_dbgCreateDebugReportCallback(instance, &m_dbgReportCreateInfo, nullptr, & m_debugReportCallback);
+    if (result == VK_SUCCESS) {
+        std::cout << "Debug report callback object created successfully\n";
+    }
+    return result;
+
+
+    return VK_ERROR_INITIALIZATION_FAILED;
+}
+
+void LayerAndExtension::destroyDebugReportCallback()
+{
+    auto* appObj = VulkanApplication::getInstance();
+    auto& instance = appObj->m_instanceObj;
+    m_dbgDestroyDebugReportCallback(instance, m_debugReportCallback, nullptr);
 }

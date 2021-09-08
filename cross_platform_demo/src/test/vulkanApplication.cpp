@@ -9,13 +9,14 @@
 std::unique_ptr<VulkanApplication> VulkanApplication::s_instance;
 std::once_flag VulkanApplication::s_onlyOnce;
 
-extern std::vector<const char*> instanceExtensionNames;
-extern std::vector<const char*> layerNames;
-extern std::vector<const char*> deviceExtensionNames;
+extern std::vector<const char*> s_instanceExtensionNames;
+extern std::vector<const char*> s_layerNames;
+extern std::vector<const char*> s_deviceExtensionNames;
 
 VulkanApplication::VulkanApplication()
 {
     m_instanceObj.m_layerExtension.getInstanceLayerProperties();
+    m_isDebug = true;
 }
 
 VulkanApplication::~VulkanApplication() = default;
@@ -28,12 +29,20 @@ VkResult VulkanApplication::createVulkanInstance(std::vector<const char*>& layer
 void VulkanApplication::initialize()
 {
     const char* titles = "Hello World!!!";
-    createVulkanInstance(layerNames, instanceExtensionNames, titles);
+    if(m_isDebug)
+    {
+        m_instanceObj.m_layerExtension.isLayersSupported(s_layerNames);
+    }
+    createVulkanInstance(s_layerNames, s_instanceExtensionNames, titles);
+    if(m_isDebug)
+    {
+        m_instanceObj.m_layerExtension.createDebugReportCallback();
+    }
     std::vector<VkPhysicalDevice> gpuList;
     enumeratePhysicalDevices(gpuList);
     if (!gpuList.empty())
     {
-        handShakeWithDevice(&gpuList[0], layerNames, deviceExtensionNames);
+        handShakeWithDevice(&gpuList[0], s_layerNames, s_deviceExtensionNames);
     }
 }
 
@@ -59,6 +68,10 @@ VulkanApplication* VulkanApplication::getInstance()
 void VulkanApplication::destroy()
 {
     m_deviceObj->destroyDevice();
+    if(m_isDebug)
+    {
+        m_instanceObj.m_layerExtension.destroyDebugReportCallback();
+    }
     m_instanceObj.destroyInstance();
 }
 
