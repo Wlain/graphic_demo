@@ -1728,6 +1728,12 @@
 		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/shaderModule.h">
 			<Option target="cross_platform_demo"/>
 		</Unit>
+		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/wrapper.cpp">
+			<Option target="cross_platform_demo"/>
+		</Unit>
+		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/wrapper.h">
+			<Option target="cross_platform_demo"/>
+		</Unit>
 		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/test/triangleVk.cpp">
 			<Option target="cross_platform_demo"/>
 		</Unit>
