@@ -4,7 +4,7 @@
 
 #ifndef CROSS_PLATFORM_DEMO_VULKANAPPLICATION_H
 #define CROSS_PLATFORM_DEMO_VULKANAPPLICATION_H
-#include "device2.h"
+#include "device.h"
 #include "instance.h"
 #include "layerAndExtension.h"
 

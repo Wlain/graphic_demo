@@ -1626,30 +1626,6 @@
 		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/commonDefine_vk.h">
 			<Option target="cross_platform_demo"/>
 		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/context_vk.cpp">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/context_vk.h">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/descriptorPool.cpp">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/descriptorPool.h">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/descriptorSet.cpp">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/descriptorSet.h">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/descriptorSetLayout.cpp">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/descriptorSetLayout.h">
-			<Option target="cross_platform_demo"/>
-		</Unit>
 		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/device.cpp">
 			<Option target="cross_platform_demo"/>
 		</Unit>
@@ -1666,12 +1642,6 @@
 			<Option target="cross_platform_demo"/>
 		</Unit>
 		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/framebuffer.h">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/imageView.cpp">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/imageView.h">
 			<Option target="cross_platform_demo"/>
 		</Unit>
 		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/instance.cpp">
@@ -1692,40 +1662,10 @@
 		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/physicalDevice.h">
 			<Option target="cross_platform_demo"/>
 		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/pipeline.cpp">
+		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/swapChain.cpp">
 			<Option target="cross_platform_demo"/>
 		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/pipeline.h">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/pipelineLayout.cpp">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/pipelineLayout.h">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/pipelineState.cpp">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/pipelineState.h">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/renderPass.cpp">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/renderPass.h">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/resourceCache.cpp">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/resourceCache.h">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/shaderModule.cpp">
-			<Option target="cross_platform_demo"/>
-		</Unit>
-		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/shaderModule.h">
+		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/swapChain.h">
 			<Option target="cross_platform_demo"/>
 		</Unit>
 		<Unit filename="/Users/ytech/Developor/graphic_demo/cross_platform_demo/src/core/vk/wrapper.cpp">

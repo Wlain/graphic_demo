@@ -6,7 +6,6 @@
 #define CROSS_PLATFORM_DEMO_INSTANCE_H
 #include "commonDefine_vk.h"
 #include "layerAndExtension.h"
-#include "resourceCache.h"
 
 class PhysicalDevice;
 /**
